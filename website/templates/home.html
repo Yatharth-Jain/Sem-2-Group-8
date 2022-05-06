@@ -1,10 +1,30 @@
-{% extends 'admin-base.html' %}
+<!DOCTYPE html>
+<html>
 
-{% block title %}
-    Home Page
-{% endblock title %}
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/home.css">
+</head>
 
-{% block body %}
-    <h3>This is Home page</h3>
+<body>
+<div class="initial">
+    <div class="circle">
+        <img class="icon" src="../static/user.png">
+        <button onclick="location.href = '/login/admin';" id="submit-btn1" name="submit" value=" ADMIN LOGIN" >ADMIN LOGIN
+        <a href="/login/admin"></a>
+    </div>
+    <div class="circle">
+        <img class="icon" src="../static/user.png">
+        <button onclick="location.href = 'popup.html';" id="submit-btn1" name="submit" value="FACULTY LOGIN" >FACULTY LOGIN
+    </div>
+    <div class="circle">
+        <img class="icon" src="../static/user.png">
+        <input id="submit-btn1" type="submit" name="submit" value="STUDENT LOGIN" />
+    </div>
+</div>
+</body>
 
-{% endblock body %}
+</html>

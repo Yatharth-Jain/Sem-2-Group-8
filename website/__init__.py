@@ -13,6 +13,8 @@ def create_app():
 
     from .view import view
     from .auth import auth
+
+    from .models import Student,Teacher
     create_database(app)
     
     app.register_blueprint(view,url_prefix='/')

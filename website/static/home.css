@@ -1,0 +1,47 @@
+a {
+    text-decoration: none;
+  }
+  body {
+    background: -webkit-linear-gradient(bottom, #4d3bee, #aa45da);
+    background-repeat: no-repeat;
+   
+  }
+
+
+
+  .circle {
+    height: 205px;
+    width: 205px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 35px;
+    margin-top: 12%; margin-bottom: 22%;
+  }
+  .initial {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+  }
+  .icon {
+    height: 205px;
+    width: 205px;
+  }
+  #submit-btn1 {
+    background: aliceblue;
+    border: none;
+    border-radius: 21px;
+    box-shadow: 0px 1px 8px #5427ce;
+    cursor: pointer;
+    color: rgb(76, 35, 211);
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 42px;
+    margin: 0 auto;
+    margin-top: 30px; margin-left: 20px;
+    transition: 0.25s;
+    width: 153px;
+  }
+  #submit-btn1:hover {
+    box-shadow: 0px 1px 18px #9c2ccf;
+  }

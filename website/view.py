@@ -14,11 +14,12 @@ def sheet():
     if request.method=='POST':
         for ass in asss:
             for name in names:
-                
-                marks=request.form[f'{ass}-{name}']
-                new_marks=Marks(mid=f'{ass}-{name}',mark=marks)
+                mid=f'{ass}-{name}'
+                marks=request.form[mid]
+                new_marks=Marks(mid=mid,mark=marks)
                 db.session.add(new_marks)
                 db.session.commit()
+                
                 print(f'{ass}-{name}-{marks}')
 
     return render_template('sheet.html',asss=asss,names=names)

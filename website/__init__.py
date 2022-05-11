@@ -14,7 +14,7 @@ def create_app():
     from .view import view
     from .auth import auth
 
-    from .models import Student,Teacher
+    from .models import Student,Teacher,Admin,Marks
     create_database(app)
     
     app.register_blueprint(view,url_prefix='/')

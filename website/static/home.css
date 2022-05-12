@@ -4,7 +4,7 @@ a {
   body {
     background: -webkit-linear-gradient(bottom, #4d3bee, #aa45da);
     background-repeat: no-repeat;
-   
+    background-size: 1700px 1000px;
   }
 
 
@@ -17,9 +17,15 @@ a {
     display: inline-block;
     margin: 35px;
     margin-top: 12%; margin-bottom: 22%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
   .initial {
       display: flex;
+      flex-wrap: wrap;
       flex-direction: row;
       align-items: center;
       justify-content: center;

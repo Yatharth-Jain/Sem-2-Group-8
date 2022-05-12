@@ -3,7 +3,7 @@ body {
   height: 100%;
 }
 body {
-  background-color: #4052e4;
+  background-color: aliceblue;
   display: grid;
   place-items: center;
 }

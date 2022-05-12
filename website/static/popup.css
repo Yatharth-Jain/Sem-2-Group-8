@@ -1,7 +1,9 @@
 body {
-    background: -webkit-linear-gradient(bottom, #2712dd, #7e04b6);
-    background-repeat: no-repeat;
-    background-size: 1700px 1000px;
+  height: 50vw;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background: rgb(77,59,238);
+  background: linear-gradient(180deg, rgba(77,59,238,1) 0%, rgba(170,69,218,1) 84%);
   }
 
 

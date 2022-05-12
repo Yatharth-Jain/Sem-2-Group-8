@@ -2,9 +2,14 @@ a {
     text-decoration: none;
   }
   body {
-    background: -webkit-linear-gradient(bottom, #4d3bee, #aa45da);
+    /* background: -webkit-linear-gradient(bottom, #4d3bee, #aa45da);
     background-repeat: no-repeat;
-    background-size: 1700px 1000px;
+    background-size: 1900px 1000px; */
+    height: 50vw;
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background: rgb(77,59,238);
+background: linear-gradient(180deg, rgba(77,59,238,1) 0%, rgba(170,69,218,1) 84%);
   }
 
 

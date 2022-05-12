@@ -12,6 +12,7 @@ class Student(db.Model):
     ssem = db.Column(db.Integer, nullable=False)
     spass = db.Column(db.String, nullable=False)                    # DDMMYYYY
     sdob = db.Column(db.String, nullable=False)                     # YYYY-MM-DD
+    # smarks=db.relationship('Marks')
 
 
 class Teacher(db.Model):
@@ -32,6 +33,7 @@ class Admin(db.Model):
 class Marks(db.Model):
     mid = db.Column(db.String[100], primary_key=True)
     mark = db.Column(db.Integer, nullable=False)
+    # stu_id=db.Column(db.String[100],db.ForeignKey('student.sroll'))
 
     def __init__(self, mid,mark):
         self.mid = mid

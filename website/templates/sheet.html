@@ -98,15 +98,16 @@
                     {% for ass in asss %}
                         <div class="cells"><h4>{{ass}}</h4></div>
                     {% endfor %}
+                    <div class="cells" style="margin-left:auto ;"><h4>TOTAL</h4></div>
             </div>
             {% for name in names %}
             <div class="rows" name="{{ass}}">
                 <div class="cells"><h4>{{name}}</h4></div>
                 {% for ass in asss %}
-                
-                <input class="cells" type="number" name="{{ass}}-{{name}}">
+                {% set mid = ass+'-'+name %}
+                <input class="cells" type="text" name="{{mid}}" value="{{markdict[mid]}}">
                 {% endfor %}
-                <br>
+                <div class="cells" style="margin-left:auto ;"><h5>{{total[name]}}</h5></div>
             </div>
             {% endfor %}
             <button type="submit" class="btn btn-success">Submit</button>

@@ -12,7 +12,7 @@ def stdhome():
 @view.route('/admin-home')
 @loginchecker(role='admin')
 def admhome():
-    return "<h1 style='font-size:100px;'>Admin Home</h1>"
+    return render_template('admin-home.html')
 
 @view.route('/teacher-home')
 @loginchecker(role='teacher')

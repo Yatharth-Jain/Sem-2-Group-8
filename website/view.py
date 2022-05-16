@@ -1,27 +1,35 @@
 from flask import Blueprint, redirect, render_template , request,flash, url_for
 from .models import Student,Teacher,Admin,Marks,db
+from werkzeug.security import generate_password_hash,check_password_hash
+from .loginfunction import loginchecker
 
 view=Blueprint('view',__name__)
-
-@view.route('/')
-def homepage():
-    return render_template('home.html')
-
 @view.route('/student-home')
+@loginchecker(role='student')
 def stdhome():
-    return "<h4>Student Home</h4>"
+    return "<h1 style='font-size:100px;'>Student Home</h1>"
+
+@view.route('/admin-home')
+@loginchecker(role='admin')
+def admhome():
+    return "<h1 style='font-size:100px;'>Admin Home</h1>"
+
+@view.route('/teacher-home')
+@loginchecker(role='teacher')
+def tchhome():
+    return "<h1 style='font-size:100px;'>Teacher Home</h1>"
 
 @view.route('/testprofilesadd')
 def addtest():
-    n_std=Student(sfname='stu', slname='1', sbranch='csai', sroll=1, semail='csai-2021-001@std.clg.com' ,syear=2021, ssem=2, spass='01012003', sdob='2003-01-01')
+    n_std=Student(sfname='stu', slname='1', sbranch='csai', sroll=1, semail='csai-2021-001@std.clg.com' ,syear=2021, ssem=2, spass=generate_password_hash('01012003',method='sha256'), sdob='2003-01-01')
     db.session.add(n_std)
     db.session.commit()
 
-    n_tch=Teacher(tname='teach1', temail='teach1@tchr.clg.com', tsubject='Maths', tpass='teach1pass')
+    n_tch=Teacher(tname='teach1', temail='teach1@tchr.clg.com', tsubject='Maths', tpass=generate_password_hash('teach1pass',method='sha256'))
     db.session.add(n_tch)
     db.session.commit()
 
-    n_adm=Admin(aname='admin1', aemail='admin1@admin.clg.com', apass='admin1pass')
+    n_adm=Admin(aname='admin1', aemail='admin1@admin.clg.com', apass=generate_password_hash('admin1pass',method='sha256'))
     db.session.add(n_adm)
     db.session.commit()
     return redirect('/')

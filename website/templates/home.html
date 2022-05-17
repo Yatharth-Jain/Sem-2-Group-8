@@ -1,49 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="../static/home.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../static/home.css">
-  <style>
-      body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-  </style>
-</head>
-<body>
-<div class="initial">
-    <div class="circle">
-        <img class="icon" src="../static/user.png">
-        <button onclick="location.href = '/login/admin';" id="submit-btn1" name="submit" value=" ADMIN LOGIN" >ADMIN LOGIN
+  <body>
+    <div class="container">
+      <div class="circle">
+        <img class="icon" src="../static/images/admin.png" />
+        <div class="bottom">
+          <button
+            onclick="location.href = '/login/admin';"
+            class="btn"
+            id="submit-btn1"
+            name="submit"
+            value="ADMIN LOGIN"
+          >
+            <a href="/login/admin">ADMIN LOGIN </a>
+          </button>
+        </div>
+      </div>
+      <div class="circle">
+        <img class="icon" src="../static/images/teacher2.png" />
+        <div class="bottom">
+          <button
+            onclick="location.href = '/login/faculty';"
+            class="btn"
+            id="submit-btn1"
+            name="submit"
+            value="FACULTY LOGIN"
+          >
+            <a href="/login/faculty">FACULTY LOGIN</a>
+          </button>
+        </div>
+      </div>
+      <div class="circle">
+        <img class="icon" src="../static/images/student1.png" />
+        <div class="bottom">
+          <button
+            onclick="location.href = '/login/student';"
+            class="btn"
+            id="submit-btn1"
+            name="submit"
+            value="STUDENT LOGIN"
+          >
+            <a href="/login/student">STUDENT LOGIN</a>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="circle">
-        <img class="icon" src="../static/user.png">
-        <button onclick="location.href = '/login/teacher';" id="submit-btn1" name="submit" value="FACULTY LOGIN" >FACULTY LOGIN
-    </div>
-    <div class="circle">
-        <img class="icon" src="../static/user.png">
-        <input onclick="location.href = '/login/student';" id="submit-btn1" type="submit" name="submit" value="STUDENT LOGIN" />
-    </div>
-</div>
-</body>
-
+  </body>
 </html>

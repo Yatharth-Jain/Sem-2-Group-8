@@ -1,0 +1,48 @@
+body {
+    background-color: rgb(226, 226, 226);
+}
+/* .boxmain {
+    background-color: rgb(236, 236, 236);
+    width: 900px;
+    height: 400px;
+    margin-left: 10%;
+    padding-top: 1%;
+} */
+.box
+{
+    margin-top: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: -11px 3px 11px 0px; */
+}
+.icon {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    margin: 53px;
+    box-shadow: -6px 6px 15px 0px;
+}
+.profileh {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+}
+.con {
+    background-color: rgb(238, 238, 238);
+    padding: 2%;
+    /* margin: 1px; */
+    width: 400px;
+}
+.con1 {
+    color: rgb(77, 77, 77);
+}
+.profilecontent {
+    margin: 10%;
+}

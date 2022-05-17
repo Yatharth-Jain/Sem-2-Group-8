@@ -52,6 +52,8 @@ def login(user):
                     flash('Wrong Password!!!','error')
             else:
                 flash("The User Doesn't Exist!!!","error" )
+        else:
+            return redirect("/")
     return render_template('popup.html',user=user)
 
 @auth.route('/student-register',methods=['GET','POST'])

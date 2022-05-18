@@ -1,0 +1,110 @@
+body {
+  height: 97.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../static/images/admin_bg.jpg");
+  background-repeat: no-repeat;
+  /* background-position: 10vh 10vh; */
+  background-size: 100% 100vh;
+  /* height: 100%; */
+  /* background-position: center; */
+  /* background-size: cover; */
+  /* background-size: cover; */
+}
+
+#card {
+  /* background-color: #fbfbfb; */
+  border-radius: 18px;
+  box-shadow: 1px 2px 8px white;
+  width: 50vh;
+  height: 55vh;
+}
+
+#card-title {
+  font-family: "Raleway Thin", sans-serif;
+  color: white;
+  letter-spacing: 4px;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.underline-title {
+  background-color: white;
+  height: 2px;
+  margin: -0.6em auto 0 auto;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* padding: 10vh 0vh; */
+  /* background-color: #2712dd; */
+}
+
+input::placeholder {
+  /* color: blue; */
+  font-size: 15px;
+  /* border: 2px solid black; */
+  padding-left: 10px;
+  color: rgb(56, 54, 54);
+}
+
+.form-content {
+  background-color: #e4e4e8;
+  height: 45px;
+  width: 80%;
+  margin-top: 5vh;
+  border-radius: 10px;
+  font-size: 15px;
+  /* border: 2px solid black; */
+  padding-left: 10px;
+}
+
+#forgot-pass {
+  color: #2d47bd;
+  font-family: "Raleway", sans-serif;
+  font-size: 10pt;
+  margin-top: 5vh;
+  text-align: right;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  font-family: "Raleway", sans-serif;
+  font-size: 11pt;
+}
+
+#submit-btn {
+  background-color: rgb(216, 216, 216);
+  border: none;
+  border-radius: 21px;
+  box-shadow: 0px 1px 8px #5427ce;
+  cursor: pointer;
+  color: black;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 42.3px;
+  transition: 0.25s;
+  width: 15vh;
+  margin-top: 3vh;
+}
+
+#submit-btn:hover {
+  box-shadow: 0px 1px 18px #4326c2;
+}
+
+h2 {
+  margin-top: 18px;
+  margin-bottom: 28px;
+}

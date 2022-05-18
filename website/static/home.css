@@ -46,6 +46,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 97.8vh;
+  flex-wrap: wrap;
 }
 
 .circle {

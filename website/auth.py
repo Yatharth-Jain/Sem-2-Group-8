@@ -57,7 +57,19 @@ def login(user):
     return render_template('admin_login.html', user=user)
 
 
-@auth.route('/student-register', methods=['GET', 'POST'])
+# @auth.route('/student-register', methods=['GET', 'POST'])
+# def studentreg():
+#     if request.method == 'POST':
+#         sfname = request.form['sfname']
+#         slname = request.form['slname']
+#         sbranch = request.form['sbranch']
+#         syear = request.form['syear']
+#         sdob = request.form['sdob'].split('-')
+#         print(f'{sfname}<-->{slname}<-->{sbranch}<-->{syear}<-->{sdob}')
+#     return render_template('student-register.html')
+
+
+@auth.route('/student_registration', methods=['GET', 'POST'])
 def studentreg():
     if request.method == 'POST':
         sfname = request.form['sfname']
@@ -66,7 +78,7 @@ def studentreg():
         syear = request.form['syear']
         sdob = request.form['sdob'].split('-')
         print(f'{sfname}<-->{slname}<-->{sbranch}<-->{syear}<-->{sdob}')
-    return render_template('student-register.html')
+    return render_template('student_registration.html')
 
 
 @auth.route("/logout")

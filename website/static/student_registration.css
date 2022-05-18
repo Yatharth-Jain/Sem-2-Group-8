@@ -1,0 +1,158 @@
+body {
+  height: 97.5vh;
+  background-image: url("../static/images/stud_reg.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  display: flex;
+  justify-content: center;
+  /* height: 98.5vh; */
+  align-items: center;
+  background-color: rgb(214, 217, 219);
+  font-size: 40px;
+}
+
+.container {
+  background-color: white;
+  opacity: 0.8;
+  width: 150vh;
+  height: 80vh;
+  display: flex;
+  border: 2px solid rgb(105, 102, 102);
+  border-radius: 30px;
+}
+
+.left {
+  width: 60vh;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-right: 2px solid black;
+}
+
+.img1 {
+  width: 10vh;
+  height: 10vh;
+  margin-left: -40vh;
+}
+
+.img2 {
+  width: 40vh;
+  height: 40vh;
+}
+
+.right {
+  width: 90vh;
+  height: 80vh;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  border-bottom: 2px solid black;
+}
+
+.op1 {
+  border: 2px solid black;
+  border-radius: 7px;
+  padding: 15px 40px;
+  margin: 0px 3vh;
+  cursor: pointer;
+  background-color: rgb(247, 249, 249);
+  font-size: 30px;
+}
+
+.op1:hover {
+  background-color: rgb(178, 180, 180);
+}
+
+.img3 {
+  width: 38px;
+  height: 38px;
+  margin-left: 8.3vh;
+}
+
+.reg {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 12vh;
+  /* border-bottom: 2px solid black; */
+}
+
+.main_form {
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* border-bottom: 2px solid black; */
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 34.8vh;
+  width: 20vh;
+  border: 2px solid black;
+  margin-top: -5vh;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(204, 205, 205);
+}
+
+input {
+  height: 5.5vh;
+  width: 70vh;
+  margin: 10px 0vh;
+  border-radius: 10px;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+}
+
+.name input {
+  margin: 5px 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info input {
+  margin: 5px 0;
+}
+
+.dropdown {
+  margin-top: -5px;
+}
+
+select {
+  margin: -5px 0 5px 0;
+  font-size: 15px;
+  border: 2px solid black;
+  padding-left: 10px;
+  color: rgb(56, 54, 54);
+  height: 5.5vh;
+  width: 71.2vh;
+  border-radius: 10px;
+  border: 2px solid rgb(51, 50, 50);
+}
+
+input::placeholder {
+  /* color: blue; */
+  font-size: 15px;
+  /* border: 2px solid black; */
+  padding-left: 10px;
+  color: rgb(56, 54, 54);
+}

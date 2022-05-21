@@ -82,7 +82,7 @@ def studentreg():
 
 
 @auth.route('/teacher_registration', methods=['GET', 'POST'])
-def studentreg():
+def teacherreg():
     if request.method == 'POST':
         tfname = request.form['tfname']
         tlname = request.form['tlname']

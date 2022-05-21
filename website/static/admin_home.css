@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+}
+
+nav {
+  background-color: aqua;
+  position: fixed;
+  height: 100%;
+  width: 30vh;
+}
+
+#drp {
+  display: none;
+}
+
+.carousel {
+  width: 640px;
+  height: 360px;
+}
+
+main {
+  background-color: rgb(237, 91, 91);
+  width: 180vh;
+  margin-left: 30vh;
+}

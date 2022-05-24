@@ -8,48 +8,53 @@ from flask_login import UserMixin
 
 # Admin--> aname='admin1', aemail='admin1@admin.clg.com', apass='admin1pass'
 
-class Student(db.Model,UserMixin):
+
+class Student(db.Model, UserMixin):
     sid = db.Column(db.Integer, primary_key=True)
     sfname = db.Column(db.String[50], nullable=False)
     slname = db.Column(db.String[50], nullable=False)
-    sbranch = db.Column(db.String[50], nullable=False)              
-    sroll = db.Column(db.Integer, nullable=False)   
-    semail=db.Column(db.String[100],nullable=False)                 # {sbranch}-{syear}-{sroll}@std.clg.com
+    sbranch = db.Column(db.String[50], nullable=False)
+    sroll = db.Column(db.Integer, nullable=False)
+    # {sbranch}-{syear}-{sroll}@std.clg.com
+    semail = db.Column(db.String[100], nullable=False)
     syear = db.Column(db.Integer, nullable=False)
     ssem = db.Column(db.Integer, nullable=False)
-    spass = db.Column(db.String[100], nullable=False)                    # DDMMYYYY
-    sdob = db.Column(db.String[100], nullable=False)                     # YYYY-MM-DD
-    role=db.Column(db.String[100],default='student')
+    # DDMMYYYY
+    spass = db.Column(db.String[100], nullable=False)
+    # YYYY-MM-DD
+    sdob = db.Column(db.String[100], nullable=False)
+    role = db.Column(db.String[100], default='student')
     # smarks=db.relationship('Marks')
 
-    def __init__(self,sfname,slname,sbranch,sroll,semail,syear,ssem,spass,sdob,role):
-        self.sfname=sfname
-        self.slname=slname
-        self.sbranch=sbranch
-        self.sroll=sroll
-        self.semail=semail
-        self.syear=syear
-        self.ssem=ssem
-        self.spass=spass
-        self.sdob=sdob
-        self.role=role
+    def __init__(self, sfname, slname, sbranch, sroll, semail, syear, ssem, spass, sdob, role):
+        self.sfname = sfname
+        self.slname = slname
+        self.sbranch = sbranch
+        self.sroll = sroll
+        self.semail = semail
+        self.syear = syear
+        self.ssem = ssem
+        self.spass = spass
+        self.sdob = sdob
+        self.role = role
 
     def printdetails(self):
-        print(self.sfname+self.slname+self.sbranch+self.sroll+self.sdob+self.role)
+        print(self.sfname+self.slname+self.sbranch +
+              self.sroll+self.sdob+self.role)
 
     def get_id(self):
         return self.sid
 
 
-class Teacher(db.Model,UserMixin):
+class Teacher(db.Model, UserMixin):
     tid = db.Column(db.Integer, primary_key=True)
     tname = db.Column(db.String[100], nullable=False)
-    temail = db.Column(db.String[100], primary_key=False)            #{name}@tchr.clg.com
+    # {name}@tchr.clg.com
+    temail = db.Column(db.String[100], primary_key=False)
     tsubject = db.Column(db.String[100], primary_key=False)
     tpass = db.Column(db.String[100], nullable=False)
-    role=db.Column(db.String,default='teacher')
+    role = db.Column(db.String, default='teacher')
 
-    
     def get_id(self):
         return self.tid
 
@@ -57,42 +62,47 @@ class Teacher(db.Model,UserMixin):
         print(self.tname+self.temail+self.role)
 
 
-
-class Admin(db.Model,UserMixin):
+class Admin(db.Model, UserMixin):
     aid = db.Column(db.Integer, primary_key=True)
-    aname = db.Column(db.String[100], nullable=False)                # {name}@admin.clg.com
+    # {name}@admin.clg.com
+    aname = db.Column(db.String[100], nullable=False)
     aemail = db.Column(db.String[100], primary_key=False)
     apass = db.Column(db.String[100], nullable=False)
-    role=db.Column(db.String,default='admin')
+    role = db.Column(db.String, default='admin')
 
     def get_id(self):
         return self.aid
-        
+
     def printdetails(self):
         print(self.aname+self.aemail+self.role)
+
 
 class Marks(db.Model):
     mid = db.Column(db.String[100], primary_key=True)
     mark = db.Column(db.Integer, nullable=False)
     # stu_id=db.Column(db.String[100],db.ForeignKey('student.sroll'))
 
-    def __init__(self, mid,mark):
+    def __init__(self, mid, mark):
         self.mid = mid
-        self.mark=mark
+        self.mark = mark
+
     def __repr__(self):
         return f'{self.mid}--{self.mark}'
 
+
 class Years(db.Model):
-    year=db.Column(db.Integer,primary_key=True)
-    subs=db.relationship("Subjects")
+    year = db.Column(db.Integer, primary_key=True)
+    subs = db.relationship("Subjects")
+
 
 class Subjects(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    yer=db.Column(db.Integer, db.ForeignKey('years.year'))
-    subject=db.Column(db.String[100],nullable=False)
-    sems=db.relationship("Sems")
+    id = db.Column(db.Integer, primary_key=True)
+    yer = db.Column(db.Integer, db.ForeignKey('years.year'))
+    subject = db.Column(db.String[100], nullable=False)
+    sems = db.relationship("Sems")
+
 
 class Sems(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    subject=db.Column(db.Integer, db.ForeignKey('subbjects.id'))
-    sem=db.Column(db.Integer)
+    id = db.Column(db.Integer, primary_key=True)
+    subject = db.Column(db.Integer, db.ForeignKey('subjects.id'))
+    sem = db.Column(db.Integer)

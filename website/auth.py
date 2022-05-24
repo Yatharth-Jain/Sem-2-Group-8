@@ -81,6 +81,17 @@ def studentreg():
     return render_template('student_registration.html')
 
 
+@auth.route('/teacher_registration', methods=['GET', 'POST'])
+def teacherreg():
+    if request.method == 'POST':
+        tfname = request.form['tfname']
+        tlname = request.form['tlname']
+        tsub = request.form['tsub']
+        tdob = request.form['tdob'].split('-')
+        print(f'{tfname}<-->{tlname}<-->{tsub}<-->{tdob}')
+    return render_template('teacher_registration.html')
+
+
 @auth.route("/logout")
 @login_required
 def logout():

@@ -80,7 +80,6 @@ def sheet():
                 total[name] = total[name]+int(marks)
                 markdict[mid] = marks
                 db.session.commit()
-                print(f'{ass}-{name}-{marks}')
         redirect('/sheet')
 
     return render_template('sheet.html', asss=asss, names=names, markdict=markdict, total=total)

@@ -1,3 +1,4 @@
+from re import sub
 from . import db
 from flask_login import UserMixin
 
@@ -81,15 +82,17 @@ class Marks(db.Model):
     def __repr__(self):
         return f'{self.mid}--{self.mark}'
 
-if __name__=='__main__':
-    n_std=Student(sfname='stu', slname='1', sbranch='csai', sroll=1, semail='csai-2021-001@std.clg.com' ,syear=2021, ssem=2, spass='01012003', sdob='2003-01-01',srole='student')
-    db.session.add(n_std)
-    db.session.commit()
+class Years(db.Model):
+    year=db.Column(db.Integer,primary_key=True)
+    subs=db.relationship("Subjects")
 
-    n_tch=Teacher(tname='teach1', temail='teach1@tchr.clg.com', tsubject='Maths', tpass='teach1pass')
-    db.session.add(n_tch)
-    db.session.commit()
+class Subjects(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    yer=db.Column(db.Integer, db.ForeignKey('years.year'))
+    subject=db.Column(db.String[100],nullable=False)
+    sems=db.relationship("Sems")
 
-    n_adm=Admin(aname='admin1', aemail='admin1@admin.clg.com', apass='admin1pass')
-    db.session.add(n_adm)
-    db.session.commit()
+class Sems(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    subject=db.Column(db.Integer, db.ForeignKey('subbjects.id'))
+    sem=db.Column(db.Integer)

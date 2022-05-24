@@ -5,15 +5,11 @@
 
 body {
   display: flex;
-<<<<<<< HEAD
   color: grey;
-=======
->>>>>>> f7f54911704f23fa117a8bf7151e776ba6cadea3
   height: 100vh;
 }
 
 nav {
-<<<<<<< HEAD
   /* background-color: aqua; */
   position: fixed;
   height: 100%;
@@ -49,19 +45,12 @@ ul li:hover {
 a {
   text-decoration: none;
   color: gray;
-=======
-  background-color: aqua;
-  position: fixed;
-  height: 100%;
-  width: 30vh;
->>>>>>> f7f54911704f23fa117a8bf7151e776ba6cadea3
 }
 
 #drp {
   display: none;
 }
 
-<<<<<<< HEAD
 main {
   /* background-color: rgb(237, 91, 91); */
   height: 200vh;
@@ -88,15 +77,3 @@ main {
   width: 70vh;
   height: 40vh;
 }
-=======
-.carousel {
-  width: 640px;
-  height: 360px;
-}
-
-main {
-  background-color: rgb(237, 91, 91);
-  width: 180vh;
-  margin-left: 30vh;
-}
->>>>>>> f7f54911704f23fa117a8bf7151e776ba6cadea3

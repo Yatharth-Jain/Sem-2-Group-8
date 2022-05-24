@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Registration</title>
+    <link rel="stylesheet" href="../static/teacher_registration.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <img class="img1" src="../static/images/logo.png" alt="" />
+        <img class="img2" src="../static/images/teacher1.png" alt="Faculty" />
+        <p class="wlc">Welcome, dear faculty</p>
+      </div>
+      <div class="right">
+        <div class="options">
+          <a href="teacher_registration.html"><div class="op1">Faculty</div></a>
+          <a href="student_registration.html"><div class="op1">Student</div></a>
+        </div>
+        <form name="myform" onsubmit="" method="post">
+          <div class="reg">
+            <img class="img3" src="../static/images/user1.png" alt="" />
+            <p style="margin-left: 10px">Register</p>
+          </div>
+          <div class="main_form">
+            <div class="name">
+              <input type="text" name="tfname" placeholder="First Name" />
+              <input type="text" name="tlname" placeholder="Last Name" />
+            </div>
+            <div class="dropdown">
+              <select name="tsub">
+                <option value="">Subject</option>
+                <option value="CSAI">DBMS</option>
+                <option value="IT">OOPs</option>
+                <option value="CS">DSA</option>
+                <option value="CSB">Iot</option>
+              </select>
+            </div>
+            <div class="info">
+              <input type="text" name="tdob" placeholder="Date of Birth" />
+            </div>
+          </div>
+          <div class="btn">Register</div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -19,7 +19,6 @@ class Student(db.Model, UserMixin):
     semail = db.Column(db.String[100], nullable=False)
     syear = db.Column(db.Integer, nullable=False)
     ssem = db.Column(db.Integer, nullable=False)
-<<<<<<< HEAD
     spass = db.Column(db.String[100], nullable=False)                    # DDMMYYYY
     sdob = db.Column(db.String[100], nullable=False)                     # YYYY-MM-DD
     role=db.Column(db.String[100],default='student')
@@ -36,26 +35,6 @@ class Student(db.Model, UserMixin):
         self.ssem=ssem
         self.spass=spass
         self.sdob=sdob
-=======
-    # DDMMYYYY
-    spass = db.Column(db.String[100], nullable=False)
-    # YYYY-MM-DD
-    sdob = db.Column(db.String[100], nullable=False)
-    role = db.Column(db.String[100], default='student')
-    # smarks=db.relationship('Marks')
-
-    def __init__(self, sfname, slname, sbranch, sroll, semail, syear, ssem, spass, sdob, role):
-        self.sfname = sfname
-        self.slname = slname
-        self.sbranch = sbranch
-        self.sroll = sroll
-        self.semail = semail
-        self.syear = syear
-        self.ssem = ssem
-        self.spass = spass
-        self.sdob = sdob
-        self.role = role
->>>>>>> a7db01941e78acee379048eb731dcb1b23211d01
 
     def printdetails(self):
         print(self.sfname+self.slname+self.sbranch +

@@ -19,7 +19,7 @@ def create_app():
     from .view import view
     from .auth import auth
 
-    from .models import Student, Teacher, Admin, Marks
+    from .models import Student, Teacher, Admin, Marks,Years,Courses,Subjects,Sems
     create_database(app)
 
     login_manager = LoginManager()

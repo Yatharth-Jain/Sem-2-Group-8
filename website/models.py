@@ -20,9 +20,10 @@ class Student(db.Model,UserMixin):
     spass = db.Column(db.String[100], nullable=False)                    # DDMMYYYY
     sdob = db.Column(db.String[100], nullable=False)                     # YYYY-MM-DD
     role=db.Column(db.String[100],default='student')
+    # crs=db.Column(db.Integer, db.ForeignKey('courses.id'))
     # smarks=db.relationship('Marks')
 
-    def __init__(self,sfname,slname,sbranch,sroll,semail,syear,ssem,spass,sdob,role):
+    def __init__(self,sfname,slname,sbranch,sroll,semail,syear,ssem,spass,sdob):
         self.sfname=sfname
         self.slname=slname
         self.sbranch=sbranch
@@ -32,7 +33,6 @@ class Student(db.Model,UserMixin):
         self.ssem=ssem
         self.spass=spass
         self.sdob=sdob
-        self.role=role
 
     def printdetails(self):
         print(self.sfname+self.slname+self.sbranch+self.sroll+self.sdob+self.role)
@@ -84,15 +84,28 @@ class Marks(db.Model):
 
 class Years(db.Model):
     year=db.Column(db.Integer,primary_key=True)
+    courses=db.relationship("Courses")
+
+class Courses(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    yer=db.Column(db.Integer, db.ForeignKey('years.year'))
+    course=db.Column(db.String[100],nullable=False)
     subs=db.relationship("Subjects")
 
 class Subjects(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    yer=db.Column(db.Integer, db.ForeignKey('years.year'))
+    crs=db.Column(db.Integer, db.ForeignKey('courses.id'))
     subject=db.Column(db.String[100],nullable=False)
     sems=db.relationship("Sems")
+    students=db.relationship("Student")
 
 class Sems(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    subject=db.Column(db.Integer, db.ForeignKey('subbjects.id'))
+    subject=db.Column(db.Integer, db.ForeignKey('subjects.id'))
     sem=db.Column(db.Integer)
+    assis=db.relationship("Assignments")
+
+class Assignments(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    assi=db.Column(db.String[100],nullable=False)
+    sem=db.Column(db.Integer, db.ForeignKey('sems.id'))

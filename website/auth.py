@@ -1,7 +1,9 @@
 from flask import Blueprint, redirect, render_template, request, flash, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
-from website.models import Student, Teacher, Admin
+from website import view
+from website.models import Courses, Sems, Student, Subjects, Teacher, Admin, Years,Courses,Subjects,Sems,Assignments
 from flask_login import login_required, login_user, logout_user
+from . import db
 
 auth = Blueprint('auth', __name__)
 
@@ -98,3 +100,34 @@ def logout():
     session["name"] = None
     logout_user()
     return redirect(url_for('auth.homepage'))
+
+
+@auth.route("/addsems/<int:year>/<course>/<subject>/<sems>")
+def addsems(year,course,subject,sems):
+    print(f'\n\n\nY={year} C={course} S={subject} sem={sems}\n\n\n')
+    y=Years.query.filter_by(year=year).first()
+    if not y:
+        y=Years(year=year)
+        db.session.add(y)
+        db.session.commit()
+    
+    c=Courses.query.filter_by(yer=year,course=course).first()
+    if not c:
+        c=Courses(yer=year,course=course)
+        db.session.add(c)
+        db.session.commit()
+
+    s=Subjects.query.filter_by(crs=c.id,subject=subject).first()
+    if not s:
+        s=Subjects(crs=c.id,subject=subject)
+        db.session.add(s)
+        db.session.commit()
+
+    for sem in sems.split(','):
+        se=Sems.query.filter_by(subject=s.id,sem=int(sem)).first()
+        if not se:
+            se=Sems(subject=s.id,sem=int(sem))
+            db.session.add(se)
+            db.session.commit()
+    return redirect(url_for('auth.homepage'))
+

@@ -90,8 +90,11 @@ def testform():
     form1=ClassForm()
     form1.year.choices=[(yr.year,yr.year) for yr in Years.query.all()]
     if request.method=='POST':
-        return f"<h1>Year:{form1.year.data} Course:{form1.course.value}<h1>"
-    return render_template("Test form.html",form1=form1)
+        crs=Courses.query.filter_by(id=form1.course.data).first()
+        sub=Subjects.query.filter_by(id=form1.subject.data).first()
+        sem=Sems.query.filter_by(id=form1.sem.data).first()
+        return f"<h1>Year:{form1.year.data} Course:{crs.course} Subject:{sub.subject} Sem:{sem.sem}<h1>"
+    return render_template("teacher_input.html",form1=form1)
 
 @view.route('/form/<method>/<int:val>')
 def year(method,val):

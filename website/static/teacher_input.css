@@ -3,12 +3,14 @@ body {
     background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
     background-size: 700% 700%;
 }
+
 .cont {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
+
 .cont1 {
     margin: 20px;
     padding: 20px;
@@ -16,19 +18,26 @@ body {
     border-radius: 9.6%;
     border: 2px solid rgb(142, 74, 206);
 }
+
 .output {
     margin: 6.9%;
     background-color: aliceblue;
     padding: 20px;
 }
+
 .submitid {
     /* border-radius: 40%;
     background: rgb(57, 138, 134);  */
     background-color: #d9886a;
-  border: none;
-  color: white;
-  padding: 4px 8px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-   }
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.drop {
+    color: blue;
+    border: 2px solid red;
+}

@@ -9,8 +9,13 @@
   </head>
   <body>
     <div class="cont">
-      <form class="cont1">
-        <label for="years">Choose a year:</label>
+      <form class="cont1" method="post">
+        {{ form1.csrf_token }}
+        {{ form1.year(class='drop')}}
+        {{ form1.course(class='drop')}}
+        {{ form1.subject(class='drop')}}
+        {{ form1.sem(class='drop')}}
+        <!-- <label for="years">Choose a year:</label>
         <select name="years" id="years">
           <option value="2019" >2019</option>
           <option value="2020">2020</option>
@@ -59,7 +64,8 @@
         </select>
         <br /><br />
         <input type="submit" value="Submit" class="submitid"/>
-      </form>
+      </form> -->
+      <input type="submit" value="Submit" class="submitid"/>
     </div>
 
     <div class="output">

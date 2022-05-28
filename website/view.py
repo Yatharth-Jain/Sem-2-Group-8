@@ -1,5 +1,5 @@
-from flask import Blueprint, redirect, render_template, request, flash, url_for
-from .models import Student, Teacher, Admin, Marks, db
+from flask import Blueprint, jsonify, redirect, render_template, request, flash, url_for
+from .models import ClassForm, Courses, Student, Subjects, Teacher, Admin, Marks, Years,Sems,ClassForm, db
 from werkzeug.security import generate_password_hash, check_password_hash
 from .loginfunction import loginchecker
 
@@ -45,7 +45,7 @@ def addtest():
 
 @view.route('/sheet', methods=['GET', 'POST'])
 def sheet():
-    asss = ['assi1', 'assi2', 'assi3', 'assi4', 'assi5']
+    asss = ['assi1', 'assi2', 'assi3', 'assi4', 'assi5','assi6']
     names = ['name1', 'name2', 'name3', 'name4', 'name5']
     markdict = {}
     total = {}
@@ -83,3 +83,37 @@ def sheet():
         redirect('/sheet')
 
     return render_template('sheet.html', asss=asss, names=names, markdict=markdict, total=total)
+
+
+@view.route("/test-form",methods=['GET','POST'])
+def testform():
+    form1=ClassForm()
+    form1.year.choices=[(yr.year,yr.year) for yr in Years.query.all()]
+    if request.method=='POST':
+        return f"<h1>Year:{form1.year.data} Course:{form1.course.value}<h1>"
+    return render_template("Test form.html",form1=form1)
+
+@view.route('/form/<method>/<int:val>')
+def year(method,val):
+    crs=[]
+    if method=='year':
+        for cr in Courses.query.filter_by(yer=val).all():
+            c={}
+            c['id']=cr.id
+            c['course']=cr.course
+            crs.append(c)
+        return jsonify({'courses':crs})
+    elif method=='course':
+        for sb in Subjects.query.filter_by(crs=val).all():
+            c={}
+            c['id']=sb.id
+            c['subject']=sb.subject
+            crs.append(c)
+        return jsonify({'subjects':crs})
+    elif method=='subject':
+        for sm in Sems.query.filter_by(subject=val).all():
+            c={}
+            c['id']=sm.id
+            c['sem']=sm.sem
+            crs.append(c)
+        return jsonify({'sems':crs})

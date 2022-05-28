@@ -15,6 +15,8 @@ def homepage():
 
 @auth.route('/login/<user>', methods=['GET', 'POST'])
 def login(user):
+    if user not in ['student','teacher','admin']:
+        return redirect(url_for("auth.homepage"))
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']

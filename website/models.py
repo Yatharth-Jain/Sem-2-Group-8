@@ -1,12 +1,14 @@
-from re import sub
 from . import db
 from flask_login import UserMixin
+from flask_wtf import FlaskForm
+from wtforms import SelectField
 
 # Testing email student--> sid=1, sfname=stu, slname=1, sbranch=csai, sroll=1, semail=csai-2021-001@std.clg.com ,syear=2021, ssem=2, spass=01012003, sdob=2003-01-01
 
 # Teacher--> tname='teach1', temail='teach1@tchr.clg.com', tsubject='Maths', tpass='teach1pass'
 
 # Admin--> aname='admin1', aemail='admin1@admin.clg.com', apass='admin1pass'
+
 
 
 class Student(db.Model, UserMixin):
@@ -19,22 +21,24 @@ class Student(db.Model, UserMixin):
     semail = db.Column(db.String[100], nullable=False)
     syear = db.Column(db.Integer, nullable=False)
     ssem = db.Column(db.Integer, nullable=False)
-    spass = db.Column(db.String[100], nullable=False)                    # DDMMYYYY
-    sdob = db.Column(db.String[100], nullable=False)                     # YYYY-MM-DD
-    role=db.Column(db.String[100],default='student')
+    # DDMMYYYY
+    spass = db.Column(db.String[100], nullable=False)
+    # YYYY-MM-DD
+    sdob = db.Column(db.String[100], nullable=False)
+    role = db.Column(db.String[100], default='student')
     # crs=db.Column(db.Integer, db.ForeignKey('courses.id'))
     # smarks=db.relationship('Marks')
 
-    def __init__(self,sfname,slname,sbranch,sroll,semail,syear,ssem,spass,sdob):
-        self.sfname=sfname
-        self.slname=slname
-        self.sbranch=sbranch
-        self.sroll=sroll
-        self.semail=semail
-        self.syear=syear
-        self.ssem=ssem
-        self.spass=spass
-        self.sdob=sdob
+    def __init__(self, sfname, slname, sbranch, sroll, semail, syear, ssem, spass, sdob):
+        self.sfname = sfname
+        self.slname = slname
+        self.sbranch = sbranch
+        self.sroll = sroll
+        self.semail = semail
+        self.syear = syear
+        self.ssem = ssem
+        self.spass = spass
+        self.sdob = sdob
 
     def printdetails(self):
         print(self.sfname+self.slname+self.sbranch +
@@ -89,29 +93,40 @@ class Marks(db.Model):
 
 
 class Years(db.Model):
-    year=db.Column(db.Integer,primary_key=True)
-    courses=db.relationship("Courses")
+    year = db.Column(db.Integer, primary_key=True)
+    courses = db.relationship("Courses")
+
 
 class Courses(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    yer=db.Column(db.Integer, db.ForeignKey('years.year'))
-    course=db.Column(db.String[100],nullable=False)
-    subs=db.relationship("Subjects")
+    id = db.Column(db.Integer, primary_key=True)
+    yer = db.Column(db.Integer, db.ForeignKey('years.year'))
+    course = db.Column(db.String[100], nullable=False)
+    subs = db.relationship("Subjects")
+
 
 class Subjects(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    crs=db.Column(db.Integer, db.ForeignKey('courses.id'))
-    subject=db.Column(db.String[100],nullable=False)
-    sems=db.relationship("Sems")
-    students=db.relationship("Student")
+    id = db.Column(db.Integer, primary_key=True)
+    crs = db.Column(db.Integer, db.ForeignKey('courses.id'))
+    subject = db.Column(db.String[100], nullable=False)
+    sems = db.relationship("Sems")
+    # students=db.relationship("Student")
+
 
 class Sems(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    subject=db.Column(db.Integer, db.ForeignKey('subjects.id'))
-    sem=db.Column(db.Integer)
-    assis=db.relationship("Assignments")
+    id = db.Column(db.Integer, primary_key=True)
+    subject = db.Column(db.Integer, db.ForeignKey('subjects.id'))
+    sem = db.Column(db.Integer)
+    assis = db.relationship("Assignments")
+
 
 class Assignments(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    assi=db.Column(db.String[100],nullable=False)
-    sem=db.Column(db.Integer, db.ForeignKey('sems.id'))
+    id = db.Column(db.Integer, primary_key=True)
+    assi = db.Column(db.String[100], nullable=False)
+    sem = db.Column(db.Integer, db.ForeignKey('sems.id'))
+
+
+class ClassForm(FlaskForm):
+    year = SelectField('year', choices=[])
+    course=SelectField('course',choices=[])
+    subject=SelectField('subject',choices=[])
+    sem=SelectField('sem',choices=[])

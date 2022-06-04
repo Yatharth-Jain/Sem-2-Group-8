@@ -26,8 +26,8 @@ def tchhome():
 
 @view.route('/testprofilesadd')
 def addtest():
-    n_std = Student(sfname='stu', slname='1', sbranch='csai', sroll=1, semail='csai-2021-001@std.clg.com',
-                    syear=2021, ssem=2, spass=generate_password_hash('01012003', method='sha256'), sdob='2003-01-01')
+    n_std = Student(sfname='stu', slname='1', sbranch=1, sroll=1, semail='csai2021001@std.clg.com',
+                    syear=2021, spass=generate_password_hash('01012003', method='sha256'), sdob='2003-01-01')
     db.session.add(n_std)
     db.session.commit()
 

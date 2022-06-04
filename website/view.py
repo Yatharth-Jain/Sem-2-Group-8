@@ -85,7 +85,7 @@ def sheet():
     return render_template('sheet.html', asss=asss, names=names, markdict=markdict, total=total)
 
 
-@view.route("/test-form",methods=['GET','POST'])
+@view.route("/sheet-create",methods=['GET','POST'])
 def testform():
     form1=ClassForm()
     form1.year.choices=[(yr.year,yr.year) for yr in Years.query.all()]

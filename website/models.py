@@ -1,3 +1,4 @@
+from sqlalchemy import ForeignKey
 from . import db
 from flask_login import UserMixin
 from flask_wtf import FlaskForm
@@ -15,19 +16,15 @@ class Student(db.Model, UserMixin):
     sid = db.Column(db.Integer, primary_key=True)
     sfname = db.Column(db.String[50], nullable=False)
     slname = db.Column(db.String[50], nullable=False)
-    sbranch = db.Column(db.String[50], nullable=False)
-    sroll = db.Column(db.Integer, nullable=False)
-    # {sbranch}-{syear}-{sroll}@std.clg.com
+    sbranch = db.Column(db.Integer,db.ForeignKey('courses.id'))
+    sroll = db.Column(db.Integer, nullable=False)    # {sbranch}-{syear}-{sroll}@std.clg.com
     semail = db.Column(db.String[100], nullable=False)
-    syear = db.Column(db.Integer, nullable=False)
-    ssem = db.Column(db.Integer, nullable=False)
-    # DDMMYYYY
-    spass = db.Column(db.String[100], nullable=False)
-    # YYYY-MM-DD
+    syear = db.Column(db.Integer,db.ForeignKey('years.year'))
+    ssem = db.Column(db.Integer, db.ForeignKey('sems.id'))    # DDMMYYYY
+    spass = db.Column(db.String[100], nullable=False)    # YYYY-MM-DD
     sdob = db.Column(db.String[100], nullable=False)
-    role = db.Column(db.String[100], default='student')
-    # crs=db.Column(db.Integer, db.ForeignKey('courses.id'))
-    # smarks=db.relationship('Marks')
+    role = db.Column(db.String[100], default='student')    # crs=db.Column(db.Integer, db.ForeignKey('courses.id'))
+    smarks=db.relationship('Marks')
 
     def __init__(self, sfname, slname, sbranch, sroll, semail, syear, ssem, spass, sdob):
         self.sfname = sfname
@@ -80,7 +77,10 @@ class Admin(db.Model, UserMixin):
 
 
 class Marks(db.Model):
-    mid = db.Column(db.String[100], primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    student=db.Column(db.Integer,db.ForeignKey('student.sid'))
+    subject=db.Column(db.Integer,db.ForeignKey('subjects.id'))
+    sem=db.Column(db.Integer,db.ForeignKey('sems.id'))
     mark = db.Column(db.Integer, nullable=False)
     # stu_id=db.Column(db.String[100],db.ForeignKey('student.sroll'))
 
@@ -102,6 +102,7 @@ class Courses(db.Model):
     yer = db.Column(db.Integer, db.ForeignKey('years.year'))
     course = db.Column(db.String[100], nullable=False)
     subs = db.relationship("Subjects")
+    students=db.relationship('Student')
 
 
 class Subjects(db.Model):

@@ -1,51 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Registration</title>
-    <link rel="stylesheet" href="../static/student_registration.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="left">
-        <img class="img1" src="../static/images/logo.png" alt="" />
-        <img class="img2" src="../static/images/student2.png" alt="" />
-        <p class="wlc">Welcome, dear student</p>
-      </div>
-      <div class="right">
-        <div class="options">
-          <a href="teacher_registration.html"><div class="op1">Faculty</div></a>
-          <a href="student_registration.html"><div class="op1">Student</div></a>
-        </div>
-        <form name="myform" onsubmit="" method="post">
-          <div class="reg">
-            <img class="img3" src="../static/images/user1.png" alt="" />
-            <p style="margin-left: 10px">Register</p>
-          </div>
-          <div class="main_form">
-            <div class="name">
-              <input type="text" name="sfname" placeholder="First Name" />
-              <input type="text" name="slname" placeholder="Last Name" />
-            </div>
-            <div class="dropdown">
-              <select name="sbranch">
-                <option value="">Branch</option>
-                <option value="CSAI">CSAI</option>
-                <option value="IT">IT</option>
-                <option value="CS">CS</option>
-                <option value="CSB">CSB</option>
-              </select>
-            </div>
-            <div class="info">
-              <input type="text" name="syear" placeholder="Enrollment year" />
-              <input type="text" name="sdob" placeholder="Date of Birth" />
-            </div>
-          </div>
-          <div class="btn">Register</div>
-        </form>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="../static/student_registration.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">
+      <img class="img1" src="../static/images/logo.png" alt="" />
+      <img class="img2" src="../static/images/student2.png" alt="" />
+      <p class="wlc">Welcome, dear student</p>
     </div>
-  </body>
+    <div class="right">
+      <div class="options">
+        <a href="teacher_registration.html">
+          <div class="op1">Faculty</div>
+        </a>
+        <a href="student_registration.html">
+          <div class="op1">Student</div>
+        </a>
+      </div>
+      <form name="myform" onsubmit="" method="post">
+        <div class="reg">
+          <img class="img3" src="../static/images/user1.png" alt="" />
+          <p style="margin-left: 10px">Register</p>
+        </div>
+        <div class="main_form">
+          <div class="name">
+            <input type="text" name="sfname" placeholder="First Name" />
+            <input type="text" name="slname" placeholder="Last Name" />
+          </div>
+          <div class="dropdown">
+            {{ form1.csrf_token }}
+            <!-- <label for="Year">Select Year</label> -->
+            {{ form1.year(class='drop')}}
+          </div>
+          <div class="dropdown">  
+            <!-- <label for="Course">Select Course</label> -->
+            {{ form1.course(class='drop')}}
+          </div>
+          <div class="info">
+            <input type="date" name="sdob" placeholder="Date of Birth" />
+          </div>
+        </div>
+        <!-- <div class="btn">Register</div> -->
+        <button type="submit" class="btn">Register</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    let year_sel=document.getElementById('year');
+    let temp='<option value="" disabled selected>Select The Year</option>'+year_sel.innerHTML;
+    year_sel.innerHTML=temp;
+    let course_sel=document.getElementById('course');
+    course_sel.innerHTML='<option value="" disabled selected>Select The Course</option>'
+
+    year_sel.onchange=function(){
+        year=year_sel.value;
+        // alert(year);
+        fetch('form/year/'+year).then(function(response){
+            response.json().then(function(data){
+                let options='<option value="" disabled selected>Select The Course</option>';
+                // console.table(data);  
+                for(let course of data.courses){
+                    options+='<option value="'+course.id+'">'+course.course+'</option>';
+                }
+                course_sel.innerHTML=options;
+            })
+        });
+    }
+    course_sel.onchange=function(){
+        course=course_sel.value;
+        // alert(course);
+        fetch('form/course/'+course).then(function(response){
+            response.json().then(function(data){
+                let options='<option value="" disabled selected>Select the Subject</option>';
+                // console.table(data);  
+                for(let subject of data.subjects){
+                    options+='<option value="'+subject.id+'">'+subject.subject+'</option>';
+                }
+                subject_sel.innerHTML=options;
+            })
+        });
+    }
+  </script>
+</body>
+
 </html>

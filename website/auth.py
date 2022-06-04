@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect, render_template, request, flash, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from website import view
-from website.models import Courses, Sems, Student, Subjects, Teacher, Admin, Years,Courses,Subjects,Sems,Assignments
+from website.models import Courses, Sems, Student, Subjects, Teacher, Admin, Years,Courses,Subjects,Sems,Assignments,ClassForm
 from flask_login import login_required, login_user, logout_user
 from . import db
 
@@ -75,14 +75,16 @@ def login(user):
 
 @auth.route('/student_registration', methods=['GET', 'POST'])
 def studentreg():
+    form1=ClassForm()
+    form1.year.choices=[(yr.year,yr.year) for yr in Years.query.all()]
     if request.method == 'POST':
         sfname = request.form['sfname']
         slname = request.form['slname']
-        sbranch = request.form['sbranch']
-        syear = request.form['syear']
+        syear = form1.year.data
+        sbranch = form1.course.data
         sdob = request.form['sdob'].split('-')
         print(f'{sfname}<-->{slname}<-->{sbranch}<-->{syear}<-->{sdob}')
-    return render_template('student_registration.html')
+    return render_template('student_registration.html',form1=form1)
 
 
 @auth.route('/teacher_registration', methods=['GET', 'POST'])

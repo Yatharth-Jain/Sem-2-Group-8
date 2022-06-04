@@ -79,6 +79,7 @@ class Marks(db.Model):
     student=db.Column(db.Integer,db.ForeignKey('student.sid'))
     subject=db.Column(db.Integer,db.ForeignKey('subjects.id'))
     sem=db.Column(db.Integer,db.ForeignKey('sems.id'))
+    assi=db.Column(db.Integer,db.ForeignKey('assignments.id'))
     mid=db.Column(db.String[100],nullable=False)
     mark = db.Column(db.Integer, nullable=False)
     # stu_id=db.Column(db.String[100],db.ForeignKey('student.sroll'))

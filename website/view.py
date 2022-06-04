@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, redirect, render_template, request, flash, url_for
-from .models import ClassForm, Courses, Student, Subjects, Teacher, Admin, Marks, Years,Sems,ClassForm, db
+from .models import Assignments, ClassForm, Courses, Student, Subjects, Teacher, Admin, Marks, Years,Sems,ClassForm, db
 from werkzeug.security import generate_password_hash, check_password_hash
 from .loginfunction import loginchecker
 
@@ -93,6 +93,14 @@ def testform():
         crs=Courses.query.filter_by(id=form1.course.data).first()
         sub=Subjects.query.filter_by(id=form1.subject.data).first()
         sem=Sems.query.filter_by(id=form1.sem.data).first()
+        assi=request.form['assignment']
+        o_ass=Assignments.query.filter_by(sem=sem.id,assi=assi).first()
+        if o_ass or assi=='':
+            pass
+        else:
+            n_ass=Assignments(assi=assi,sem=sem.id)
+            db.session.add(n_ass)
+            db.session.commit()
         return f"<h1>Year:{form1.year.data} Course:{crs.course} Subject:{sub.subject} Sem:{sem.sem}<h1>"
     return render_template("teacher_input.html",form1=form1)
 

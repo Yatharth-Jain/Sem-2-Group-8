@@ -82,8 +82,23 @@ def studentreg():
         slname = request.form['slname']
         syear = form1.year.data
         sbranch = form1.course.data
-        sdob = request.form['sdob'].split('-')
-        print(f'{sfname}<-->{slname}<-->{sbranch}<-->{syear}<-->{sdob}')
+
+        sdob = request.form['sdob']
+        dob = sdob.split('-')
+
+        crs=Courses.query.filter_by(id=sbranch).first()
+        students=Student.query.filter_by(syear=syear,sbranch=sbranch).all()
+        sroll=len(students)+1
+
+        semail=f'{crs.course}{syear}{sroll:03d}@std.clg.com'
+
+        spass=f'{dob[2]}{dob[1]}{dob[0]}'
+
+        n_std = Student(sfname=sfname, slname=slname, sbranch=sbranch, sroll=sroll, semail=semail,syear=syear, spass=generate_password_hash(spass, method='sha256'), sdob=sdob)
+        db.session.add(n_std)
+        db.session.commit()
+
+        # print(f'{sfname}<-->{slname}<-->{sbranch}<-->{syear}<-->{sdob}')
     return render_template('student_registration.html',form1=form1)
 
 

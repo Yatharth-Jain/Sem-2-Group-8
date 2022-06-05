@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Student Home</title>
     <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -64,8 +64,8 @@
                     class="img-fluid my-5"
                     style="width: 80px"
                   />
-                  <h5>Marie Horwitz</h5>
-                  <p>Web Designer</p>
+                  <h5>{{cu.sfname}} {{cu.slname}}</h5>
+                  <p>{{cu.role.upper()}}</p>
                   <i class="far fa-edit mb-5"></i>
                 </div>
                 <div class="col-md-8">
@@ -75,23 +75,23 @@
                     <div class="row pt-1">
                       <div class="col-6 mb-3">
                         <h6>Email</h6>
-                        <p class="text-muted">info@example.com</p>
+                        <p class="text-muted small">{{ cu.semail }}</p>
                       </div>
                       <div class="col-6 mb-3">
-                        <h6>Phone</h6>
-                        <p class="text-muted">123 456 789</p>
+                        <h6>Roll No.</h6>
+                        <p class="text-muted">{{ cu.sroll }}</p>
                       </div>
                     </div>
-                    <h6>Projects</h6>
+                    <h6>Other</h6>
                     <hr class="mt-0 mb-4" />
                     <div class="row pt-1">
                       <div class="col-6 mb-3">
-                        <h6>Recent</h6>
-                        <p class="text-muted">Lorem ipsum</p>
+                        <h6>Branch</h6>
+                        <p class="text-muted">{{ br }}</p>
                       </div>
                       <div class="col-6 mb-3">
-                        <h6>Most Viewed</h6>
-                        <p class="text-muted">Dolor sit amet</p>
+                        <h6>Year</h6>
+                        <p class="text-muted">{{ cu.syear }}-{{cu.syear+4}}</p>
                       </div>
                     </div>
                     <div class="d-flex justify-content-start">

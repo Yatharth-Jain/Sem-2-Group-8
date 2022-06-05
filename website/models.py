@@ -1,10 +1,11 @@
+from turtle import Turtle
 from sqlalchemy import ForeignKey
 from . import db
 from flask_login import UserMixin
 from flask_wtf import FlaskForm
 from wtforms import SelectField
 
-# Testing email student--> sid=1, sfname=stu, slname=1, sbranch=csai, sroll=1, semail=csai-2021-001@std.clg.com ,syear=2021, ssem=2, spass=01012003, sdob=2003-01-01
+# Testing email student--> sid=1, sfname=stu, slname=1, sbranch=1, sroll=1, semail=csai-2021-001@std.clg.com ,syear=2021, spass=01012003, sdob=2003-01-01
 
 # Teacher--> tname='teach1', temail='teach1@tchr.clg.com', tsubject='Maths', tpass='teach1pass'
 
@@ -20,20 +21,18 @@ class Student(db.Model, UserMixin):
     sroll = db.Column(db.Integer, nullable=False)    # {sbranch}-{syear}-{sroll}@std.clg.com
     semail = db.Column(db.String[100], nullable=False)
     syear = db.Column(db.Integer,db.ForeignKey('years.year'))
-    ssem = db.Column(db.Integer, db.ForeignKey('sems.id'))    # DDMMYYYY
     spass = db.Column(db.String[100], nullable=False)    # YYYY-MM-DD
     sdob = db.Column(db.String[100], nullable=False)
     role = db.Column(db.String[100], default='student')    # crs=db.Column(db.Integer, db.ForeignKey('courses.id'))
     smarks=db.relationship('Marks')
 
-    def __init__(self, sfname, slname, sbranch, sroll, semail, syear, ssem, spass, sdob):
+    def __init__(self, sfname, slname, sbranch, sroll, semail, syear, spass, sdob):
         self.sfname = sfname
         self.slname = slname
         self.sbranch = sbranch
         self.sroll = sroll
         self.semail = semail
         self.syear = syear
-        self.ssem = ssem
         self.spass = spass
         self.sdob = sdob
 
@@ -81,15 +80,9 @@ class Marks(db.Model):
     student=db.Column(db.Integer,db.ForeignKey('student.sid'))
     subject=db.Column(db.Integer,db.ForeignKey('subjects.id'))
     sem=db.Column(db.Integer,db.ForeignKey('sems.id'))
+    mid=db.Column(db.String[100])
+    assi=db.Column(db.Integer,db.ForeignKey('assignments.id'))
     mark = db.Column(db.Integer, nullable=False)
-    # stu_id=db.Column(db.String[100],db.ForeignKey('student.sroll'))
-
-    def __init__(self, mid, mark):
-        self.mid = mid
-        self.mark = mark
-
-    def __repr__(self):
-        return f'{self.mid}--{self.mark}'
 
 
 class Years(db.Model):

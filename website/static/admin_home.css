@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -6,11 +8,10 @@
 body {
   display: flex;
   color: grey;
-  height: 100vh;
+  font-family: "Roboto Mono", monospace;
 }
 
 nav {
-  /* background-color: aqua; */
   position: fixed;
   height: 100%;
   width: 30vh;
@@ -21,11 +22,24 @@ nav {
   justify-content: space-between;
 }
 
+.top {
+  width: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 ul {
   list-style-type: none;
+  width: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 ul li {
+  width: 25vh;
   padding: 2vh 0vh;
   margin-left: -6vh;
   font-size: 20px;
@@ -35,16 +49,20 @@ ul li {
   align-items: center;
 }
 
-ul li:hover {
+li:hover {
   cursor: pointer;
-  background-color: aqua;
-  width: 20vh;
+  /* background-color: rgb(117, 118, 119); */
+  /* color: white; */
   border-radius: 12px;
 }
 
 a {
   text-decoration: none;
   color: gray;
+  width: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #drp {
@@ -56,6 +74,10 @@ main {
   height: 200vh;
   width: 180vh;
   margin-left: 30vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
 }
 
 .title {
@@ -76,4 +98,27 @@ main {
 .iiitl img {
   width: 70vh;
   height: 40vh;
+}
+
+.txt {
+  width: 60%;
+}
+
+.sq {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.sq img {
+  width: 30vh;
+  padding: 0px 30px;
+}
+
+.f1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -7,7 +7,7 @@
 
 body {
   display: flex;
-  color: grey;
+  color: rgb(205, 58, 58);
   font-family: "Roboto Mono", monospace;
 }
 
@@ -92,6 +92,7 @@ main {
 
 .cells {
   background-color: rgb(255, 255, 255);
+  border:  12px solid red;
   display: flex;
   height: 60px;
   width: 150px;

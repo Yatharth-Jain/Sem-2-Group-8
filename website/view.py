@@ -137,6 +137,33 @@ def year(method,val):
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>', methods=['GET', 'POST'])
 def sheet(year,crs,sub,sem):
     asss=[ass for ass in Assignments.query.filter_by(sem=sem).all()]
+    # print(asss)
     students=[std for std in Student.query.filter_by(sbranch=crs).all()]
-    
-    return render_template('sheet.html')
+    total={}
+    marksdict={}
+    for student in students:
+        t=0
+        for ass in asss:
+            mark=Marks.query.filter_by(student=student.sid,subject=sub,sem=sem,assi=ass.id).first()
+            if mark:
+                t+=mark.mark
+                marksdict[f'{ass.assi}-{student.sroll}']=mark.mark
+            else:
+                mark=Marks(student=student.sid,subject=sub,sem=sem,assi=ass.id,mark=0,mid=f'{ass.assi}-{student.sroll}')
+                db.session.add(mark)
+                db.session.commit()
+                marksdict[f'{ass.assi}-{student.sroll}']=0
+        total[student.sroll]=t
+
+    if request.method=='POST':
+        for student in students:
+            for ass in asss:
+                mark=Marks.query.filter_by(student=student.sid,subject=sub,sem=sem,assi=ass.id).first()
+                total[student.sroll]=total[student.sroll]-mark.mark
+                m=request.form[f'{ass.assi}-{student.sroll}']
+                total[student.sroll]+=int(m)
+                marksdict[mark.mid]=int(m)
+                mark.mark=m
+                db.session.commit()
+                
+    return render_template('sheet.html',asss=asss,students=students,total=total,marksdict=marksdict)

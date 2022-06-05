@@ -1,3 +1,4 @@
+from turtle import Turtle
 from sqlalchemy import ForeignKey
 from . import db
 from flask_login import UserMixin
@@ -79,17 +80,9 @@ class Marks(db.Model):
     student=db.Column(db.Integer,db.ForeignKey('student.sid'))
     subject=db.Column(db.Integer,db.ForeignKey('subjects.id'))
     sem=db.Column(db.Integer,db.ForeignKey('sems.id'))
+    mid=db.Column(db.String[100])
     assi=db.Column(db.Integer,db.ForeignKey('assignments.id'))
-    mid=db.Column(db.String[100],nullable=False)
     mark = db.Column(db.Integer, nullable=False)
-    # stu_id=db.Column(db.String[100],db.ForeignKey('student.sroll'))
-
-    def __init__(self, mid, mark):
-        self.mid = mid
-        self.mark = mark
-
-    def __repr__(self):
-        return f'{self.mid}--{self.mark}'
 
 
 class Years(db.Model):

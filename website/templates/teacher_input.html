@@ -13,106 +13,122 @@
         flex-direction: column;
         justify-content: space-between;
         flex-wrap: wrap;
-        
+
         height: 100vh;
         width: 40vh;
         font-family: raleway;
         background: #34495e;
-        }
-        .item {
+      }
+      .item {
         color: white;
         font-size: 20px;
         padding: 5px;
-        }
+      }
 
-        .section {
+      .section {
         padding: 20px;
-        }
+      }
     </style>
-
   </head>
   <body>
-<div class="tbody">
-    <div class="sidebar">
-      <!--   This section should be at the top -->
+    <div class="tbody">
+      <div class="sidebar">
+        <!--   This section should be at the top -->
         <div class="section">
           <div class="item">Messages</div>
           <div class="item">Friends</div>
           <div class="item">User Profile</div>
         </div>
-      <!--   This section should be at the bottom -->
+        <!--   This section should be at the bottom -->
         <div class="section">
           <div class="item">Settings</div>
           <div class="item">Question?</div>
         </div>
-  </div>
+      </div>
 
-    <div class="cont">
-      <form class= "cont1" method="post">
-          {{ form1.csrf_token }}
-          {{ form1.year(class='drop')}}
-          {{ form1.course(class='drop')}}
-          {{ form1.subject(class='drop')}}
-          {{ form1.sem(class='drop')}}
-      <input type="submit" value="Submit" class="submitid"/>
-      </form>
+      <div class="cont">
+        <form class="cont1" method="post">
+          {{ form1.csrf_token }} {{ form1.year(class='drop')}} {{
+          form1.course(class='drop')}} {{ form1.subject(class='drop')}} {{
+          form1.sem(class='drop')}}
+          <input type="text" name="assignment" id="" class="drop" />
+          <input type="submit" value="Submit" class="submitid" />
+        </form>
+      </div>
     </div>
-  </div>
-
   </body>
   <script>
-    let year_sel=document.getElementById('year');
-    
-    let temp='<option value="" disabled selected>Select The Year</option>'+year_sel.innerHTML;
-    year_sel.innerHTML=temp;
-    let course_sel=document.getElementById('course');
-    course_sel.innerHTML='<option value="" disabled selected>Select The Course</option>';
-    let subject_sel=document.getElementById('subject');
-    subject_sel.innerHTML='<option value="" disabled selected>Select The Subject</option>';
-    let sem_sel=document.getElementById('sem');
-    sem_sel.innerHTML='<option value="" disabled selected>Select The Semester</option>';
+    let year_sel = document.getElementById("year");
 
-    year_sel.onchange=function(){
-        year=year_sel.value;
-        // alert(year);
-        fetch('form/year/'+year).then(function(response){
-            response.json().then(function(data){
-                let options='<option value="" disabled selected>Select The Course</option>';
-                // console.table(data);  
-                for(let course of data.courses){
-                    options+='<option value="'+course.id+'">'+course.course+'</option>';
-                }
-                course_sel.innerHTML=options;
-            })
+    let temp =
+      '<option value="" disabled selected>Select The Year</option>' +
+      year_sel.innerHTML;
+    year_sel.innerHTML = temp;
+    let course_sel = document.getElementById("course");
+    course_sel.innerHTML =
+      '<option value="" disabled selected>Select The Course</option>';
+    let subject_sel = document.getElementById("subject");
+    subject_sel.innerHTML =
+      '<option value="" disabled selected>Select The Subject</option>';
+    let sem_sel = document.getElementById("sem");
+    sem_sel.innerHTML =
+      '<option value="" disabled selected>Select The Semester</option>';
+
+    year_sel.onchange = function () {
+      year = year_sel.value;
+      // alert(year);
+      fetch("form/year/" + year).then(function (response) {
+        response.json().then(function (data) {
+          let options =
+            '<option value="" disabled selected>Select The Course</option>';
+          // console.table(data);
+          for (let course of data.courses) {
+            options +=
+              '<option value="' +
+              course.id +
+              '">' +
+              course.course +
+              "</option>";
+          }
+          course_sel.innerHTML = options;
         });
-    }
-    course_sel.onchange=function(){
-        course=course_sel.value;
-        // alert(course);
-        fetch('form/course/'+course).then(function(response){
-            response.json().then(function(data){
-                let options='<option value="" disabled selected>Select the Subject</option>';
-                // console.table(data);  
-                for(let subject of data.subjects){
-                    options+='<option value="'+subject.id+'">'+subject.subject+'</option>';
-                }
-                subject_sel.innerHTML=options;
-            })
+      });
+    };
+    course_sel.onchange = function () {
+      course = course_sel.value;
+      // alert(course);
+      fetch("form/course/" + course).then(function (response) {
+        response.json().then(function (data) {
+          let options =
+            '<option value="" disabled selected>Select the Subject</option>';
+          // console.table(data);
+          for (let subject of data.subjects) {
+            options +=
+              '<option value="' +
+              subject.id +
+              '">' +
+              subject.subject +
+              "</option>";
+          }
+          subject_sel.innerHTML = options;
         });
-    }
-    subject_sel.onchange=function(){
-        subject=subject_sel.value;
-        // alert(year);
-        fetch('form/subject/'+subject).then(function(response){
-            response.json().then(function(data){
-                let options='<option value="" disabled selected>Select The Semester</option>';
-                // console.table(data);  
-                for(let sem of data.sems){
-                    options+='<option value="'+sem.id+'">'+sem.sem+'</option>';
-                }
-                sem_sel.innerHTML=options;
-            })
+      });
+    };
+    subject_sel.onchange = function () {
+      subject = subject_sel.value;
+      // alert(year);
+      fetch("form/subject/" + subject).then(function (response) {
+        response.json().then(function (data) {
+          let options =
+            '<option value="" disabled selected>Select The Semester</option>';
+          // console.table(data);
+          for (let sem of data.sems) {
+            options +=
+              '<option value="' + sem.id + '">' + sem.sem + "</option>";
+          }
+          sem_sel.innerHTML = options;
         });
-    }
-</script>
+      });
+    };
+  </script>
 </html>

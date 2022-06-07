@@ -131,3 +131,8 @@ def sheet(year, crs, sub, sem):
                 db.session.commit()
 
     return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict)
+
+
+@view.route('/testsheet')
+def test():
+    return render_template("sheet.html")

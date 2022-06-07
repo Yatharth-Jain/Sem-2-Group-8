@@ -65,10 +65,6 @@ a {
   align-items: center;
 }
 
-a:hover {
-  color: white;
-}
-
 #drp {
   display: none;
 }

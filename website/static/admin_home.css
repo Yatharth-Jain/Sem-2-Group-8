@@ -51,14 +51,14 @@ ul li {
 
 li:hover {
   cursor: pointer;
-  background-color: rgb(117, 118, 119);
+  background-color: rgb(116, 171, 227);
   color: white;
   border-radius: 12px;
 }
 
 a {
   text-decoration: none;
-  color: gray;
+  color: rgb(27, 124, 251);
   width: 25vh;
   display: flex;
   justify-content: center;

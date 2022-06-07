@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, redirect, render_template, request, flash, url_for
 from flask_login import current_user
-from .models import Assignments, ClassForm, Courses, Student, Subjects, Teacher, Admin, Marks, Years,Sems,ClassForm, db
+from .models import Assignments, ClassForm, Courses, Student, Subjects, Teacher, Admin, Marks, Years, Sems, ClassForm, db
 from werkzeug.security import generate_password_hash, check_password_hash
 from .loginfunction import loginchecker
 
@@ -11,9 +11,9 @@ view = Blueprint('view', __name__)
 @loginchecker(role='student')
 def stdhome():
     current_user
-    br=Courses.query.filter_by(id=current_user.sbranch).first()
-    br=br.course
-    return render_template('Student_Home.html',cu=current_user,br=br)
+    br = Courses.query.filter_by(id=current_user.sbranch).first()
+    br = br.course
+    return render_template('Student_Home.html', cu=current_user, br=br)
 
 
 @view.route('/admin-home')
@@ -47,82 +47,87 @@ def addtest():
     return redirect('/')
 
 
-
-@view.route("/sheet-create",methods=['GET','POST'])
+@view.route("/sheet-create", methods=['GET', 'POST'])
 def classselect():
-    form1=ClassForm()
-    form1.year.choices=[(yr.year,yr.year) for yr in Years.query.all()]
-    if request.method=='POST':
-        crs=Courses.query.filter_by(id=form1.course.data).first()
-        sub=Subjects.query.filter_by(id=form1.subject.data).first()
-        sem=Sems.query.filter_by(id=form1.sem.data).first()
-        assi=request.form['assignment']
-        o_ass=Assignments.query.filter_by(sem=sem.id,assi=assi.capitalize()).first()
-        if o_ass or assi=='':
+    form1 = ClassForm()
+    form1.year.choices = [(yr.year, yr.year) for yr in Years.query.all()]
+    if request.method == 'POST':
+        crs = Courses.query.filter_by(id=form1.course.data).first()
+        sub = Subjects.query.filter_by(id=form1.subject.data).first()
+        sem = Sems.query.filter_by(id=form1.sem.data).first()
+        assi = request.form['assignment']
+        o_ass = Assignments.query.filter_by(
+            sem=sem.id, assi=assi.capitalize()).first()
+        if o_ass or assi == '':
             pass
         else:
-            n_ass=Assignments(assi=assi.capitalize(),sem=sem.id)
+            n_ass = Assignments(assi=assi.capitalize(), sem=sem.id)
             db.session.add(n_ass)
             db.session.commit()
         # return f"<h1>Year:{form1.year.data} Course:{crs.course} Subject:{sub.subject} Sem:{sem.sem}<h1>"
         return redirect(f'/sheet/{form1.year.data}/{crs.id}/{sub.id}/{sem.id}')
-    return render_template("teacher_input.html",form1=form1)
+    return render_template("teacher_input.html", form1=form1)
+
 
 @view.route('/form/<method>/<int:val>')
-def year(method,val):
-    crs=[]
-    if method=='year':
+def year(method, val):
+    crs = []
+    if method == 'year':
         for cr in Courses.query.filter_by(yer=val).all():
-            c={}
-            c['id']=cr.id
-            c['course']=cr.course
+            c = {}
+            c['id'] = cr.id
+            c['course'] = cr.course
             crs.append(c)
-        return jsonify({'courses':crs})
-    elif method=='course':
+        return jsonify({'courses': crs})
+    elif method == 'course':
         for sb in Subjects.query.filter_by(crs=val).all():
-            c={}
-            c['id']=sb.id
-            c['subject']=sb.subject
+            c = {}
+            c['id'] = sb.id
+            c['subject'] = sb.subject
             crs.append(c)
-        return jsonify({'subjects':crs})
-    elif method=='subject':
+        return jsonify({'subjects': crs})
+    elif method == 'subject':
         for sm in Sems.query.filter_by(subject=val).all():
-            c={}
-            c['id']=sm.id
-            c['sem']=sm.sem
+            c = {}
+            c['id'] = sm.id
+            c['sem'] = sm.sem
             crs.append(c)
-        return jsonify({'sems':crs})
+        return jsonify({'sems': crs})
+
 
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>', methods=['GET', 'POST'])
-def sheet(year,crs,sub,sem):
-    asss=[ass for ass in Assignments.query.filter_by(sem=sem).all()]
+def sheet(year, crs, sub, sem):
+    asss = [ass for ass in Assignments.query.filter_by(sem=sem).all()]
     # print(asss)
-    students=[std for std in Student.query.filter_by(sbranch=crs).all()]
-    total={}
-    marksdict={}
+    students = [std for std in Student.query.filter_by(sbranch=crs).all()]
+    total = {}
+    marksdict = {}
     for student in students:
-        t=0
+        t = 0
         for ass in asss:
-            mark=Marks.query.filter_by(student=student.sid,subject=sub,sem=sem,assi=ass.id).first()
+            mark = Marks.query.filter_by(
+                student=student.sid, subject=sub, sem=sem, assi=ass.id).first()
             if mark:
-                t+=mark.mark
-                marksdict[f'{ass.assi}-{student.sroll}']=mark.mark
+                t += mark.mark
+                marksdict[f'{ass.assi}-{student.sroll}'] = mark.mark
             else:
-                mark=Marks(student=student.sid,subject=sub,sem=sem,assi=ass.id,mark=0,mid=f'{ass.assi}-{student.sroll}')
+                mark = Marks(student=student.sid, subject=sub, sem=sem,
+                             assi=ass.id, mark=0, mid=f'{ass.assi}-{student.sroll}')
                 db.session.add(mark)
                 db.session.commit()
-                marksdict[f'{ass.assi}-{student.sroll}']=0
-        total[student.sroll]=t
+                marksdict[f'{ass.assi}-{student.sroll}'] = 0
+        total[student.sroll] = t
 
-    if request.method=='POST':
+    if request.method == 'POST':
         for student in students:
             for ass in asss:
-                mark=Marks.query.filter_by(student=student.sid,subject=sub,sem=sem,assi=ass.id).first()
-                total[student.sroll]=total[student.sroll]-mark.mark
-                m=request.form[f'{ass.assi}-{student.sroll}']
-                total[student.sroll]+=int(m)
-                marksdict[mark.mid]=int(m)
-                mark.mark=m
+                mark = Marks.query.filter_by(
+                    student=student.sid, subject=sub, sem=sem, assi=ass.id).first()
+                total[student.sroll] = total[student.sroll]-mark.mark
+                m = request.form[f'{ass.assi}-{student.sroll}']
+                total[student.sroll] += int(m)
+                marksdict[mark.mid] = int(m)
+                mark.mark = m
                 db.session.commit()
-                
-    return render_template('sheet.html',asss=asss,students=students,total=total,marksdict=marksdict)
+
+    return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict)

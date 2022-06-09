@@ -1,4 +1,4 @@
-
+@import url("https://fonts.googleapis.com/css?family=Raleway:200");
 * {
   margin: 0;
   padding: 0;
@@ -71,13 +71,12 @@ a:hover {
 main {
   background-color: #2888e7;
   width: 180vh;
-  height: 100vh;
+  /* height: 100vh; */
   margin-left: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 
 .mainbody {
@@ -91,10 +90,9 @@ main {
 
 .cells {
   background-color: rgb(255, 255, 255);
-  border:  12px solid red;
   display: flex;
   height: 60px;
-  width: 150px;
+  width: 130px;
   margin: 10px;
   align-items: center;
   justify-content: center;
@@ -204,4 +202,15 @@ main {
 
 .aux {
   display: flex;
+  /* margin-top: 15vh; */
+}
+
+.cell_block {
+  display: none;
+  background-color: rgb(255, 255, 255);
+  height: 60px;
+  width: 130px;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
 }

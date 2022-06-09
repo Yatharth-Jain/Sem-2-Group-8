@@ -82,9 +82,12 @@ main {
 .mainbody {
   display: flex;
   flex-direction: column;
+  /* z-index: -10; */
+  /* overflow-x: scroll; */
 }
 
 .rows {
+  /* width: 150vh; */
   display: flex;
 }
 
@@ -105,6 +108,36 @@ main {
 
 .add {
   cursor: pointer;
+  /* z-index: 0; */
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cont1 {
+  position: absolute;
+  display: none;
+  height: 40vh;
+  /* border: 2px solid red; */
+  background-color: rgb(177, 181, 184);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  margin-left: -33vh;
+  width: 47vh;
+  margin-top: 50vh;
+  border-radius: 10px;
+}
+
+.cont1 input {
+  width: 40vh;
+  /* height: 4vh; */
+  border-radius: 10px;
+  margin: 2vh 0vh;
+  padding: 2vh;
 }
 
 .close {

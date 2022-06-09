@@ -35,16 +35,26 @@
     <main>
       <div class="aux">
         <div class="icon2">
-          <div class="arrow2" id="left">s</div>
+          <div class="arrow2" id="left"></div>
         </div>
-        <img
-          class="add"
-          src="/static/images/istockphoto-1365197728-170667a-removebg-preview.png"
-          width="150px"
-          alt=""
-        />
+        <div>
+          <img
+            id="add_ass"
+            class="add"
+            src="/static/images/istockphoto-1365197728-170667a-removebg-preview.png"
+            width="150px"
+            alt=""
+          />
+        </div>
+        <div class="popup">
+          <form class="cont1" method="post">
+            <label for="assignment">Ass name</label>
+            <input type="text" name="assignment" id="" class="drop" />
+            <input type="submit" value="Submit" class="submitid" />
+          </form>
+        </div>
         <div class="icon">
-          <div class="arrow" id="right">s</div>
+          <div class="arrow" id="right"></div>
         </div>
       </div>
       <form action="" method="post">
@@ -56,7 +66,7 @@
             <div class="cells">
               <h2>Names</h2>
             </div>
-            {% for ass in asss %}
+            {% for ass in asss[0:5] %}
             <div class="cells" id="cell1">
               <h4>{{ass.assi}}</h4>
               <img
@@ -79,8 +89,8 @@
             <div class="cells">
               <h4>{{student.sfname}} {{student.slname}}</h4>
             </div>
-            {% for ass in asss %} {% set mid = ass.assi+'-'+student.sroll|string
-            %}
+            {% for ass in asss[0:5] %} {% set mid =
+            ass.assi+'-'+student.sroll|string %}
             <input
               class="cells"
               type="text"
@@ -118,11 +128,17 @@
       const right = document.querySelector(".right");
       const cell_block = document.querySelector("#cell2");
       const cells = document.querySelector("#cell1");
-      right.addEventListener("onclick", () => {
-        console.log("lk");
-        cells.style.display = "none";
-        cell_block.style.display = "flex";
-      });
+      // right.addEventListener("onclick", () => {
+      //   console.log("lk");
+      //   cells.style.display = "none";
+      //   cell_block.style.display = "flex";
+      // });
+      const ass = document.getElementById("add_ass");
+      const pop = document.querySelector(".cont1");
+      ass.onclick = () => {
+        pop.style.display = "flex";
+        pop.style.flexDirection = "column";
+      };
     </script>
   </body>
 </html>

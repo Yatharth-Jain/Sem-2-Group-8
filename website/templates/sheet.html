@@ -38,19 +38,15 @@
           <div class="arrow2" id="left"></div>
         </div>
         <div>
-          <img
-            id="add_ass"
-            class="add"
-            src="/static/images/istockphoto-1365197728-170667a-removebg-preview.png"
-            width="150px"
-            alt=""
-          />
+          <img id="add_ass" class="add" src="/static/images/istockphoto-1365197728-170667a-removebg-preview.png" width="150px" alt="" />
         </div>
         <div class="popup">
-          <form class="cont1" method="post">
-            <label for="assignment">Ass name</label>
-            <input type="text" name="assignment" id="" class="drop" />
-            <input type="submit" value="Submit" class="submitid" />
+          <form class="cont1" method="post" name="addassi">
+            <label for="assignment">Assignment name</label>
+            <input type="text" name="newassi" id="" class="drop" placeholder="Assignment name"/>
+            <label for="assignment">Maximum Number</label>
+            <input type="number" name="maxnum" id="" class="drop" placeholder="Maximum Number" />
+            <button name="subtype" value="addassi" value="Submit" class="btn btn-info" ></buton>
           </form>
         </div>
         <div class="icon">
@@ -66,16 +62,10 @@
             <div class="cells">
               <h2>Names</h2>
             </div>
-            {% for ass in asss[0:5] %}
+            {% for ass in asss %}
             <div class="cells" id="cell1">
               <h4>{{ass.assi}}</h4>
-              <img
-                class="close"
-                src="/static/images/icon-close-menu.svg"
-                alt=""
-                style="margin-left: 20px; margin-top: -5px"
-                width="20px"
-              />
+              <button name="subtype" value="/removeassi/{{curl}}/{{ass.id}}"><img class="close" src="/static/images/icon-close-menu.svg" alt="" style="margin-left: 20px; margin-top: -5px" width="20px"/></button>
             </div>
             {% endfor %}
             <div class="cells" style="margin-left: auto">
@@ -89,21 +79,16 @@
             <div class="cells">
               <h4>{{student.sfname}} {{student.slname}}</h4>
             </div>
-            {% for ass in asss[0:5] %} {% set mid =
-            ass.assi+'-'+student.sroll|string %}
-            <input
-              class="cells"
-              type="text"
-              name="{{mid}}"
-              value="{{marksdict[mid]}}"
-            />
+            {% for ass in asss %} 
+            {% set mid = ass.assi+'-'+student.sroll|string %}
+            <input class="cells" type="text" name="{{mid}}" value="{{marksdict[mid]}}"/>
             {% endfor %}
             <div class="cells">
               <h5>{{total[student.sroll]}}</h5>
             </div>
           </div>
           {% endfor %}
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" name="subtype" value="" style="border: 0px;" class="btn btn-success">Submit</button>
         </div>
       </form>
     </main>

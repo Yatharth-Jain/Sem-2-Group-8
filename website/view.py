@@ -97,6 +97,7 @@ def year(method, val):
 
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>', methods=['GET', 'POST'])
 def sheet(year, crs, sub, sem):
+    curl=f'{year}/{crs}/{sub}/{sem}'
     asss = [ass for ass in Assignments.query.filter_by(sem=sem).all()]
     # print(asss)
     students = [std for std in Student.query.filter_by(sbranch=crs).all()]
@@ -119,20 +120,44 @@ def sheet(year, crs, sub, sem):
         total[student.sroll] = t
 
     if request.method == 'POST':
-        for student in students:
-            for ass in asss:
-                mark = Marks.query.filter_by(
-                    student=student.sid, subject=sub, sem=sem, assi=ass.id).first()
-                total[student.sroll] = total[student.sroll]-mark.mark
-                m = request.form[f'{ass.assi}-{student.sroll}']
-                total[student.sroll] += int(m)
-                marksdict[mark.mid] = int(m)
-                mark.mark = m
+        subtpye=request.form['subtype']
+        if subtpye=='addassi':
+            new_ass=request.form['newassi']
+            maxnum=request.form['maxnum']
+            o_ass = Assignments.query.filter_by(sem=sem, assi=new_ass.capitalize()).first()
+            if o_ass or new_ass == '':
+                pass
+            else:
+                n_ass = Assignments(assi=new_ass.capitalize(),maxnum=maxnum, sem=sem)
+                db.session.add(n_ass)
                 db.session.commit()
+            return redirect(url_for(f'view.sheet',year=year, crs=crs, sub=sub, sem=sem))
 
-    return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict)
+        else:
+            for student in students:
+                for ass in asss:
+                    mark = Marks.query.filter_by(
+                        student=student.sid, subject=sub, sem=sem, assi=ass.id).first()
+                    total[student.sroll] = total[student.sroll]-mark.mark
+                    m = request.form[f'{ass.assi}-{student.sroll}']
+                    total[student.sroll] += int(m)
+                    marksdict[mark.mid] = int(m)
+                    mark.mark = m
+                    db.session.commit()
+            if 'removeassi' in subtpye:
+                return redirect(subtpye)
+
+    return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict,curl=curl)
 
 
-@view.route('/testsheet')
-def test():
-    return render_template("sheet.html")
+@view.route('/removeassi/<year>/<crs>/<sub>/<sem>/<int:aid>')
+def delassi(year, crs, sub, sem,aid):
+    curl=f'{year}/{crs}/{sub}/{sem}'
+    marks=Marks.query.filter_by(assi=aid).all()
+    for mark in marks:
+        db.session.delete(mark)
+        db.session.commit()
+    assi=Assignments.query.filter_by(id=aid).first()
+    db.session.delete(assi)
+    db.session.commit()
+    return redirect(url_for(f'view.sheet',year=year, crs=crs, sub=sub, sem=sem))

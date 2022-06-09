@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect, render_template, request, flash, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from website import view
-from website.models import Courses, Sems, Student, Subjects, Teacher, Admin, Years,Courses,Subjects,Sems,Assignments,ClassForm
+from website.models import Courses, Marks, Sems, Student, Subjects, Teacher, Admin, Years,Courses,Subjects,Sems,Assignments,ClassForm
 from flask_login import login_required, login_user, logout_user
 from . import db
 

@@ -1,4 +1,3 @@
-from turtle import Turtle
 from sqlalchemy import ForeignKey
 from . import db
 from flask_login import UserMixin

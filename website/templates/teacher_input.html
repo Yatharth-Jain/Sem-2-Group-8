@@ -1,55 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../static/teacher_input.css" />
-  <title>Document</title>
-
-  <style>
-    .sidebar {
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-wrap: wrap;
-
-      height: 100vh;
-      width: 40vh;
-      font-family: raleway;
-      background: #34495e;
-    }
-
-    .item {
-      color: white;
-      font-size: 20px;
-      padding: 5px;
-    }
-
-    .section {
-      padding: 20px;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="tbody">
-    <div class="sidebar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/teacher_input.css" />
+  </head>
+  <body>
+    <nav>
       <!--   This section should be at the top -->
-      <div class="section">
-        <div class="item">Messages</div>
-        <div class="item">Friends</div>
-        <div class="item">User Profile</div>
-      </div>
+      <ul>
+        <li>Announcements</li>
+        <li id="n">Faculty Profile</li>
+      </ul>
       <!--   This section should be at the bottom -->
-      <div class="section">
-        <div class="item">Settings</div>
-        <div class="item">Question?</div>
-      </div>
+      <ul>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+    <div id="hov2" class="prof" style="margin-left: 32vh; height: 50vh">
+      <img class="im" src="../static/images/user.png" alt="" />
+      <p class="lorem">
+        Lorem ipsum dolor sit amet consecteturborum ducimus consectetur quam,
+        possimus ipsum eum voluptatibus ad quia nobis dicta?
+      </p>
     </div>
-
-    <div class="cont">
+    <main>
       <form class="cont1" method="post">
         {{ form1.csrf_token }} {{ form1.year(class='drop')}} {{
         form1.course(class='drop')}} {{ form1.subject(class='drop')}} {{
@@ -57,82 +34,101 @@
         <input type="text" name="assignment" id="" class="drop" />
         <input type="submit" value="Submit" class="submitid" />
       </form>
-    </div>
-  </div>
-</body>
-<script>
-  let year_sel = document.getElementById("year");
+      <div class="prof">
+        <img class="im" src="../static/images/user.png" alt="" />
+        <p class="lorem">
+          Lorem ipsum dolor sit amet consecteturborum ducimus consectetur quam,
+          possimus ipsum eum voluptatibus ad quia nobis dicta?
+        </p>
+      </div>
+    </main>
+  </body>
+  <script>
+    let year_sel = document.getElementById("year");
 
-  let temp =
-    '<option value="" disabled selected>Select The Year</option>' +
-    year_sel.innerHTML;
-  year_sel.innerHTML = temp;
-  let course_sel = document.getElementById("course");
-  course_sel.innerHTML =
-    '<option value="" disabled selected>Select The Course</option>';
-  let subject_sel = document.getElementById("subject");
-  subject_sel.innerHTML =
-    '<option value="" disabled selected>Select The Subject</option>';
-  let sem_sel = document.getElementById("sem");
-  sem_sel.innerHTML =
-    '<option value="" disabled selected>Select The Semester</option>';
+    let temp =
+      '<option value="" disabled selected>Select The Year</option>' +
+      year_sel.innerHTML;
+    year_sel.innerHTML = temp;
+    let course_sel = document.getElementById("course");
+    course_sel.innerHTML =
+      '<option value="" disabled selected>Select The Course</option>';
+    let subject_sel = document.getElementById("subject");
+    subject_sel.innerHTML =
+      '<option value="" disabled selected>Select The Subject</option>';
+    let sem_sel = document.getElementById("sem");
+    sem_sel.innerHTML =
+      '<option value="" disabled selected>Select The Semester</option>';
 
-  year_sel.onchange = function () {
-    year = year_sel.value;
-    // alert(year);
-    fetch("form/year/" + year).then(function (response) {
-      response.json().then(function (data) {
-        let options =
-          '<option value="" disabled selected>Select The Course</option>';
-        // console.table(data);
-        for (let course of data.courses) {
-          options +=
-            '<option value="' +
-            course.id +
-            '">' +
-            course.course +
-            "</option>";
-        }
-        course_sel.innerHTML = options;
+    year_sel.onchange = function () {
+      year = year_sel.value;
+      // alert(year);
+      fetch("form/year/" + year).then(function (response) {
+        response.json().then(function (data) {
+          let options =
+            '<option value="" disabled selected>Select The Course</option>';
+          // console.table(data);
+          for (let course of data.courses) {
+            options +=
+              '<option value="' +
+              course.id +
+              '">' +
+              course.course +
+              "</option>";
+          }
+          course_sel.innerHTML = options;
+        });
       });
-    });
-  };
-  course_sel.onchange = function () {
-    course = course_sel.value;
-    // alert(course);
-    fetch("form/course/" + course).then(function (response) {
-      response.json().then(function (data) {
-        let options =
-          '<option value="" disabled selected>Select the Subject</option>';
-        // console.table(data);
-        for (let subject of data.subjects) {
-          options +=
-            '<option value="' +
-            subject.id +
-            '">' +
-            subject.subject +
-            "</option>";
-        }
-        subject_sel.innerHTML = options;
+    };
+    course_sel.onchange = function () {
+      course = course_sel.value;
+      // alert(course);
+      fetch("form/course/" + course).then(function (response) {
+        response.json().then(function (data) {
+          let options =
+            '<option value="" disabled selected>Select the Subject</option>';
+          // console.table(data);
+          for (let subject of data.subjects) {
+            options +=
+              '<option value="' +
+              subject.id +
+              '">' +
+              subject.subject +
+              "</option>";
+          }
+          subject_sel.innerHTML = options;
+        });
       });
-    });
-  };
-  subject_sel.onchange = function () {
-    subject = subject_sel.value;
-    // alert(year);
-    fetch("form/subject/" + subject).then(function (response) {
-      response.json().then(function (data) {
-        let options =
-          '<option value="" disabled selected>Select The Semester</option>';
-        // console.table(data);
-        for (let sem of data.sems) {
-          options +=
-            '<option value="' + sem.id + '">' + sem.sem + "</option>";
-        }
-        sem_sel.innerHTML = options;
+    };
+    subject_sel.onchange = function () {
+      subject = subject_sel.value;
+      // alert(year);
+      fetch("form/subject/" + subject).then(function (response) {
+        response.json().then(function (data) {
+          let options =
+            '<option value="" disabled selected>Select The Semester</option>';
+          // console.table(data);
+          for (let sem of data.sems) {
+            options +=
+              '<option value="' + sem.id + '">' + sem.sem + "</option>";
+          }
+          sem_sel.innerHTML = options;
+        });
       });
-    });
-  };
-</script>
-
+    };
+    const hov = document.getElementById("n");
+    const hov2 = document.querySelector("#hov2");
+    hov.onmouseover = () => {
+      let st = hov2.style;
+      if (st.display == "none") {
+        st.display = "flex";
+      }
+    };
+    hov.onmouseout = () => {
+      let st = hov2.style;
+      if (st.display == "flex") {
+        st.display = "none";
+      }
+    };
+  </script>
 </html>

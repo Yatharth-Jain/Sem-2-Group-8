@@ -1,5 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
 
+main {
+  /* height: 97.8vh; */
+  background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
+  background-size: 800% 800%;
+  -webkit-animation: bg_grad 47s ease infinite;
+  -moz-animation: bg_grad 47s ease infinite;
+  animation: bg_grad 47s ease infinite;
+}
+
+@-webkit-keyframes bg_grad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes bg_grad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bg_grad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,11 +52,13 @@
 
 body {
   display: flex;
-  color: grey;
+  color: white;
   font-family: "Roboto Mono", monospace;
 }
 
 nav {
+  background-color: rgb(152, 148, 148);
+  color: white;
   position: fixed;
   height: 100%;
   width: 30vh;
@@ -51,27 +98,40 @@ ul li {
 
 li:hover {
   cursor: pointer;
-  background-color: rgb(116, 171, 227);
   color: white;
   border-radius: 12px;
+  background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
+  background-size: 800% 800%;
+  -webkit-animation: bg_grad 47s ease infinite;
+  -moz-animation: bg_grad 47s ease infinite;
+  animation: bg_grad 47s ease infinite;
 }
 
 a {
   text-decoration: none;
-  color: rgb(27, 124, 251);
+  color: white;
   width: 25vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+a:hover {
+  color: white;
+}
+
 #drp {
   display: none;
 }
 
+.dropdown {
+  margin-left: 26px;
+  margin-top: 20px;
+}
+
 main {
   /* background-color: rgb(237, 91, 91); */
-  height: 200vh;
+  /* height: 200vh; */
   width: 180vh;
   margin-left: 30vh;
   display: flex;

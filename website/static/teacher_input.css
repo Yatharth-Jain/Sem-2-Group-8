@@ -1,52 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+
 body {
-    margin: 0;
-    background: #ecf0f1;
-    }
+  /* height: 97.8vh; */
+  background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
+  background-size: 800% 800%;
+  -webkit-animation: bg_grad 47s ease infinite;
+  -moz-animation: bg_grad 47s ease infinite;
+  animation: bg_grad 47s ease infinite;
+  margin: 0;
+  /* background: #ecf0f1; */
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  display: flex;
+}
+
+@-webkit-keyframes bg_grad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes bg_grad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bg_grad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+nav {
+  background-color: rgb(152, 148, 148);
+  color: white;
+  position: fixed;
+  height: 100%;
+  width: 30vh;
+  border-right: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top {
+  width: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  width: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul li {
+  width: 25vh;
+  padding: 2vh 0vh;
+  margin-left: -6vh;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+li:hover {
+  cursor: pointer;
+  color: white;
+  border-radius: 12px;
+  background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
+  background-size: 800% 800%;
+  -webkit-animation: bg_grad 47s ease infinite;
+  -moz-animation: bg_grad 47s ease infinite;
+  animation: bg_grad 47s ease infinite;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  width: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a:hover {
+  color: white;
+}
+
+main {
+  width: 180vh;
+  height: 100vh;
+  margin-left: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
 .cont1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-.tbody {
-    display: flex;
-    /* align-items: center;
-    justify-content: center; */
-    flex-wrap: wrap;
-    flex-direction: row;
-}
-.cont {
-    padding: 20px; padding-right: 48px;
-    margin: 10%;
-    margin-left: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: aliceblue;
-}
-.submitid {
-    /* border-radius: 40%;
-    background: rgb(57, 138, 134);  */
-    background-color: #21ca46;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-decoration: none;
-    margin: 25px 4px;
-    cursor: pointer;
+  display: flex;
+  width: 30vh;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 17px;
+  padding: 30px;
 }
 
 .drop {
-    color: rgb(105, 105, 105);
-    /* border: 2px solid rgb(104, 82, 82); */
-    margin: 9px;
-    padding: 4px;
-    width: 110%;
-    background-color: aliceblue;
-    /* border-radius: 9.6%; */
-    /* border: 2px solid rgb(142, 74, 206); */
-    box-shadow: 0px 16px 16px rgb(0 0 0 / 9%);
-    border-radius: 4px;
+  color: rgb(105, 105, 105);
+  background-color: aliceblue;
+  box-shadow: 0px 16px 16px rgb(0 0 0 / 9%);
+  border-radius: 4px;
+  margin: 10px 0px;
+  height: 6vh;
+}
+
+.submitid {
+  /* border-radius: 40%;
+    background: rgb(57, 138, 134);  */
+  background-color: #21ca46;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 25px 4px;
+  cursor: pointer;
+}
+
+.prof {
+  display: flex;
+  width: 30vh;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 17px;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.lorem {
+  margin-top: 25px;
+}
+
+.im {
+  width: 25vh;
+}
+
+#hov2 {
+  position: absolute;
+  display: none;
+  z-index: 100;
+  width: 30vh;
+  /* flex-direction: column; */
+  border: 2px solid black;
+  border-radius: 17px;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
 }

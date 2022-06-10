@@ -65,7 +65,10 @@
             {% for ass in asss %}
             <div class="cells" id="cell1">
               <h4>{{ass.assi}}</h4>
-              <button name="subtype" value="/removeassi/{{curl}}/{{ass.id}}"><img class="close" src="/static/images/icon-close-menu.svg" alt="" style="margin-left: 20px; margin-top: -5px" width="20px"/></button>
+              <div class="btndiv">
+                <button><img class="close" src="/static/images/edit-button-svgrepo-com.svg" alt="" style="margin-left: 20px; margin-top: -5px" width="20px"/></button>
+                <button name="subtype" value="/removeassi/{{curl}}/{{ass.id}}"><img class="close" src="/static/images/icon-close-menu.svg" alt="" style="margin-left: 20px; margin-top: -5px" width="20px"/></button>
+              </div>
             </div>
             {% endfor %}
             <div class="cells" style="margin-left: auto">
@@ -81,7 +84,7 @@
             </div>
             {% for ass in asss %} 
             {% set mid = ass.assi+'-'+student.sroll|string %}
-            <input class="cells" type="text" name="{{mid}}" value="{{marksdict[mid]}}"/>
+            <input class="cells" type="number" name="{{mid}}" value="{{marksdict[mid]}}" max="{{ass.maxnum}}"/>
             {% endfor %}
             <div class="cells">
               <h5>{{total[student.sroll]}}</h5>

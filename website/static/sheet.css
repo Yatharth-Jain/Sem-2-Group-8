@@ -248,3 +248,10 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+.btndiv{
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+}

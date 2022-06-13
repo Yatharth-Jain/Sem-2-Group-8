@@ -100,8 +100,11 @@ def sheet(year, crs, sub, sem):
             mark = Marks.query.filter_by(
                 student=student.sid, subject=sub, sem=sem, assi=ass.id).first()
             if mark:
-                t += mark.mark
-                marksdict[f'{ass.assi}-{student.sroll}'] = mark.mark
+                if mark.mark!=-1:
+                    t += mark.mark
+                    marksdict[f'{ass.assi}-{student.sroll}'] = mark.mark
+                else:
+                    marksdict[f'{ass.assi}-{student.sroll}']='A'
             else:
                 mark = Marks(student=student.sid, subject=sub, sem=sem,
                              assi=ass.id, mark=0, mid=f'{ass.assi}-{student.sroll}')
@@ -131,11 +134,16 @@ def sheet(year, crs, sub, sem):
                 for ass in asss:
                     mark = Marks.query.filter_by(
                         student=student.sid, subject=sub, sem=sem, assi=ass.id).first()
-                    total[student.sroll] = total[student.sroll]-mark.mark
+                    if mark.mark!=-1:
+                        total[student.sroll] = total[student.sroll]-mark.mark
                     m = request.form[f'{ass.assi}-{student.sroll}']
-                    total[student.sroll] += int(m)
-                    marksdict[mark.mid] = int(m)
-                    mark.mark = m
+                    if m!="A":
+                        total[student.sroll] += int(m)
+                        marksdict[mark.mid] = int(m)
+                        mark.mark = m
+                    else:
+                        marksdict[mark.mid]='A'
+                        mark.mark=-1
                     db.session.commit()
             if 'removeassi' in subtpye:
                 return redirect(subtpye)

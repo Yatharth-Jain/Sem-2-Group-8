@@ -131,6 +131,7 @@ main {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  flex-wrap: wrap;
 }
 
 .cont1 {
@@ -140,6 +141,7 @@ main {
   border: 2px solid black;
   border-radius: 17px;
   padding: 30px;
+  background-color: rgb(235, 233, 243);
 }
 
 .drop {
@@ -172,6 +174,9 @@ main {
   padding: 30px;
   justify-content: center;
   align-items: center;
+  background-color: rgb(235, 233, 243);
+  color: black;
+  font-weight: bolder;
 }
 
 .lorem {

@@ -32,7 +32,7 @@ nav {
   color: rgb(200, 190, 190);
   position: fixed;
   height: 100%;
-  width: 30vh;
+  width: 18vw;
   border-right: 2px solid black;
   display: flex;
   flex-direction: column;

@@ -9,38 +9,76 @@
   </head>
 
   <body>
-    <div id="card">
-      <div id="card-title">
-        <h2>{{user.upper()}} LOGIN</h2>
-        <div class="underline-title"></div>
+    <div class="waveWrapper waveAnimation">
+      <div class="waveWrapperInner bgTop">
+        <div
+          class="wave waveTop"
+          style="
+            background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png');
+          "
+        ></div>
       </div>
-      <form method="post" class="form">
-        <label for="user-email">
-          <!-- &nbsp; -->
-        </label>
-        <input
-          id="user-email"
-          class="form-content"
-          type="email"
-          name="email"
-          autocomplete="on"
-          placeholder="Email"
-          required
-        />
-        <label for="user-password"></label>
-        <input
-          id="user-password"
-          class="form-content"
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
-        <a href="#">
-          <legend id="forgot-pass">Forgot password?</legend>
-        </a>
-        <input id="submit-btn" type="submit" name="submit" value="LOGIN" />
-      </form>
+      <div class="waveWrapperInner bgMiddle">
+        <div
+          class="wave waveMiddle"
+          style="
+            background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png');
+          "
+        ></div>
+      </div>
+      <div class="waveWrapperInner bgBottom">
+        <div
+          class="wave waveBottom"
+          style="
+            background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png');
+          "
+        ></div>
+      </div>
+    </div>
+    <div class="formmain">
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <div class="title">
+            <h1>{{user.upper()}} LOGIN</h1>
+            <hr />
+          </div>
+          <!-- Icon -->
+          <div class="fadeIn first"></div>
+
+          <!-- Login Form -->
+          <form method="post">
+            <input
+              type="text"
+              id="login"
+              class="fadeIn second"
+              name="email"
+              autocomplete="on"
+              placeholder="Email"
+              required
+            />
+            <input
+              id="password"
+              class="fadeIn third"
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <input
+              type="submit"
+              class="fadeIn fourth"
+              name="submit"
+              value="LOGIN"
+            />
+          </form>
+
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

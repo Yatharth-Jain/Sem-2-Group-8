@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student-Sheet</title>
-    <!-- CSS only -->
-    <link rel="stylesheet" href="/static/sheet.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-  </head>
 
-  <body>
-    <!-- {% set left = 0 %} {% set right = 5 %} -->
-    <nav>
-      <div class="top">
-        <ul style="margin-top: 20px">
-          <li>Assignments</li>
-          <li>Mid Semester</li>
-          <li>End Semester</li>
-        </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student-Sheet</title>
+  <!-- CSS only -->
+  <link rel="stylesheet" href="/static/sheet.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+</head>
+
+<body>
+  <!-- {% set left = 0 %} {% set right = 5 %} -->
+  <nav>
+    <div class="top">
+      <ul style="margin-top: 20px">
+        <li>Assignments</li>
+        <li>Mid Semester</li>
+        <li>End Semester</li>
+      </ul>
+    </div>
+    <div class="bottom top">
+      <ul style="margin-bottom: 20px">
+        <li>Student profiles</li>
+        <li>Logout</li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <div class="aux">
+      <div class="icon2">
+        <div class="arrow2" id="left"></div>
       </div>
-      <div class="bottom top">
-        <ul style="margin-bottom: 20px">
-          <li>Student profiles</li>
-          <li>Logout</li>
-        </ul>
+      <div>
+        <img id="add_ass" class="add" src="/static/images/istockphoto-1365197728-170667a-removebg-preview.png"
+          width="150px" alt="" />
       </div>
-    </nav>
-    <main>
-      <div class="aux">
-        <div class="icon2">
-          <div class="arrow2" id="left"></div>
-        </div>
-        <div>
-          <img id="add_ass" class="add" src="/static/images/istockphoto-1365197728-170667a-removebg-preview.png" width="150px" alt="" />
-        </div>
-        <div class="popup">
-          <form class="cont1" method="post" name="addassi">
-            <label for="assignment">Assignment name</label>
-            <input type="text" name="newassi" id="" class="drop" placeholder="Assignment name"/>
-            <label for="assignment">Maximum Number</label>
-            <input type="number" name="maxnum" id="" class="drop" placeholder="Maximum Number" />
-            <button name="subtype" value="addassi" value="Submit" class="btn btn-info" ></buton>
-          </form>
-        </div>
-        <div class="icon">
-          <div class="arrow" id="right"></div>
-        </div>
+      <div class="popup">
+        <form class="cont1" method="post" name="addassi">
+          <label for="assignment">Assignment name</label>
+          <input type="text" name="newassi" id="" class="drop" placeholder="Assignment name" />
+          <label for="assignment">Maximum Number</label>
+          <input type="number" name="maxnum" id="" class="drop" placeholder="Maximum Number" />
+          <button name="subtype" value="addassi" value="Submit" class="btn btn-info"></buton>
+        </form>
       </div>
-      <form action="" method="post">
-        <div class="mainbody">
+      <div class="icon">
+        <div class="arrow" id="right"></div>
+      </div>
+    </div>
+    <form action="" method="post">
+      <div class="mainbody2">
+        <div class="div1">
           <div class="rows">
             <div class="cells">
               <h2>Roll No.</h2>
@@ -62,71 +61,140 @@
             <div class="cells">
               <h2>Names</h2>
             </div>
-            {% for ass in asss %}
-            <div class="cells" id="cell1">
-              <h4>{{ass.assi}}</h4>
-              <div class="btndiv">
-                <button><img class="close" src="/static/images/edit-button-svgrepo-com.svg" alt="" style="margin-left: 20px; margin-top: -5px" width="20px"/></button>
-                <button name="subtype" value="/removeassi/{{curl}}/{{ass.id}}"><img class="close" src="/static/images/icon-close-menu.svg" alt="" style="margin-left: 20px; margin-top: -5px" width="20px"/></button>
-              </div>
-            </div>
-            {% endfor %}
-            <div class="cells" style="margin-left: auto">
-              <h4>TOTAL</h4>
-            </div>
           </div>
 
           {% for student in students %}
-          <div class="rows" name="{{ass}}">
-            <div class="cells">{{student.sroll}}</div>
+          <div class="rows">
             <div class="cells">
-              <h4>{{student.sfname}} {{student.slname}}</h4>
+              {{student.sroll}}
             </div>
-            {% for ass in asss %} 
-            {% set mid = ass.assi+'-'+student.sroll|string %}
-            <input class="cells" type="number" name="{{mid}}" value="{{marksdict[mid]}}" max="{{ass.maxnum}}"/>
+            <div class="cells">
+              {{student.sfname}} {{student.slname}}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="div2">
+          <div class="div2i">
+            <div class="rows">
+              {% for ass in asss %}
+              <div class="cells" id="cell1">
+                <h4>{{ass.assi}}</h4>
+                <div class="btndiv">
+                  <button><img class="close" src="/static/images/edit-button-svgrepo-com.svg" alt=""
+                      style="margin-left: 20px; margin-top: -5px" width="20px" /></button>
+                  <button name="subtype" value="/removeassi/{{curl}}/{{ass.id}}"><img class="close"
+                      src="/static/images/icon-close-menu.svg" alt="" style="margin-left: 20px; margin-top: -5px"
+                      width="20px" /></button>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            {% for student in students %}
+            <div class="rows" name="{{ass}}">
+              {% for ass in asss %}
+              {% set mid = ass.assi+'-'+student.sroll|string %}
+              <input class="cells" type="number" name="{{mid}}" value="{{marksdict[mid]}}" max="{{ass.maxnum}}" />
+              {% endfor %}
+            </div>
             {% endfor %}
+          </div>
+        </div>
+
+        <div class="div3">
+          <div class="cells" style="margin-left: auto">
+            <h4>TOTAL</h4>
+          </div>
+          {% for student in students %}
+
+          <div class="rows">
             <div class="cells">
               <h5>{{total[student.sroll]}}</h5>
             </div>
           </div>
           {% endfor %}
-          <button type="submit" name="subtype" value="" style="border: 0px;" class="btn btn-success">Submit</button>
         </div>
-      </form>
-    </main>
-    <script>
-      const $icon = document.querySelector(".icon");
-      const $arrow = document.querySelector(".arrow");
-      $icon.onclick = () => {
-        $arrow.animate([{ left: "0" }, { left: "10px" }, { left: "0" }], {
-          duration: 300,
-          iterations: 2,
-        });
-      };
-      const $icon2 = document.querySelector(".icon2");
-      const $arrow2 = document.querySelector(".arrow2");
-      $icon2.onclick = () => {
-        $arrow2.animate([{ left: "0" }, { left: "-10px" }, { left: "0" }], {
-          duration: 300,
-          iterations: 2,
-        });
-      };
-      const left = document.querySelector(".left");
-      const right = document.querySelector(".right");
-      const cell_block = document.querySelector("#cell2");
-      const cells = document.querySelector("#cell1");
-      // right.addEventListener("onclick", () => {
-      //   console.log("lk");
-      //   cells.style.display = "none";
-      //   cell_block.style.display = "flex";
-      // });
-      const ass = document.getElementById("add_ass");
-      const pop = document.querySelector(".cont1");
-      ass.onclick = () => {
-        pop.style.display = "flex";
-        pop.style.flexDirection = "column";
-      };
-    </script>
-  </body>
+      </div>
+      <button type="submit" name="subtype" value="" style="border: 0px;" class="btn btn-success">Submit</button>
+      <!-- <div class="mainbody">
+        <div class="rows">
+          <div class="cells">
+            <h2>Roll No.</h2>
+          </div>
+          <div class="cells">
+            <h2>Names</h2>
+          </div>
+          {% for ass in asss %}
+          <div class="cells" id="cell1">
+            <h4>{{ass.assi}}</h4>
+            <div class="btndiv">
+              <button><img class="close" src="/static/images/edit-button-svgrepo-com.svg" alt=""
+                  style="margin-left: 20px; margin-top: -5px" width="20px" /></button>
+              <button name="subtype" value="/removeassi/{{curl}}/{{ass.id}}"><img class="close"
+                  src="/static/images/icon-close-menu.svg" alt="" style="margin-left: 20px; margin-top: -5px"
+                  width="20px" /></button>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="cells" style="margin-left: auto">
+            <h4>TOTAL</h4>
+          </div>
+
+        </div>
+
+        {% for student in students %}
+        <div class="rows" name="{{ass}}">
+          <div class="cells">{{student.sroll}}</div>
+          <div class="cells">
+            <h4>{{student.sfname}} {{student.slname}}</h4>
+          </div>
+          {% for ass in asss %}
+          {% set mid = ass.assi+'-'+student.sroll|string %}
+          <input class="cells" type="number" name="{{mid}}" value="{{marksdict[mid]}}" max="{{ass.maxnum}}" />
+          {% endfor %}
+          <div class="cells">
+            <h5>{{total[student.sroll]}}</h5>
+          </div>
+        </div>
+        {% endfor %}
+        <button type="submit" name="subtype" value="" style="border: 0px;" class="btn btn-success">Submit</button>
+      </div> -->
+    </form>
+  </main>
+  <script>
+    const $icon = document.querySelector(".icon");
+    const $arrow = document.querySelector(".arrow");
+    $icon.onclick = () => {
+      $arrow.animate([{ left: "0" }, { left: "10px" }, { left: "0" }], {
+        duration: 300,
+        iterations: 2,
+      });
+    };
+    const $icon2 = document.querySelector(".icon2");
+    const $arrow2 = document.querySelector(".arrow2");
+    $icon2.onclick = () => {
+      $arrow2.animate([{ left: "0" }, { left: "-10px" }, { left: "0" }], {
+        duration: 300,
+        iterations: 2,
+      });
+    };
+    const left = document.querySelector(".left");
+    const right = document.querySelector(".right");
+    const cell_block = document.querySelector("#cell2");
+    const cells = document.querySelector("#cell1");
+    // right.addEventListener("onclick", () => {
+    //   console.log("lk");
+    //   cells.style.display = "none";
+    //   cell_block.style.display = "flex";
+    // });
+    const ass = document.getElementById("add_ass");
+    const pop = document.querySelector(".cont1");
+    ass.onclick = () => {
+      pop.style.display = "flex";
+      pop.style.flexDirection = "column";
+    };
+  </script>
+</body>
+
 </html>

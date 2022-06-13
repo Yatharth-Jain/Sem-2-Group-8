@@ -1,6 +1,5 @@
 from flask_login import current_user
 from flask import flash, redirect
-from flask_login import current_user
 
 def loginchecker(role="None"):
     def inner(f):

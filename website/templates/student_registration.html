@@ -1,94 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="../static/student_registration.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Registration</title>
-  <link rel="stylesheet" href="../static/student_registration.css" />
-</head>
-
-<body>
-  <div class="container">
-    <div class="left">
-      <img class="img1" src="../static/images/logo.png" alt="" />
-      <img class="img2" src="../static/images/student2.png" alt="" />
-      <p class="wlc">Welcome, dear student</p>
-    </div>
-    <div class="right">
-      <div class="options">
-        <a href="teacher_registration.html">
-          <div class="op1">Faculty</div>
+  <body>
+    <div class="container">
+      <div class="left">
+        <a href="admin-home">
+          <img id="back1" class="img1" src="../static/images/back.png" alt="" />
         </a>
-        <a href="student_registration.html">
-          <div class="op1">Student</div>
-        </a>
+        <div id="back2" class="txt3">Go back</div>
+        <img class="img2" src="../static/images/student2.png" alt="" />
+        <p class="wlc">Welcome, dear student</p>
       </div>
-      <form name="myform" onsubmit="" method="post">
-        <div class="reg">
-          <img class="img3" src="../static/images/user1.png" alt="" />
-          <p style="margin-left: 10px">Register</p>
+      <div class="right">
+        <div class="options">
+          <a href="teacher_registration">
+            <div class="op1">Faculty</div>
+          </a>
+          <a href="student_registration">
+            <div class="op1">Student</div>
+          </a>
         </div>
-        <div class="main_form">
-          <div class="name">
-            <input type="text" name="sfname" placeholder="First Name" />
-            <input type="text" name="slname" placeholder="Last Name" />
+        <form name="myform" onsubmit="" method="post">
+          <div class="reg">
+            <img class="img3" src="../static/images/user1.png" alt="" />
+            <p style="margin-left: 10px">Register</p>
           </div>
-          <div class="dropdown">
-            {{ form1.csrf_token }}
-            <!-- <label for="Year">Select Year</label> -->
-            {{ form1.year(class='drop')}}
+          <div class="main_form">
+            <div class="name">
+              <input type="text" name="sfname" placeholder="First Name" />
+              <input type="text" name="slname" placeholder="Last Name" />
+            </div>
+            <div class="dropdown">
+              {{ form1.csrf_token }}
+              <!-- <label for="Year">Select Year</label> -->
+              {{ form1.year(class='drop')}}
+            </div>
+            <div class="dropdown">
+              <!-- <label for="Course">Select Course</label> -->
+              {{ form1.course(class='drop')}}
+            </div>
+            <div class="info">
+              <input type="date" name="sdob" placeholder="Date of Birth" />
+            </div>
           </div>
-          <div class="dropdown">  
-            <!-- <label for="Course">Select Course</label> -->
-            {{ form1.course(class='drop')}}
-          </div>
-          <div class="info">
-            <input type="date" name="sdob" placeholder="Date of Birth" />
-          </div>
-        </div>
-        <!-- <div class="btn">Register</div> -->
-        <button type="submit" class="btn">Register</button>
-      </form>
+          <!-- <div class="btn">Register</div> -->
+          <button type="submit" class="btn">Register</button>
+        </form>
+      </div>
     </div>
-  </div>
-  <script>
-    let year_sel=document.getElementById('year');
-    let temp='<option value="" disabled selected>Select The Year</option>'+year_sel.innerHTML;
-    year_sel.innerHTML=temp;
-    let course_sel=document.getElementById('course');
-    course_sel.innerHTML='<option value="" disabled selected>Select The Course</option>'
+    <script>
+      let year_sel = document.getElementById("year");
+      let temp =
+        '<option value="" disabled selected>Select The Year</option>' +
+        year_sel.innerHTML;
+      year_sel.innerHTML = temp;
+      let course_sel = document.getElementById("course");
+      course_sel.innerHTML =
+        '<option value="" disabled selected>Select The Course</option>';
 
-    year_sel.onchange=function(){
-        year=year_sel.value;
+      year_sel.onchange = function () {
+        year = year_sel.value;
         // alert(year);
-        fetch('form/year/'+year).then(function(response){
-            response.json().then(function(data){
-                let options='<option value="" disabled selected>Select The Course</option>';
-                // console.table(data);  
-                for(let course of data.courses){
-                    options+='<option value="'+course.id+'">'+course.course+'</option>';
-                }
-                course_sel.innerHTML=options;
-            })
+        fetch("form/year/" + year).then(function (response) {
+          response.json().then(function (data) {
+            let options =
+              '<option value="" disabled selected>Select The Course</option>';
+            // console.table(data);
+            for (let course of data.courses) {
+              options +=
+                '<option value="' +
+                course.id +
+                '">' +
+                course.course +
+                "</option>";
+            }
+            course_sel.innerHTML = options;
+          });
         });
-    }
-    course_sel.onchange=function(){
-        course=course_sel.value;
+      };
+      course_sel.onchange = function () {
+        course = course_sel.value;
         // alert(course);
-        fetch('form/course/'+course).then(function(response){
-            response.json().then(function(data){
-                let options='<option value="" disabled selected>Select the Subject</option>';
-                // console.table(data);  
-                for(let subject of data.subjects){
-                    options+='<option value="'+subject.id+'">'+subject.subject+'</option>';
-                }
-                subject_sel.innerHTML=options;
-            })
+        fetch("form/course/" + course).then(function (response) {
+          response.json().then(function (data) {
+            let options =
+              '<option value="" disabled selected>Select the Subject</option>';
+            // console.table(data);
+            for (let subject of data.subjects) {
+              options +=
+                '<option value="' +
+                subject.id +
+                '">' +
+                subject.subject +
+                "</option>";
+            }
+            subject_sel.innerHTML = options;
+          });
         });
-    }
-  </script>
-</body>
-
+      };
+      const img = document.getElementById("back1");
+      const back2 = document.getElementById("back2");
+      img.addEventListener("mouseover", () => {
+        let st = back2.style;
+        st.display = "block";
+      });
+      img.addEventListener("mouseout", () => {
+        let st = back2.style;
+        st.display = "none";
+      });
+    </script>
+  </body>
 </html>

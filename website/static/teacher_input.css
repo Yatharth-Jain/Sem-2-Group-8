@@ -51,8 +51,8 @@ body {
 }
 
 nav {
-  background-color: rgb(152, 148, 148);
-  color: white;
+  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+  color: rgb(200, 190, 190);
   position: fixed;
   height: 100%;
   width: 30vh;
@@ -94,7 +94,6 @@ li:hover {
   cursor: pointer;
   color: white;
   border-radius: 12px;
-  background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
   background-size: 800% 800%;
   -webkit-animation: bg_grad 47s ease infinite;
   -moz-animation: bg_grad 47s ease infinite;
@@ -121,6 +120,17 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  /* height: 97.8vh; */
+  background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
+  background-size: 800% 800%;
+  -webkit-animation: bg_grad 47s ease infinite;
+  -moz-animation: bg_grad 47s ease infinite;
+  animation: bg_grad 47s ease infinite;
+  background-image: url("https://miro.medium.com/max/1400/1*dP81IJq-tGFxy1rIK3RYsg.png");
+  /* background-repeat: none; */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .cont1 {

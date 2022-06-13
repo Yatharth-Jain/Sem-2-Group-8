@@ -8,6 +8,11 @@ main {
   -webkit-animation: bg_grad 47s ease infinite;
   -moz-animation: bg_grad 47s ease infinite;
   animation: bg_grad 47s ease infinite;
+  background-image: url("https://miro.medium.com/max/1400/1*dP81IJq-tGFxy1rIK3RYsg.png");
+  /* background-repeat: none; */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 @-webkit-keyframes bg_grad {
@@ -55,12 +60,12 @@ body {
   display: flex;
   color: rgb(205, 58, 58);
   font-family: "Roboto Mono", monospace;
-  margin:0;
+  margin: 0;
 }
 
 nav {
-  background-color: rgb(152, 148, 148);
-  color: white;
+  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+  color: rgb(200, 190, 190);
   position: fixed;
   height: 100%;
   width: 30vh;
@@ -100,14 +105,13 @@ ul li {
 
 li:hover {
   cursor: pointer;
-  background-color: rgb(117, 118, 119);
   color: white;
   border-radius: 12px;
 }
 
 a {
   text-decoration: none;
-  color: gray;
+  color: rgb(200, 190, 190);
   width: 25vh;
   display: flex;
   justify-content: center;
@@ -324,7 +328,7 @@ main {
   justify-content: center;
 }
 
-.btndiv{
+.btndiv {
   border: 1px solid red;
   display: flex;
   flex-direction: column;
@@ -346,10 +350,10 @@ main {
   height: fit-content;
   width: 60%;
   /* width: fit-content; */
-  
+
   overflow-x: auto;
 }
-.div2i{
+.div2i {
   height: auto;
   /* margin: 30px; */
   /* background-color: rgb(223, 126, 126); */

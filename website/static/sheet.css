@@ -4,6 +4,7 @@ main {
   /* height: 97.8vh; */
   background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
   background-size: 800% 800%;
+  min-height: calc(100vh);
   -webkit-animation: bg_grad 47s ease infinite;
   -moz-animation: bg_grad 47s ease infinite;
   animation: bg_grad 47s ease infinite;
@@ -126,6 +127,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: auto;
 }
 
 .mainbody {
@@ -147,6 +149,8 @@ main {
 
 .rows {
   /* width: 150vh; */
+  /* border: 1px solid grey; */
+  width: auto;
   display: flex;
 }
 
@@ -316,27 +320,33 @@ main {
 }
 
 .div1 {
-  border: 2px solid red;
-  min-height: calc(100vh - 2em - 4px);
-  width: 20%;
+  /* border: 2px solid red; */
+  height: fit-content;
+  /* width: 25%; */
+  width: fit-content;
+  /* display: flex;
+  flex-direction: row; */
 }
 
 .div2 {
-  border: 2px solid green;
-  min-height: calc(100vh - 2em - 4px);
+  /* border: 2px solid green; */
+  /* min-height: calc(100vh - 2em - 4px); */
+  height: fit-content;
   width: 60%;
+  /* width: fit-content; */
+  
   overflow-x: auto;
 }
 .div2i{
   height: auto;
-  width: 200%;
-  margin: 30px;
-  background-color: rgb(223, 126, 126);
-  min-height: calc(100vh - 2em - 4px);
+  /* margin: 30px; */
+  /* background-color: rgb(223, 126, 126); */
+  width: fit-content;
   flex-direction: row;
 }
 .div3 {
-  border: 2px solid blue;
-  min-height: calc(100vh - 2em - 4px);
-  width: 20%;
+  /* border: 2px solid blue; */
+  width: fit-content;
+  height: fit-content;
+  /* width: 15%; */
 }

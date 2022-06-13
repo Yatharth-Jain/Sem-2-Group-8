@@ -117,49 +117,6 @@
         </div>
       </div>
       <button type="submit" name="subtype" value="" style="border: 0px;" class="btn btn-success">Submit</button>
-      <!-- <div class="mainbody">
-        <div class="rows">
-          <div class="cells">
-            <h2>Roll No.</h2>
-          </div>
-          <div class="cells">
-            <h2>Names</h2>
-          </div>
-          {% for ass in asss %}
-          <div class="cells" id="cell1">
-            <h4>{{ass.assi}}</h4>
-            <div class="btndiv">
-              <button><img class="close" src="/static/images/edit-button-svgrepo-com.svg" alt=""
-                  style="margin-left: 20px; margin-top: -5px" width="20px" /></button>
-              <button name="subtype" value="/removeassi/{{curl}}/{{ass.id}}"><img class="close"
-                  src="/static/images/icon-close-menu.svg" alt="" style="margin-left: 20px; margin-top: -5px"
-                  width="20px" /></button>
-            </div>
-          </div>
-          {% endfor %}
-          <div class="cells" style="margin-left: auto">
-            <h4>TOTAL</h4>
-          </div>
-
-        </div>
-
-        {% for student in students %}
-        <div class="rows" name="{{ass}}">
-          <div class="cells">{{student.sroll}}</div>
-          <div class="cells">
-            <h4>{{student.sfname}} {{student.slname}}</h4>
-          </div>
-          {% for ass in asss %}
-          {% set mid = ass.assi+'-'+student.sroll|string %}
-          <input class="cells" type="number" name="{{mid}}" value="{{marksdict[mid]}}" max="{{ass.maxnum}}" />
-          {% endfor %}
-          <div class="cells">
-            <h5>{{total[student.sroll]}}</h5>
-          </div>
-        </div>
-        {% endfor %}
-        <button type="submit" name="subtype" value="" style="border: 0px;" class="btn btn-success">Submit</button>
-      </div> -->
     </form>
   </main>
   <script>

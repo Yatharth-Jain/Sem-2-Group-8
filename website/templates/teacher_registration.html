@@ -10,14 +10,17 @@
   <body>
     <div class="container">
       <div class="left">
-        <img class="img1" src="../static/images/logo.png" alt="" />
+        <a href="admin-home">
+          <img id="back1" class="img1" src="../static/images/back.png" alt="" />
+        </a>
+        <div id="back2" class="txt3">Go back</div>
         <img class="img2" src="../static/images/teacher1.png" alt="Faculty" />
         <p class="wlc">Welcome, dear faculty</p>
       </div>
       <div class="right">
         <div class="options">
-          <a href="teacher_registration.html"><div class="op1">Faculty</div></a>
-          <a href="student_registration.html"><div class="op1">Student</div></a>
+          <a href="teacher_registration"><div class="op1">Faculty</div></a>
+          <a href="student_registration"><div class="op1">Student</div></a>
         </div>
         <form name="myform" onsubmit="" method="post">
           <div class="reg">
@@ -46,5 +49,17 @@
         </form>
       </div>
     </div>
+    <script>
+      const img = document.getElementById("back1");
+      const back2 = document.getElementById("back2");
+      img.addEventListener("mouseover", () => {
+        let st = back2.style;
+        st.display = "block";
+      });
+      img.addEventListener("mouseout", () => {
+        let st = back2.style;
+        st.display = "none";
+      });
+    </script>
   </body>
 </html>

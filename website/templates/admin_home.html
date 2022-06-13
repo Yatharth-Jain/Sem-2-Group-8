@@ -135,15 +135,15 @@
       const drp1 = document.getElementById("drop");
       let img = document.getElementById("img1");
       // console.log(drp);
-      drp1.addEventListener("click", () => {
+      drp1.addEventListener("mouseover", () => {
         let st = drp.style;
-        if (st.display == "none") {
-          st.display = "block";
-          img.src = "../static/images/icon-arrow-up.svg";
-        } else {
-          st.display = "none";
-          img.src = "../static/images/icon-arrow-down.svg";
-        }
+        st.display = "block";
+        img.src = "../static/images/icon-arrow-up.svg";
+      });
+      drp1.addEventListener("mouseout", () => {
+        let st = drp.style;
+        st.display = "none";
+        img.src = "../static/images/icon-arrow-down.svg";
       });
     </script>
     <script

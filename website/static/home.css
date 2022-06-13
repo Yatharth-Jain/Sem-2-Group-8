@@ -1,47 +1,88 @@
-body {
-  height: 97.8vh;
-  background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
-  background-size: 800% 800%;
-  -webkit-animation: bg_grad 47s ease infinite;
-  -moz-animation: bg_grad 47s ease infinite;
-  animation: bg_grad 47s ease infinite;
+@keyframes move_wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.55);
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
 }
 
-@-webkit-keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.waveWrapper {
+  z-index: -100;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
 }
-@-moz-keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+
+.waveWrapperInner {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  bottom: -1px;
+  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
 }
-@keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+
+.bgTop {
+  z-index: 15;
+  opacity: 0.5;
+}
+
+.bgMiddle {
+  z-index: 10;
+  opacity: 0.75;
+}
+
+.bgBottom {
+  z-index: 5;
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat no-repeat;
+  background-position: 0 bottom;
+  transform-origin: center bottom;
+}
+
+.waveTop {
+  background-size: 50% 100px;
+}
+
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+  -webkit-animation: move-wave 3s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.waveMiddle {
+  background-size: 50% 120px;
+}
+
+.waveAnimation .waveMiddle {
+  animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+  background-size: 50% 100px;
+}
+
+.waveAnimation .waveBottom {
+  animation: move_wave 15s linear infinite;
 }
 
 .container {
+  margin-top: -6vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,18 +91,28 @@ body {
 }
 
 .circle {
+  background-color: rgb(235, 233, 243);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0px 6vh;
-  height: 45vh;
+  height: 60vh;
   width: 50vh;
+  border: 1px solid rgb(55, 53, 53);
+  border-radius: 15px;
+  box-shadow: 10px 10px 28px black;
+}
+
+.circle:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+  box-shadow: 20px 30px 48px rgb(44, 42, 42);
 }
 
 .icon {
-  height: 255px;
-  width: 255px;
+  height: 215px;
+  width: 205px;
   border-bottom: 1px solid rgb(68, 67, 67);
   padding: 20px 20px 30px 20px;
 }
@@ -71,6 +122,8 @@ body {
 }
 
 .btn {
+  /* background-color: rgb(135, 130, 130); */
+  background-color: #b844a9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,12 +137,13 @@ body {
 }
 
 .btn:hover {
-  box-shadow: 10px 10px 28px #9c2ccf;
+  box-shadow: 10px 10px 28px #ad40df;
   cursor: pointer;
 }
 
 a {
   text-decoration: none;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;

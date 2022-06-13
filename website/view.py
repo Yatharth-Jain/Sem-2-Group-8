@@ -55,15 +55,6 @@ def classselect():
         crs = Courses.query.filter_by(id=form1.course.data).first()
         sub = Subjects.query.filter_by(id=form1.subject.data).first()
         sem = Sems.query.filter_by(id=form1.sem.data).first()
-        assi = request.form['assignment']
-        o_ass = Assignments.query.filter_by(
-            sem=sem.id, assi=assi.capitalize()).first()
-        if o_ass or assi == '':
-            pass
-        else:
-            n_ass = Assignments(assi=assi.capitalize(), sem=sem.id)
-            db.session.add(n_ass)
-            db.session.commit()
         # return f"<h1>Year:{form1.year.data} Course:{crs.course} Subject:{sub.subject} Sem:{sem.sem}<h1>"
         return redirect(f'/sheet/{form1.year.data}/{crs.id}/{sub.id}/{sem.id}')
     return render_template("teacher_input.html", form1=form1)
@@ -97,7 +88,7 @@ def year(method, val):
 
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>', methods=['GET', 'POST'])
 def sheet(year, crs, sub, sem):
-    curl=f'{year}/{crs}/{sub}/{sem}'
+    curl = f'{year}/{crs}/{sub}/{sem}'
     asss = [ass for ass in Assignments.query.filter_by(sem=sem).all()]
     # print(asss)
     students = [std for std in Student.query.filter_by(sbranch=crs).all()]
@@ -120,18 +111,20 @@ def sheet(year, crs, sub, sem):
         total[student.sroll] = t
 
     if request.method == 'POST':
-        subtpye=request.form['subtype']
-        if subtpye=='addassi':
-            new_ass=request.form['newassi']
-            maxnum=request.form['maxnum']
-            o_ass = Assignments.query.filter_by(sem=sem, assi=new_ass.capitalize()).first()
+        subtpye = request.form['subtype']
+        if subtpye == 'addassi':
+            new_ass = request.form['newassi']
+            maxnum = request.form['maxnum']
+            o_ass = Assignments.query.filter_by(
+                sem=sem, assi=new_ass.capitalize()).first()
             if o_ass or new_ass == '':
                 pass
             else:
-                n_ass = Assignments(assi=new_ass.capitalize(),maxnum=maxnum, sem=sem)
+                n_ass = Assignments(
+                    assi=new_ass.capitalize(), maxnum=maxnum, sem=sem)
                 db.session.add(n_ass)
                 db.session.commit()
-            return redirect(url_for(f'view.sheet',year=year, crs=crs, sub=sub, sem=sem))
+            return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem))
 
         else:
             for student in students:
@@ -147,17 +140,17 @@ def sheet(year, crs, sub, sem):
             if 'removeassi' in subtpye:
                 return redirect(subtpye)
 
-    return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict,curl=curl)
+    return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict, curl=curl)
 
 
 @view.route('/removeassi/<year>/<crs>/<sub>/<sem>/<int:aid>')
-def delassi(year, crs, sub, sem,aid):
-    curl=f'{year}/{crs}/{sub}/{sem}'
-    marks=Marks.query.filter_by(assi=aid).all()
+def delassi(year, crs, sub, sem, aid):
+    curl = f'{year}/{crs}/{sub}/{sem}'
+    marks = Marks.query.filter_by(assi=aid).all()
     for mark in marks:
         db.session.delete(mark)
         db.session.commit()
-    assi=Assignments.query.filter_by(id=aid).first()
+    assi = Assignments.query.filter_by(id=aid).first()
     db.session.delete(assi)
     db.session.commit()
-    return redirect(url_for(f'view.sheet',year=year, crs=crs, sub=sub, sem=sem))
+    return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem))

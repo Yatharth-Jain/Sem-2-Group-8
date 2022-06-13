@@ -7,42 +7,11 @@ main {
   -webkit-animation: bg_grad 47s ease infinite;
   -moz-animation: bg_grad 47s ease infinite;
   animation: bg_grad 47s ease infinite;
-}
-
-@-webkit-keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@-moz-keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  background-image: url("https://miro.medium.com/max/1400/1*dP81IJq-tGFxy1rIK3RYsg.png");
+  /* background-repeat: none; */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 * {
@@ -53,12 +22,14 @@ main {
 body {
   display: flex;
   color: white;
+  font-weight: bolder;
   font-family: "Roboto Mono", monospace;
 }
 
 nav {
-  background-color: rgb(152, 148, 148);
-  color: white;
+  /* background-color: #86377b; */
+  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+  color: rgb(200, 190, 190);
   position: fixed;
   height: 100%;
   width: 30vh;
@@ -100,7 +71,7 @@ li:hover {
   cursor: pointer;
   color: white;
   border-radius: 12px;
-  background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
+  /* background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a); */
   background-size: 800% 800%;
   -webkit-animation: bg_grad 47s ease infinite;
   -moz-animation: bg_grad 47s ease infinite;
@@ -109,7 +80,7 @@ li:hover {
 
 a {
   text-decoration: none;
-  color: white;
+  color: rgb(200, 190, 190);
   width: 25vh;
   display: flex;
   justify-content: center;

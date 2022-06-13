@@ -34,7 +34,15 @@ body {
 .img1 {
   width: 10vh;
   height: 10vh;
-  margin-left: -40vh;
+  margin-left: -26vh;
+}
+
+#back2 {
+  display: none;
+  position: absolute;
+  margin-top: -42vh;
+  margin-left: -41.5vh;
+  font-size: 27px;
 }
 
 .img2 {
@@ -107,6 +115,8 @@ body {
   margin-top: -5vh;
   border-radius: 10px;
   cursor: pointer;
+  height: 50px;
+  font-size: 25px;
 }
 
 .btn:hover {

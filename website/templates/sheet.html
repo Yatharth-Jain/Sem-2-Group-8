@@ -25,30 +25,25 @@
     <div class="bottom top">
       <ul style="margin-bottom: 20px">
         <li>Student profiles</li>
-        <li>Logout</li>
+        <li><a href="/logout">Logout</a><li>
       </ul>
     </div>
   </nav>
   <main>
     <div class="aux">
-      <div class="icon2">
-        <div class="arrow2" id="left"></div>
-      </div>
-      <div>
+      <div style="margin-top: -15px">
         <img id="add_ass" class="add" src="/static/images/istockphoto-1365197728-170667a-removebg-preview.png"
-          width="150px" alt="" />
+          width="120px" alt="" />
       </div>
       <div class="popup">
         <form class="cont1" method="post" name="addassi">
-          <label for="assignment">Assignment name</label>
+          <div class="cros"><img src="../static/images/cross.png" alt=""></div>
+          <!-- <label for="assignment">Assignment name</label> -->
           <input type="text" name="newassi" id="" class="drop" placeholder="Assignment name" />
-          <label for="assignment">Maximum Number</label>
+          <!-- <label for="assignment">Maximum Number</label> -->
           <input type="number" name="maxnum" id="" class="drop" placeholder="Maximum Number" />
-          <button name="subtype" value="addassi" value="Submit" class="btn btn-info"></buton>
+          <button name="subtype" value="addassi" value="Submit" class="btn btn-info">Submit</buton>
         </form>
-      </div>
-      <div class="icon">
-        <div class="arrow" id="right"></div>
       </div>
     </div>
     <form action="" method="post">
@@ -56,10 +51,10 @@
         <div class="div1">
           <div class="rows">
             <div class="cells">
-              <h2>Roll No.</h2>
+              <h3>Roll No.</h3>
             </div>
-            <div class="cells">
-              <h2>Names</h2>
+            <div class="cells" style="width: 20vh">
+              <h3>Names</h3>
             </div>
           </div>
 
@@ -68,7 +63,7 @@
             <div class="cells">
               {{student.sroll}}
             </div>
-            <div class="cells">
+            <div class="cells" style="width: 20vh;">
               {{student.sfname}} {{student.slname}}
             </div>
           </div>
@@ -79,15 +74,22 @@
           <div class="div2i">
             <div class="rows">
               {% for ass in asss %}
-              <div class="cells" id="cell1">
-                <h4>{{ass.assi}}</h4>
-                <div class="btndiv">
-                  <button><img class="close" src="/static/images/edit-button-svgrepo-com.svg" alt=""
-                      style="margin-left: 20px; margin-top: -5px" width="20px" /></button>
-                  <button name="subtype" value="/removeassi/{{curl}}/{{ass.id}}"><img class="close"
-                      src="/static/images/icon-close-menu.svg" alt="" style="margin-left: 20px; margin-top: -5px"
-                      width="20px" /></button>
+              <div class="cells" id="cell1" style="flex-direction: column;">
+                <div class="top">
+                  <button style="border: none; background-color: none;">
+                    <img class="close" src="/static/images/edit.png" alt=""
+                    style="border: none; margin-left: -20px; margin-top: -5px" width="20px" onclick="validateMyForm(event);"/>
+                  </button>
+                  <span>max</span>
+                  <div class="btndiv" style="border: none; z-index: 100;">
+                    <button style="border: none;" type="submit" name="subtype" value="/removeassi/{{curl}}/{{ass.id}}" onclick="validateMyForm(event);">
+                      <img class="close"
+                        src="/static/images/cross.png" alt="" style="background-color: none; border: none; margin-left: 20px; margin-top: -5px"
+                        width="20px" />
+                    </button>
+                  </div>
                 </div>
+                <div class="btm"><h4>{{ass.assi}}</h4></div>
               </div>
               {% endfor %}
             </div>
@@ -107,7 +109,7 @@
             <h4>TOTAL</h4>
           </div>
           {% for student in students %}
-
+          
           <div class="rows">
             <div class="cells">
               <h5>{{total[student.sroll]}}</h5>
@@ -116,26 +118,11 @@
           {% endfor %}
         </div>
       </div>
-      <button id="err" type="submit" name="subtype" value="" style="border: 0px;" class="btn btn-success" onsubmit="return validateMyForm();">Submit</button>
+      <button id="err" type="submit" name="subtype" value="" style="border: 0px;" class="btn btn-success" onclick="validateMyForm(event);">Submit</button>
     </form>
   </main>
   <script>
-    const $icon = document.querySelector(".icon");
-    const $arrow = document.querySelector(".arrow");
-    $icon.onclick = () => {
-      $arrow.animate([{ left: "0" }, { left: "10px" }, { left: "0" }], {
-        duration: 300,
-        iterations: 2,
-      });
-    };
-    const $icon2 = document.querySelector(".icon2");
-    const $arrow2 = document.querySelector(".arrow2");
-    $icon2.onclick = () => {
-      $arrow2.animate([{ left: "0" }, { left: "-10px" }, { left: "0" }], {
-        duration: 300,
-        iterations: 2,
-      });
-    };
+    var errors=0;
     const left = document.querySelector(".left");
     const right = document.querySelector(".right");
     const cell_block = document.querySelector("#cell2");
@@ -149,10 +136,8 @@
     const pop = document.querySelector(".cont1");
     ass.onclick = () => {
       pop.style.display = "flex";
-      pop.style.flexDirection = "column";
     };
 
-    var errors=0;
 
     function int(value) {
     return parseInt(value);
@@ -193,18 +178,25 @@
       console.log(errors)
     }
 
-    function validateMyForm()
+    function validateMyForm(event)
     {
-      alert("Error="+errors)
+
+      // alert("Error="+errors)
       if(errors!=0){ 
-        alert("validation failed false");
-        returnToPreviousPage();
+        alert("Invalid marks");
+        event.preventDefault()
+        // preve
         return false;
       }
 
-      alert("validations passed");
+      // alert("validations passed");
       return true;
     }
+
+    // const err = document.getElementById(err);
+    // err.addEventListener('onclick', () => {
+    //   if (err != 0) alert('cuhutuia')
+    // })
   </script>
 </body>
 

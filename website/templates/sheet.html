@@ -41,7 +41,7 @@
           <!-- <label for="assignment">Assignment name</label> -->
           <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" />
           <!-- <label for="assignment">Maximum Number</label> -->
-          <input type="number" name="maxnum" id="" class="drop" placeholder="Maximum Number" />
+          <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1" required/>
           <button name="subtype" value="addassi" value="Submit" class="btn btn-info">Submit</buton>
         </form>
       </div>
@@ -147,7 +147,10 @@
     const ass = document.getElementById("add_ass");
     const pop = document.querySelector(".cont1");
     ass.onclick = () => {
-      pop.style.display = "flex";
+      if(pop.style.display == "none")
+        pop.style.display = "flex";
+      else
+        pop.style.display = "none";
     };
 
 

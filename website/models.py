@@ -115,7 +115,8 @@ class Sems(db.Model):
 class Assignments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     assi = db.Column(db.String[100], nullable=False)
-    maxnum=db.Column(db.Integer)
+    maxnum=db.Column(db.Integer,nullable=False)
+    part=db.Column(db.Integer,default=1)
     sem = db.Column(db.Integer, db.ForeignKey('sems.id'))
 
 

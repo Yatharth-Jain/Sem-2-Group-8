@@ -1,3 +1,4 @@
+import random
 from flask import Blueprint, jsonify, redirect, render_template, request, flash, url_for
 from flask_login import current_user
 from .models import Assignments, ClassForm, Courses, Student, Subjects, Teacher, Admin, Marks, Years, Sems, ClassForm, db
@@ -56,7 +57,7 @@ def classselect():
         sub = Subjects.query.filter_by(id=form1.subject.data).first()
         sem = Sems.query.filter_by(id=form1.sem.data).first()
         # return f"<h1>Year:{form1.year.data} Course:{crs.course} Subject:{sub.subject} Sem:{sem.sem}<h1>"
-        return redirect(f'/sheet/{form1.year.data}/{crs.id}/{sub.id}/{sem.id}')
+        return redirect(f'/sheet/{form1.year.data}/{crs.id}/{sub.id}/{sem.id}/1')
     return render_template("teacher_input.html", form1=form1)
 
 
@@ -86,14 +87,16 @@ def year(method, val):
         return jsonify({'sems': crs})
 
 
-@view.route('/sheet/<year>/<crs>/<sub>/<sem>', methods=['GET', 'POST'])
-def sheet(year, crs, sub, sem):
+@view.route('/sheet/<year>/<crs>/<sub>/<sem>/<part>', methods=['GET', 'POST'])
+def sheet(year, crs, sub, sem,part):
     curl = f'{year}/{crs}/{sub}/{sem}'
-    asss = [ass for ass in Assignments.query.filter_by(sem=sem).all()]
+    asss = [ass for ass in Assignments.query.filter_by(sem=sem,part=part).all()]
     # print(asss)
     students = [std for std in Student.query.filter_by(sbranch=crs).all()]
     total = {}
     marksdict = {}
+    cgpa={}
+    maxm=0
     for student in students:
         t = 0
         for ass in asss:
@@ -112,24 +115,32 @@ def sheet(year, crs, sub, sem):
                 db.session.commit()
                 marksdict[f'{ass.assi}-{student.sroll}'] = 0
         total[student.sroll] = t
+        if maxm<t:
+            maxm=t
+    for student in students:
+        if maxm!=0:
+            cgpa[student.sroll]=f"{(total[student.sroll]/maxm)*10:.2f}"
+        else:
+            cgpa[student.sroll]=0.00
 
     if request.method == 'POST':
-        subtpye = request.form['subtype']
-        if subtpye == 'addassi':
+        subtype = request.form['subtype']
+        if subtype == 'addassi':
             new_ass = request.form['newassi']
             maxnum = request.form['maxnum']
             o_ass = Assignments.query.filter_by(
-                sem=sem, assi=new_ass.capitalize()).first()
+                sem=sem,part=part, assi=new_ass.capitalize()).first()
             if o_ass or new_ass == '':
                 pass
             else:
                 n_ass = Assignments(
-                    assi=new_ass.capitalize(), maxnum=maxnum, sem=sem)
+                    assi=new_ass.capitalize(), maxnum=maxnum, sem=sem,part=part)
                 db.session.add(n_ass)
                 db.session.commit()
-            return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem))
+            return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=part))
 
         else:
+            
             for student in students:
                 for ass in asss:
                     mark = Marks.query.filter_by(
@@ -147,20 +158,15 @@ def sheet(year, crs, sub, sem):
                         marksdict[mark.mid] = 'A'
                         mark.mark = -1
                     db.session.commit()
-            if 'removeassi' in subtpye:
-                return redirect(subtpye)
 
-    return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict, curl=curl)
-
-
-@view.route('/removeassi/<year>/<crs>/<sub>/<sem>/<int:aid>')
-def delassi(year, crs, sub, sem, aid):
-    curl = f'{year}/{crs}/{sub}/{sem}'
-    marks = Marks.query.filter_by(assi=aid).all()
-    for mark in marks:
-        db.session.delete(mark)
-        db.session.commit()
-    assi = Assignments.query.filter_by(id=aid).first()
-    db.session.delete(assi)
-    db.session.commit()
-    return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem))
+            if 'removeassi' in subtype:
+                subtype=subtype.replace("removeassi/","")
+                marks = Marks.query.filter_by(assi=int(subtype)).all()
+                for mark in marks:
+                    db.session.delete(mark)
+                    db.session.commit()
+                assi = Assignments.query.filter_by(id=int(subtype)).first()
+                db.session.delete(assi)
+                db.session.commit()
+            return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=part))
+    return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict, curl=curl,cgpa=cgpa)

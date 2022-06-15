@@ -18,8 +18,8 @@
     <div class="top">
       <ul style="margin-top: 20px">
         <li>Assignments</li>
-        <li>Mid Semester</li>
-        <li>End Semester</li>
+        <li><a href="./1">Mid Semester</a></li>
+        <li><a href="./2">End Semester</a></li>
       </ul>
     </div>
     <div class="bottom top">
@@ -80,9 +80,9 @@
                     <img class="close" src="/static/images/edit.png" alt=""
                     style="border: none; margin-left: -20px; margin-top: -5px" width="20px" onclick="validateMyForm(event);"/>
                   </button>
-                  <span>max</span>
+                  <span>{{ass.maxnum}}</span>
                   <div class="btndiv" style="border: none; z-index: 100;">
-                    <button style="border: none;" type="submit" name="subtype" value="/removeassi/{{curl}}/{{ass.id}}" onclick="validateMyForm(event);">
+                    <button style="border: none;" type="submit" name="subtype" value="removeassi/{{ass.id}}" onclick="validateMyForm(event);">
                       <img class="close"
                         src="/static/images/cross.png" alt="" style="background-color: none; border: none; margin-left: 20px; margin-top: -5px"
                         width="20px" />
@@ -105,14 +105,23 @@
         </div>
 
         <div class="div3">
-          <div class="cells" style="margin-left: auto">
-            <h4>TOTAL</h4>
+          <div class="rows">
+
+            <div class="cells" style="margin-left: auto">
+              <h4>TOTAL</h4>
+            </div>
+            <div class="cells" style="margin-left: auto">
+              <h4>CGPA</h4>
+            </div>
           </div>
-          {% for student in students %}
+            {% for student in students %}
           
           <div class="rows">
             <div class="cells">
               <h5>{{total[student.sroll]}}</h5>
+            </div>
+            <div class="cells">
+              <h5>{{cgpa[student.sroll]}}</h5>
             </div>
           </div>
           {% endfor %}

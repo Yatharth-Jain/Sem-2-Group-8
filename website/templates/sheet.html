@@ -35,18 +35,18 @@
         <img id="add_ass" class="add" src="/static/images/additionaladd.png"
           width="69px" alt="" />
       </div>
-      <div class="popup">
-        <form class="cont1" method="post" name="addassi">
+    </div>
+    <form action="" method="post">
+      <div class="popup cont1">
+        <!-- <form class="cont1" method="post" name="addassi"> -->
           <div class="cros"><img src="../static/images/cross.png" alt=""></div>
           <!-- <label for="assignment">Assignment name</label> -->
           <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" />
           <!-- <label for="assignment">Maximum Number</label> -->
           <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1" required/>
           <button name="subtype" value="addassi" value="Submit" class="btn btn-info">Submit</buton>
-        </form>
+        <!-- </form> -->
       </div>
-    </div>
-    <form action="" method="post">
       <div class="mainbody2">
         <div class="div1">
           <div class="rows">
@@ -76,11 +76,10 @@
               {% for ass in asss %} 
               <div class="cells" id="cell1" style="flex-direction: column;">
                 <div class="top">
-                  <button style="border: none; background-color: white; margin-top: 3px;">
-                    <img class="close1" src="/static/images/edit.png" alt=""
+                  <button type="button" style="border: none; background-color: white; margin-top: 3px;">
+                    <img class="close1" id="edit_ass" src="/static/images/edit.png" alt=""
                     style="border: none" width="20px" onclick="validateMyForm(event);"/>
                   </button>
-
                   <span style="color: white;">max</span>
                   <!-- <span style="color: rgb(0, 185, 46); font-weight: bolder;">{{ass.maxnum}}</span> -->
                   <div class="btndiv" style="border: none; z-index: 100;">
@@ -130,7 +129,7 @@
           {% endfor %}
         </div>
       </div>
-      <button id="err" type="submit" name="subtype" value="" style="border: 0px;" class="btn btn-success" onclick="validateMyForm(event);">Submit</button>
+      <button id="err" type="submit" name="subtype" value="submit" style="border: 0px;" class="btn btn-success" onclick="validateMyForm(event);">Submit</button>
     </form>
   </main>
   <script>
@@ -151,6 +150,21 @@
         pop.style.display = "flex";
       else
         pop.style.display = "none";
+    };
+    const place1 = document.getElementById("cont1input1");
+    const place2 = document.getElementById("dropval");
+    const editass = document.getElementById("edit_ass");
+    const epopup = document.querySelector(".cont1");
+    editass.onclick = () => {
+      if(epopup.style.display == "none") {
+        epopup.style.display = "flex";
+        place1.placeholder = "Edit assignment name";
+        place2.placeholder = "Edit maximum marks";
+      }
+      else{
+        epopup.style.display = "none";
+        place1.placeholder = "Assignment name";
+        place2.placeholder = "Maximum marks";}
     };
 
 
@@ -197,6 +211,7 @@
     {
 
       // alert("Error="+errors)
+      // console.log('hi');
       if(errors!=0){ 
         alert("Invalid marks");
         event.preventDefault()

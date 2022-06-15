@@ -31,15 +31,15 @@
   </nav>
   <main>
     <div class="aux">
-      <div style="margin-top: -15px">
-        <img id="add_ass" class="add" src="/static/images/istockphoto-1365197728-170667a-removebg-preview.png"
-          width="120px" alt="" />
+      <div style="margin: 15px;">
+        <img id="add_ass" class="add" src="/static/images/additionaladd.png"
+          width="69px" alt="" />
       </div>
       <div class="popup">
         <form class="cont1" method="post" name="addassi">
           <div class="cros"><img src="../static/images/cross.png" alt=""></div>
           <!-- <label for="assignment">Assignment name</label> -->
-          <input type="text" name="newassi" id="" class="drop" placeholder="Assignment name" />
+          <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" />
           <!-- <label for="assignment">Maximum Number</label> -->
           <input type="number" name="maxnum" id="" class="drop" placeholder="Maximum Number" />
           <button name="subtype" value="addassi" value="Submit" class="btn btn-info">Submit</buton>
@@ -82,9 +82,9 @@
                   </button>
 
                   <span style="color: white;">max</span>
-                  <span style="color: black;">{{ass.maxnum}}</span>
+                  <!-- <span style="color: rgb(0, 185, 46); font-weight: bolder;">{{ass.maxnum}}</span> -->
                   <div class="btndiv" style="border: none; z-index: 100;">
-                    <button style="border: none; background-color: white; height: 22px;" type="submit" name="subtype" value="removeassi/{{ass.id}}" onclick="validateMyForm(event);">
+                    <button style="border: none; background-color: white; height: 21px;" type="submit" name="subtype" value="removeassi/{{ass.id}}" onclick="validateMyForm(event);">
                       <img class="close2"
                         src="/static/images/cross.png" alt="" style="background-color: white;"
 
@@ -92,7 +92,7 @@
                     </button>
                   </div>
                 </div>
-                <div class="btm"><h4>{{ass.assi}}</h4></div>
+                <div class="btm"><h4>{{ass.assi}} <span style="color: rgb(0, 185, 46); font-weight: bolder; font-size: small;">[{{ass.maxnum}}]</span></h4></div>
               </div>
               {% endfor %}
             </div>

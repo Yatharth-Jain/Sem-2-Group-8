@@ -43,7 +43,7 @@
           <!-- <label for="assignment">Assignment name</label> -->
           <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" />
           <!-- <label for="assignment">Maximum Number</label> -->
-          <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1" required/>
+          <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1"/>
           <button name="subtype" value="addassi" value="Submit" class="btn btn-info">Submit</buton>
         <!-- </form> -->
       </div>
@@ -145,11 +145,16 @@
     // });
     const ass = document.getElementById("add_ass");
     const pop = document.querySelector(".cont1");
+    const input1 = document.getElementById("dropval");
     ass.onclick = () => {
-      if(pop.style.display == "none")
+      if(pop.style.display == "none"){
         pop.style.display = "flex";
-      else
+        input1.required =true
+      }
+      else{
         pop.style.display = "none";
+        input1.required =false
+      }
     };
     const place1 = document.getElementById("cont1input1");
     const place2 = document.getElementById("dropval");

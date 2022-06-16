@@ -153,7 +153,7 @@ def sheet(year, crs, sub, sem,part):
             assi = Assignments.query.filter_by(id=int(subtype)).first()
             db.session.delete(assi)
             db.session.commit()
-        if subtype == 'addassi':
+        elif subtype == 'addassi':
             new_ass = request.form['newassi']
             maxnum = request.form['maxnum']
             o_ass = Assignments.query.filter_by(
@@ -165,5 +165,6 @@ def sheet(year, crs, sub, sem,part):
                     assi=new_ass.capitalize(), maxnum=maxnum, sem=sem,part=part)
                 db.session.add(n_ass)
                 db.session.commit()
+                
         return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=part))
     return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict, curl=curl,cgpa=cgpa)

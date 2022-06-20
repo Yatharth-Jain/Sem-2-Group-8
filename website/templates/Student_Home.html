@@ -1,119 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Home</title>
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="../static/Student_Home.css"
-      rel="stylesheet"
-    />
-    <style>
-      @import "~mdb-ui-kit/css/mdb.min.css";
+{% extends 'std-nav.html' %}
+{% block style %}
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
+rel="stylesheet"
+/>
+<link
+href="../static/Student_Home.css"
+rel="stylesheet"
+/>
+<style>
+@import "~mdb-ui-kit/css/mdb.min.css";
 
-      .gradient-custom {
-        /* fallback for old browsers */
-        background: #f6d365;
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f6d365;
 
-        /* Chrome 10-25, Safari 5.1-6 */
-        background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
 
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
-      }
-    </style>
-  </head>
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+}
+</style>
+{% endblock %}
 
-  <body>
-
-    <nav>
-      <div class="top">
-        <ul style="margin-top: 20px">
-          <li>Assignments</li>
-          <li><a href="./1">Mid Semester</a></li>
-          <li><a href="./2">End Semester</a></li>
-        </ul>
-      </div>
-      <div class="bottom top">
-        <ul style="margin-bottom: 20px">
-          <li>Student profiles</li>
-          <li><a href="/logout">Logout</a><li>
-        </ul>
-      </div>
-    </nav>
-
-    <section class="vh-100" style="background-color: #f4f5f7">
-      <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col col-lg-6 mb-4 mb-lg-0">
-            <div class="card mb-3" style="border-radius: 0.5rem">
-              <div class="row g-0">
-                <div
-                  class="col-md-4 gradient-custom text-center text-white"
-                  style="
-                    border-top-left-radius: 0.5rem;
-                    border-bottom-left-radius: 0.5rem;
-                  "
-                >
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                    alt="Avatar"
-                    class="img-fluid my-5"
-                    style="width: 80px"
-                  />
-                  <h5>{{cu.sfname}} {{cu.slname}}</h5>
-                  <p>{{cu.role.upper()}}</p>
-                  <!-- <i class="far fa-edit mb-5"></i> -->
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body p-4">
-                    <h6>Information</h6>
-                    <hr class="mt-0 mb-4" />
-                    <div class="row pt-1">
-                      <div class="col-6 mb-3">
-                        <h6>Email</h6>
-                        <p class="text-muted small">{{ cu.semail }}</p>
-                      </div>
-                      <div class="col-6 mb-3">
-                        <h6>Roll No.</h6>
-                        <p class="text-muted">{{ cu.sroll }}</p>
-                      </div>
+{% block body %}
+<!-- <section class="vh-100" style="background-color: #f4f5f7"> -->
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: 0.5rem">
+            <div class="row g-0">
+              <div
+                class="col-md-4 gradient-custom text-center text-white"
+                style="
+                  border-top-left-radius: 0.5rem;
+                  border-bottom-left-radius: 0.5rem;
+                "
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                  alt="Avatar"
+                  class="img-fluid my-5"
+                  style="width: 80px"
+                />
+                <h5>{{cu.sfname}} {{cu.slname}}</h5>
+                <p>{{cu.role.upper()}}</p>
+                <!-- <i class="far fa-edit mb-5"></i> -->
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h6>Information</h6>
+                  <hr class="mt-0 mb-4" />
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Email</h6>
+                      <p class="text-muted small">{{ cu.semail }}</p>
                     </div>
-                    <h6>Other</h6>
-                    <hr class="mt-0 mb-4" />
-                    <div class="row pt-1">
-                      <div class="col-6 mb-3">
-                        <h6>Branch</h6>
-                        <p class="text-muted">{{ br }}</p>
-                      </div>
-                      <div class="col-6 mb-3">
-                        <h6>Year</h6>
-                        <p class="text-muted">{{ cu.syear }}-{{cu.syear+4}}</p>
-                      </div>
+                    <div class="col-6 mb-3">
+                      <h6>Roll No.</h6>
+                      <p class="text-muted">{{ cu.sroll }}</p>
                     </div>
-                    <div class="d-flex justify-content-start">
-                      <!-- <a href="#!"
-                        ><i class="fab fa-facebook-f fa-lg me-3"></i
-                      ></a>
-                      <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                      <a href="#!"><i class="fab fa-instagram fa-lg"></i></a> -->
+                  </div>
+                  <h6>Other</h6>
+                  <hr class="mt-0 mb-4" />
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Branch</h6>
+                      <p class="text-muted">{{ br }}</p>
                     </div>
+                    <div class="col-6 mb-3">
+                      <h6>Year</h6>
+                      <p class="text-muted">{{ cu.syear }}-{{cu.syear+4}}</p>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-start">
+                    <!-- <a href="#!"
+                      ><i class="fab fa-facebook-f fa-lg me-3"></i
+                    ></a>
+                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a> -->
                   </div>
                 </div>
               </div>
@@ -121,11 +97,12 @@
           </div>
         </div>
       </div>
-    </section>
-    <!-- MDB -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
-    ></script>
-  </body>
-</html>
+    </div>
+  <!-- </section> -->
+{% endblock %}
+{% block script %}
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
+></script>
+{% endblock %}

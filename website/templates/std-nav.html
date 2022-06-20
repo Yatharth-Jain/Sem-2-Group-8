@@ -43,7 +43,8 @@
         color: rgb(200, 190, 190);
         position: fixed;
         height: 100%;
-        width: 30vh;
+        /* width: 30vh; */
+        width: 20%;
         border-right: 2px solid black;
         display: flex;
         flex-direction: column;
@@ -96,11 +97,22 @@
       a:hover {
         color: white;
       }
-      .mainbodycont{
-          background-color: #27273c;
-          /* margin-left: ; */
+      .mainbodycont {
+        background-color: aliceblue ;
+        /* margin-left: ; */
+        height: 100vh;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        /* width: 100%; */
+        margin-left: 20%;
       }
     </style>
+    {% block style %}
+      
+    {% endblock %}
   </head>
   <body>
     <nav>
@@ -119,6 +131,14 @@
         </ul>
       </div>
     </nav>
-    <div class="mainbodycont"></div>
+    <div class="mainbodycont">
+      <!-- <p style="text-align: center">text</p> -->
+      {% block body %}
+        
+      {% endblock %}
+    </div>
+    {% block script %}
+      
+    {% endblock %}
   </body>
 </html>

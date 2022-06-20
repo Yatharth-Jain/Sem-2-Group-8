@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <!-- <link
+    href="../static/Student_Home.css"
+    rel="stylesheet"
+  /> -->
+    <style>
+      @import "~mdb-ui-kit/css/mdb.min.css";
+
+      .gradient-custom {
+        /* fallback for old browsers */
+        background: #f6d365;
+
+        /* Chrome 10-25, Safari 5.1-6 */
+        background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+      }
+
+      nav {
+        background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
+        color: rgb(200, 190, 190);
+        position: fixed;
+        height: 100%;
+        width: 30vh;
+        border-right: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .top {
+        /* width: 30vh; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: #27273c; */
+      }
+
+      ul {
+        list-style-type: none;
+        width: 25vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      ul li {
+        width: 25vh;
+        padding: 2vh 0vh;
+        margin-left: -6vh;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      li:hover {
+        cursor: pointer;
+        color: white;
+        border-radius: 12px;
+      }
+
+      a {
+        text-decoration: none;
+        color: rgb(200, 190, 190);
+        width: 25vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      a:hover {
+        color: white;
+      }
+      .mainbodycont{
+          background-color: #27273c;
+          /* margin-left: ; */
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="top">
+        <ul style="margin-top: 20px">
+          <li>Assignments</li>
+          <li><a href="./1">Mid Semester</a></li>
+          <li><a href="./2">End Semester</a></li>
+        </ul>
+      </div>
+      <div class="bottom top">
+        <ul style="margin-bottom: 20px">
+          <li>Student profiles</li>
+          <li><a href="/logout">Logout</a></li>
+          <li></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="mainbodycont"></div>
+  </body>
+</html>

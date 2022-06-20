@@ -20,6 +20,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
       rel="stylesheet"
     />
+    <link
+      href="../static/Student_Home.css"
+      rel="stylesheet"
+    />
     <style>
       @import "~mdb-ui-kit/css/mdb.min.css";
 
@@ -28,23 +32,32 @@
         background: #f6d365;
 
         /* Chrome 10-25, Safari 5.1-6 */
-        background: -webkit-linear-gradient(
-          to right bottom,
-          rgba(246, 211, 101, 1),
-          rgba(253, 160, 133, 1)
-        );
+        background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
 
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background: linear-gradient(
-          to right bottom,
-          rgba(246, 211, 101, 1),
-          rgba(253, 160, 133, 1)
-        );
+        background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
       }
     </style>
   </head>
 
   <body>
+
+    <nav>
+      <div class="top">
+        <ul style="margin-top: 20px">
+          <li>Assignments</li>
+          <li><a href="./1">Mid Semester</a></li>
+          <li><a href="./2">End Semester</a></li>
+        </ul>
+      </div>
+      <div class="bottom top">
+        <ul style="margin-bottom: 20px">
+          <li>Student profiles</li>
+          <li><a href="/logout">Logout</a><li>
+        </ul>
+      </div>
+    </nav>
+
     <section class="vh-100" style="background-color: #f4f5f7">
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -66,7 +79,7 @@
                   />
                   <h5>{{cu.sfname}} {{cu.slname}}</h5>
                   <p>{{cu.role.upper()}}</p>
-                  <i class="far fa-edit mb-5"></i>
+                  <!-- <i class="far fa-edit mb-5"></i> -->
                 </div>
                 <div class="col-md-8">
                   <div class="card-body p-4">
@@ -95,11 +108,11 @@
                       </div>
                     </div>
                     <div class="d-flex justify-content-start">
-                      <a href="#!"
+                      <!-- <a href="#!"
                         ><i class="fab fa-facebook-f fa-lg me-3"></i
                       ></a>
                       <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                      <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                      <a href="#!"><i class="fab fa-instagram fa-lg"></i></a> -->
                     </div>
                   </div>
                 </div>

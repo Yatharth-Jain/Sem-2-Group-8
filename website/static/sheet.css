@@ -255,6 +255,7 @@ a:visited {
   display: none;
   height: 53vh;
   /* border: 2px solid red; */
+  /* background-image: linear-gradient(to top, #d6f18c 20%, #9f6202 80%); */
   background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
   align-items: center;
   justify-content: center;
@@ -508,4 +509,27 @@ a:visited {
   width: fit-content;
   height: fit-content;
   /* width: 15%; */
+}
+
+#gradepopupbtn{
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  background-color: #e02727;
+  height: 30px; 
+  width: 120px;
+  text-align: center;
+}
+
+#gradediv{
+  position: fixed;
+  box-shadow:20px 5px 3px #27273c;
+  display: none;
+  right: 10px;
+  bottom: 40px;
+  border-radius: 30px;
+  z-index: 3;
+  height: 60%;
+  width: 15%;
+  background-color: rgb(29, 219, 156);
 }

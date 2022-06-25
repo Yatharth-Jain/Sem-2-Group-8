@@ -87,7 +87,7 @@ def year(method, val):
         return jsonify({'sems': crs})
 
 
-@view.route('/sheet/<year>/<crs>/<sub>/<sem>/<part>', methods=['GET', 'POST'])
+@view.route('/sheet/<year>/<crs>/<sub>/<sem>/<int:part>', methods=['GET', 'POST'])
 def sheet(year, crs, sub, sem,part):
     curl = f'{year}/{crs}/{sub}/{sem}'
     asss = [ass for ass in Assignments.query.filter_by(sem=sem,part=part).all()]
@@ -168,3 +168,8 @@ def sheet(year, crs, sub, sem,part):
                 
         return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=part))
     return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict, curl=curl,cgpa=cgpa)
+
+@view.route('/sheet/<year>/<crs>/<sub>/<sem>/range', methods=['GET', 'POST'])
+def graderange(year,crs,sub,sem):
+    
+    return render_template('Grade Range.html')

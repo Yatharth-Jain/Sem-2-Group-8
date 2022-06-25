@@ -48,7 +48,8 @@ class Teacher(db.Model, UserMixin):
     tname = db.Column(db.String[100], nullable=False)
     # {name}@tchr.clg.com
     temail = db.Column(db.String[100], primary_key=False)
-    tsubject = db.Column(db.String[100], primary_key=False)
+    # tsubject = db.Column(db.String[100], primary_key=False)
+    tsubs = db.relationship("Subjects")
     tpass = db.Column(db.String[100], nullable=False)
     role = db.Column(db.String, default='teacher')
 
@@ -79,7 +80,6 @@ class Marks(db.Model):
     student=db.Column(db.Integer,db.ForeignKey('student.sid'))
     subject=db.Column(db.Integer,db.ForeignKey('subjects.id'))
     sem=db.Column(db.Integer,db.ForeignKey('sems.id'))
-    mid=db.Column(db.String[100])
     assi=db.Column(db.Integer,db.ForeignKey('assignments.id'))
     mark = db.Column(db.Integer, nullable=False)
 
@@ -101,6 +101,7 @@ class Subjects(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     crs = db.Column(db.Integer, db.ForeignKey('courses.id'))
     subject = db.Column(db.String[100], nullable=False)
+    teacher=db.Column(db.Integer,db.ForeignKey('teacher.tid'))
     sems = db.relationship("Sems")
     # students=db.relationship("Student")
 
@@ -109,14 +110,16 @@ class Sems(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     subject = db.Column(db.Integer, db.ForeignKey('subjects.id'))
     sem = db.Column(db.Integer)
+    grade_range=db.Column(db.String[200],nullable=True)
     assis = db.relationship("Assignments")
 
 
 class Assignments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     assi = db.Column(db.String[100], nullable=False)
-    maxnum=db.Column(db.Integer,nullable=False)
+    maxnum=db.Column(db.Integer,nullable=True)
     part=db.Column(db.Integer,default=1)
+    # grade_range=db.Column(db.String[200],nullable=True)
     sem = db.Column(db.Integer, db.ForeignKey('sems.id'))
 
 

@@ -107,9 +107,22 @@ def teacherreg():
     if request.method == 'POST':
         tfname = request.form['tfname']
         tlname = request.form['tlname']
-        tsub = request.form['tsub']
+        tname=f'{tfname.capitalize()} {tlname.capitalize()}'
+
         tdob = request.form['tdob'].split('-')
-        print(f'{tfname}<-->{tlname}<-->{tsub}<-->{tdob}')
+        tpass=f'{tdob[2]}{tdob[1]}{tdob[0]}'
+
+        fn=tfname.replace(' ','').lower()
+        temail=f'{fn}.{tlname.lower()}@tchr.clg.com'
+        t=Teacher.query.filter_by(tname=tname).first()
+        if t:
+            flash("Teacher Already exist!!!",'error')
+        else:
+            t=Teacher.query.filter_by(tname=tname,temail=temail,tpass=tpass)
+            db.session.add(t)
+            db.session.commit()
+            print("Added")
+        print(f'{tname}<-->{tdob}<-->{temail}<-->{tpass}')
     return render_template('teacher_registration.html')
 
 

@@ -1,9 +1,9 @@
-import random
-from flask import Blueprint, jsonify, redirect, render_template, request, flash, url_for
+from flask import Blueprint, jsonify, redirect, render_template, request, flash, session, url_for
 from flask_login import current_user
 from .models import Assignments, ClassForm, Courses, Student, Subjects, Teacher, Admin, Marks, Years, Sems, ClassForm, db
 from werkzeug.security import generate_password_hash, check_password_hash
 from .loginfunction import loginchecker
+import json
 
 view = Blueprint('view', __name__)
 
@@ -110,7 +110,7 @@ def sheet(year, crs, sub, sem,part):
                     marksdict[f'{ass.assi}-{student.sroll}'] = 'A'
             else:
                 mark = Marks(student=student.sid, subject=sub, sem=sem,
-                             assi=ass.id, mark=0, mid=f'{ass.assi}-{student.sroll}')
+                             assi=ass.id, mark=0)
                 db.session.add(mark)
                 db.session.commit()
                 marksdict[f'{ass.assi}-{student.sroll}'] = 0
@@ -137,10 +137,10 @@ def sheet(year, crs, sub, sem,part):
                     if m == '':
                         m = 0
                     total[student.sroll] += int(m)
-                    marksdict[mark.mid] = int(m)
+                    marksdict[f'{ass.assi}-{student.sroll}'] = int(m)
                     mark.mark = m
                 else:
-                    marksdict[mark.mid] = 'A'
+                    marksdict[f'{ass.assi}-{student.sroll}'] = 'A'
                     mark.mark = -1
                 db.session.commit()
 
@@ -171,5 +171,6 @@ def sheet(year, crs, sub, sem,part):
 
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>/range', methods=['GET', 'POST'])
 def graderange(year,crs,sub,sem):
-    
+    if(session.method=='POST'):
+        pass
     return render_template('Grade Range.html')

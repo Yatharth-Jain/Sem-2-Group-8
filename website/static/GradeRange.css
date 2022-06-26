@@ -111,7 +111,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 696px;
   height: 350px;
   /* margin-right: 15vh; */
   padding: 10%;
@@ -129,13 +129,18 @@ form {
   font-weight: 696;
 }
 
+input[type="number"]::placeholder 
+{
+                 
+    text-align: right;
+}
 
 .btn {
   margin-top: 60px;
   /* height: 169px; */
   background: #00a82d;
   /* background-image: linear-gradient(to bottom, #00eb3f, #00a308); */
-  border-radius: 17px;
+  border-radius: 10px;
   font-family: Arial;
   color: #ffffff;
   font-size: 20px;

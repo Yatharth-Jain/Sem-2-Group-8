@@ -171,6 +171,6 @@ def sheet(year, crs, sub, sem,part):
 
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>/range', methods=['GET', 'POST'])
 def graderange(year,crs,sub,sem):
-    if(session.method=='POST'):
-        pass
-    return render_template('Grade Range.html')
+    # if(session.method=='POST'):
+    #     pass
+    return render_template('GradeRange.html')

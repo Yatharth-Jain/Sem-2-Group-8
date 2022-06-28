@@ -1,142 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
 
-body {
-  /* height: 97.8vh; */
-  background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
-  background-size: 800% 800%;
-  -webkit-animation: bg_grad 47s ease infinite;
-  -moz-animation: bg_grad 47s ease infinite;
-  animation: bg_grad 47s ease infinite;
-  margin: 0;
-  /* background: #ecf0f1; */
-  color: white;
-  font-family: "Roboto Mono", monospace;
-  display: flex;
-}
-
-@-webkit-keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@-moz-keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-nav {
-  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
-  color: rgb(200, 190, 190);
-  position: fixed;
-  height: 100%;
-  width: 30vh;
-  border-right: 2px solid black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.top {
-  width: 30vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-ul {
-  list-style-type: none;
-  width: 25vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-ul li {
-  width: 25vh;
-  padding: 2vh 0vh;
-  margin-left: -6vh;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-li:hover {
-  cursor: pointer;
-  color: white;
-  border-radius: 12px;
-  background-size: 800% 800%;
-  -webkit-animation: bg_grad 47s ease infinite;
-  -moz-animation: bg_grad 47s ease infinite;
-  animation: bg_grad 47s ease infinite;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-  width: 25vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-a:hover {
-  color: white;
-}
-
-main {
-  width: 180vh;
-  height: 100vh;
-  margin-left: 30vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  /* height: 97.8vh; */
-  background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a);
-  background-size: 800% 800%;
-  -webkit-animation: bg_grad 47s ease infinite;
-  -moz-animation: bg_grad 47s ease infinite;
-  animation: bg_grad 47s ease infinite;
-  background-image: url("https://miro.medium.com/max/1400/1*dP81IJq-tGFxy1rIK3RYsg.png");
-  /* background-repeat: none; */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  flex-wrap: wrap;
-}
-
 .cont1 {
   display: flex;
-  width: 30vh;
+  width: 64vh;
   flex-direction: column;
   border: 2px solid black;
   border-radius: 17px;
@@ -154,8 +20,6 @@ main {
 }
 
 .submitid {
-  /* border-radius: 40%;
-    background: rgb(57, 138, 134);  */
   background-color: #21ca46;
   border: none;
   color: white;

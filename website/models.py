@@ -53,11 +53,17 @@ class Teacher(db.Model, UserMixin):
     tpass = db.Column(db.String[100], nullable=False)
     role = db.Column(db.String, default='teacher')
 
-    def get_id(self):
-        return self.tid
+    def __init__(self,tname,temail,tpass):
+        self.tname=tname
+        self.temail=temail
+        self.tpass=tpass
+        
 
-    def printdetails(self):
-        print(self.tname+self.temail+self.role)
+    # def get_id(self):
+    #     return self.tid
+
+    # def printdetails(self):
+    #     print(self.tname+self.temail+self.role)
 
 
 class Admin(db.Model, UserMixin):

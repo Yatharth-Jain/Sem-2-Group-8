@@ -2,12 +2,13 @@
 
 .cont1 {
   display: flex;
-  width: 64vh;
+  /* width: 64vh; */
   flex-direction: column;
   border: 2px solid black;
   border-radius: 17px;
   padding: 30px;
   background-color: rgb(235, 233, 243);
+  width: auto;
 }
 
 .drop {

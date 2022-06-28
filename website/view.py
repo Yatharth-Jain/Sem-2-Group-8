@@ -31,15 +31,15 @@ def tchhome():
 
 @view.route('/testprofilesadd')
 def addtest():
-    n_std = Student(sfname='stu', slname='1', sbranch=1, sroll=1, semail='csai2021001@std.clg.com',
-                    syear=2021, spass=generate_password_hash('01012003', method='sha256'), sdob='2003-01-01')
-    db.session.add(n_std)
-    db.session.commit()
+    # n_std = Student(sfname='stu', slname='1', sbranch=1, sroll=1, semail='csai2021001@std.clg.com',
+    #                 syear=2021, spass=generate_password_hash('01012003', method='sha256'), sdob='2003-01-01')
+    # db.session.add(n_std)
+    # db.session.commit()
 
-    n_tch = Teacher(tname='teach1', temail='teach1@tchr.clg.com', tsubject='Maths',
-                    tpass=generate_password_hash('teach1pass', method='sha256'))
-    db.session.add(n_tch)
-    db.session.commit()
+    # n_tch = Teacher(tname='teach1', temail='teach1@tchr.clg.com', tsubject='Maths',
+    #                 tpass=generate_password_hash('teach1pass', method='sha256'))
+    # db.session.add(n_tch)
+    # db.session.commit()
 
     n_adm = Admin(aname='admin1', aemail='admin1@admin.clg.com',
                   apass=generate_password_hash('admin1pass', method='sha256'))

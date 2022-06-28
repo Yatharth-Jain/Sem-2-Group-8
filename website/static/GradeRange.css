@@ -106,6 +106,20 @@ main {
   /* overflow-x: scroll;
     overflow-y: scroll; */
 }
+h3 
+{
+    /* background-color: #420d3e; */
+    padding: 9.6px;
+    padding-left: 29.6px;
+    padding-right: 29.6px;
+    /* color: white; */
+    border-radius: 9.6px;
+}
+
+input { 
+    text-align: right; 
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -117,6 +131,7 @@ form {
   padding: 10%;
   margin: auto;
   margin-top: 15vh;
+  /* background-color: aqua; */
 }
 
 .input-group {
@@ -125,7 +140,7 @@ form {
 
 .input-group-btn {
   padding-top: 8px;
-  color: black;
+  color: #4d0847;
   font-weight: 696;
 }
 

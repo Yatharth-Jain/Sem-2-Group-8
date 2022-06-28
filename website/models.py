@@ -59,8 +59,8 @@ class Teacher(db.Model, UserMixin):
         self.tpass=tpass
         
 
-    # def get_id(self):
-    #     return self.tid
+    def get_id(self):
+        return self.tid
 
     # def printdetails(self):
     #     print(self.tname+self.temail+self.role)

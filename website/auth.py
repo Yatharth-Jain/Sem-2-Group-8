@@ -113,12 +113,14 @@ def teacherreg():
         tpass=f'{tdob[2]}{tdob[1]}{tdob[0]}'
 
         fn=tfname.replace(' ','').lower()
-        temail=f'{fn}.{tlname.lower()}@tchr.clg.com'
+        fl=tlname.replace(' ','').lower()
+
+        temail=f'{fn}.{fl}@tchr.clg.com'
         t=Teacher.query.filter_by(tname=tname).first()
         if t:
             flash("Teacher Already exist!!!",'error')
         else:
-            t=Teacher.query.filter_by(tname=tname,temail=temail,tpass=tpass)
+            t=Teacher(tname=tname,temail=temail,tpass=generate_password_hash(tpass))
             db.session.add(t)
             db.session.commit()
             print("Added")

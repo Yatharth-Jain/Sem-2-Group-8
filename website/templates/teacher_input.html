@@ -410,18 +410,18 @@
       let year_sel = document.getElementById("year");
 
       let temp =
-        '<option value="" disabled selected>Select The Year</option>' +
+        '<option value="" disabled selected>Select the year</option>' +
         year_sel.innerHTML;
       year_sel.innerHTML = temp;
       let course_sel = document.getElementById("course");
       course_sel.innerHTML =
-        '<option value="" disabled selected>Select The Course</option>';
+        '<option value="" disabled selected>Select the course</option>';
       let subject_sel = document.getElementById("subject");
       subject_sel.innerHTML =
-        '<option value="" disabled selected>Select The Subject</option>';
+        '<option value="" disabled selected>Select the subject</option>';
       let sem_sel = document.getElementById("sem");
       sem_sel.innerHTML =
-        '<option value="" disabled selected>Select The Semester</option>';
+        '<option value="" disabled selected>Select the semester</option>';
 
       year_sel.onchange = function () {
         year = year_sel.value;

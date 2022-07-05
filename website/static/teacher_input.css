@@ -4,16 +4,13 @@
   display: flex;
   /* width: 64vh; */
   flex-direction: column;
-  border: 2px solid black;
   border-radius: 17px;
   padding: 30px;
-  background-color: rgb(235, 233, 243);
-  width: auto;
 }
 
 .drop {
   color: rgb(105, 105, 105);
-  background-color: aliceblue;
+  background-color: #DAE7FF;
   box-shadow: 0px 16px 16px rgb(0 0 0 / 9%);
   border-radius: 4px;
   margin: 10px 0px;
@@ -21,13 +18,17 @@
 }
 
 .submitid {
-  background-color: #21ca46;
+  background-color: #6459c9;
   border: none;
   color: white;
   padding: 8px 16px;
   text-decoration: none;
   margin: 25px 4px;
   cursor: pointer;
+}
+
+.submitid:hover {
+  background-color: #4B49AC;  
 }
 
 .prof {

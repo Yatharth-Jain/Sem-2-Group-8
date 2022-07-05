@@ -1,139 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:200");
 
-main {
-  /* height: 97.8vh; */
-  /* background: linear-gradient(269deg, #d9886a, #6ad9b3, #c56ad9, #d2d96a); */
-  background-size: 800% 800%;
-  min-height: calc(100vh);
-  -webkit-animation: bg_grad 47s ease infinite;
-  -moz-animation: bg_grad 47s ease infinite;
-  animation: bg_grad 47s ease infinite;
-  /* background-image: url("https://miro.medium.com/max/1400/1*dP81IJq-tGFxy1rIK3RYsg.png"); */
-  /* background-repeat: none; */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-@-webkit-keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@-moz-keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes bg_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  display: flex;
-  color: rgb(205, 58, 58);
-  font-family: "Roboto Mono", monospace;
-  margin: 0;
-}
-
-nav {
-  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
-  color: rgb(200, 190, 190);
-  position: fixed;
-  height: 100%;
-  width: 30vh;
-  border-right: 2px solid black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.top {
-  /* width: 30vh; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: #27273c; */
-}
-
-ul {
-  list-style-type: none;
-  width: 25vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-ul li {
-  width: 25vh;
-  padding: 2vh 0vh;
-  margin-left: -6vh;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-li:hover {
-  cursor: pointer;
-  color: white;
-  border-radius: 12px;
-}
-
-a {
-  text-decoration: none;
-  color: rgb(200, 190, 190);
-  width: 25vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-a:hover {
-  color: white;
-}
-
-main {
+/* main {
   background-color: rgb(250, 250, 250);
   width: 100%;
-  /* height: 100vh; */
+  height: 100vh;
   margin-left: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* overflow: auto; */
-}
+  overflow: auto;
+} */
 
 .mainbody {
   display: flex;
@@ -144,13 +21,13 @@ main {
   overflow-y: scroll; */
 }
 
-form {
+/* form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-right: 15vh;
-}
+} */
 
 .mainbody2 {
   display: flex;
@@ -209,7 +86,7 @@ form {
   /* box-shadow: 0px 0px 20px 1px red; */
 }
 
-a {
+/* a {
   text-decoration: none;
   color: rgb(200, 190, 190);
   width: 25vh;
@@ -225,7 +102,7 @@ a:visited:hover {
 a:visited {
   text-decoration: none;
   color: rgb(200, 190, 190);
-}
+} */
 
 .btn {
   margin: 6%;
@@ -243,11 +120,13 @@ a:visited {
   flex-direction: column;
   justify-content: center;
 }
+
 .popup1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .cont1 {
   position: fixed;
   top: 0;
@@ -265,6 +144,7 @@ a:visited {
   margin-top: 11vh;
   border-radius: 10px;
 }
+
 .cont11 {
   position: fixed;
   top: 0;
@@ -281,6 +161,7 @@ a:visited {
   margin-top: 11vh;
   border-radius: 10px;
 }
+
 .cont1 input {
   width: 40vh;
   /* height: 4vh; */
@@ -290,6 +171,7 @@ a:visited {
   margin-bottom: 2vh; */
   padding: 2vh;
 }
+
 .cont11 input {
   width: 40vh;
   /* height: 4vh; */
@@ -299,6 +181,7 @@ a:visited {
   margin-bottom: 2vh; */
   padding: 2vh;
 }
+
 #cont1input1 {
   width: 40vh;
   /* height: 4vh; */
@@ -310,6 +193,7 @@ a:visited {
   margin-left: 38px;
   margin-right: 38px;
 }
+
 #cont1input11 {
   width: 40vh;
   /* height: 4vh; */
@@ -321,6 +205,7 @@ a:visited {
   margin-left: 38px;
   margin-right: 38px;
 }
+
 .cont1 button {
   margin-top: 39px;
   margin-bottom: 30px;
@@ -329,6 +214,7 @@ a:visited {
   margin-left: 38px;
   margin-right: 38px;
 }
+
 .cont11 button {
   margin-top: 39px;
   margin-bottom: 30px;
@@ -337,10 +223,12 @@ a:visited {
   margin-left: 38px;
   margin-right: 38px;
 }
+
 .cont1 button:hover {
   color: #863782;
   background-color: rgb(243, 243, 243);
 }
+
 .cont11 button:hover {
   color: #863782;
   background-color: rgb(243, 243, 243);
@@ -360,9 +248,11 @@ a:visited {
   /* margin-bottom: 4px; */
   margin-top: 2px;
 }
+
 #dropval:invalid {
-    border: 1px solid red;
+  border: 1px solid red;
 }
+
 .icon {
   position: absolute;
   /* top: 50%; */
@@ -504,6 +394,7 @@ a:visited {
   width: fit-content;
   flex-direction: row;
 }
+
 .div3 {
   /* border: 2px solid blue; */
   width: fit-content;
@@ -511,19 +402,19 @@ a:visited {
   /* width: 15%; */
 }
 
-#gradepopupbtn{
+#gradepopupbtn {
   position: fixed;
   right: 0px;
   bottom: 0px;
   background-color: #e02727;
-  height: 30px; 
+  height: 30px;
   width: 120px;
   text-align: center;
 }
 
-#gradediv{
+#gradediv {
   position: fixed;
-  box-shadow:20px 5px 3px #27273c;
+  box-shadow: 20px 5px 3px #27273c;
   display: none;
   right: 10px;
   bottom: 40px;

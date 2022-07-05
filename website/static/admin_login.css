@@ -27,7 +27,7 @@
   overflow: hidden;
   height: 100%;
   bottom: -1px;
-  background-image: linear-gradient(to top, #86377b 100%, #27273c 0%);
+  background-color: #4B49AC;
 }
 
 .bgTop {
@@ -90,7 +90,7 @@ body {
 }
 
 a {
-  color: #92badd;
+  color: #6C7383;
   display: inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -127,7 +127,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -60px;
+  margin-top: -10vh;
 }
 
 #formContent {
@@ -172,7 +172,7 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"] {
   margin-top: 15px;
-  background-color: #9f4293;
+  background-color: #6459c9;
   border: none;
   color: white;
   padding: 15px 80px;
@@ -182,7 +182,7 @@ input[type="reset"] {
   text-transform: uppercase;
   font-size: 13px;
   -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(95, 171, 233, 0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 40px 20px;
@@ -196,7 +196,7 @@ input[type="reset"] {
 input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
-  background-color: #86377b;
+  background-color: #4B49AC;
   cursor: pointer;
 }
 
@@ -259,12 +259,12 @@ input {
 
 input[type="text"]:focus {
   background-color: #fff;
-  border-bottom: 2px solid #5fbae9;
+  border-bottom: 2px solid #4B49AC;
 }
 
 input[type="password"]:focus {
   background-color: #fff;
-  border-bottom: 2px solid #5fbae9;
+  border-bottom: 2px solid #4B49AC;
 }
 
 input[type="text"]:placeholder {
@@ -385,13 +385,13 @@ input[type="password"]:placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #4B49AC;
   content: "";
   transition: width 0.2s;
 }
 
 .underlineHover:hover {
-  color: #0d0d0d;
+  color: #1F1F1F;
 }
 
 .underlineHover:hover:after {
@@ -422,8 +422,5 @@ input[type="password"]:placeholder {
 
 .title {
   padding: 15px 0;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   margin-top: -10px;
 }

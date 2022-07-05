@@ -1,9 +1,10 @@
-from flask import Blueprint, jsonify, redirect, render_template, request, flash, session, url_for
+from flask import Blueprint, jsonify, redirect, render_template, request, flash, send_file, url_for
 from flask_login import current_user
 from .models import Assignments, ClassForm, Courses, Student, Subjects, Teacher, Admin, Marks, Years, Sems, ClassForm, db
 from werkzeug.security import generate_password_hash, check_password_hash
 from .loginfunction import loginchecker
 import json
+import pandas as pd
 
 view = Blueprint('view', __name__)
 
@@ -174,3 +175,34 @@ def graderange(year,crs,sub,sem):
     # if(session.method=='POST'):
     #     pass
     return render_template('GradeRange.html')
+
+@view.route('/sheet/<year>/<crs>/<sub>/<sem>/download',methods=['GET'])
+def downloadsheet(year,crs,sub,sem):
+    students=[s for s in Student.query.filter_by(sbranch=crs).all()]
+    assign=[a for a in Assignments.query.filter_by(sem=sem).all()]
+    print(len(students))
+    details=pd.DataFrame({
+        "Sl.No.":[s.sroll for s in students],
+        "Enroll. No.":[(s.semail).split('@')[0] for s in students],
+        "Student Name":[f"{s.sfname} {s.slname}" for s in students]
+    })
+    # assignments=pd.DataFrame()
+    for ass in assign:
+        # a=pd.DataFrame({ass.assi:[Marks.query.filter_by(assi=ass.id,student=s.sid).first().mark for s in students]})
+        # assignments=assignments.merge(a,how='right')
+        a= []
+        for s in students:
+            m=Marks.query.filter_by(assi=ass.id,student=s.sid).first().mark
+            a.append('A' if m==-1 else m)
+        print()
+        details.loc[:,ass.assi]=a
+    details.set_index('Sl.No.',inplace=True)
+    total=[sum(int(i) if i!='A' else 0 for i in (details.loc[s.sroll,[a.assi for a in assign]])) for s in students]
+    details.loc[:,'Total']=total
+    writer = pd.ExcelWriter(r'website/static/Number-Sheets/output.xlsx')
+    # final=details.merge(assignments,how='right')
+    details.to_excel(writer)
+    writer.save()
+    print("\n\n\n\nDone\n\n\n\n")
+    return send_file(r'static\Number-Sheets\output.xlsx',as_attachment=True)
+

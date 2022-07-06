@@ -36,7 +36,8 @@
   /* z-index: -10; */
   /* overflow-x: scroll;
   overflow-y: scroll; */
-  margin-left: 12vh;
+  /* margin-left: 12vh; */
+  margin-left: 196px;
 }
 
 .rows {
@@ -428,10 +429,18 @@ a:visited {
 
 
 
-.top {
+.top 
+{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.content-wrapper
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

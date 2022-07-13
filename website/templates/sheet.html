@@ -213,8 +213,8 @@
 
             <div class="aux">
               <div style="margin: 15px;">
-                <img id="add_ass" class="add" src="https://images.unsplash.com/photo-1524741978410-350ba91a70d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80"
-                  width="69px" alt="" />
+                <img id="add_ass" class="add" src="/static/images/istockphoto-1365197728-170667a-removebg-preview.png"
+                  width="169px" alt="" />
               </div>
               <div class="popup">
                 <form class="cont1" method="post" name="addassi">
@@ -222,9 +222,9 @@
                   <!-- <label for="assignment">Assignment name</label> -->
                   <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" />
                   <!-- <label for="assignment">Maximum Number</label> -->
-                  <input type="number" name="maxnum" id="" class="drop" placeholder="Maximum Number" />
+                  <!-- <input type="number" name="maxnum" id="" class="drop" placeholder="Maximum Number" /> -->
                   <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1" required/>
-                  <button name="subtype" value="addassi" value="Submit" class="btn btn-info">Submit</buton>
+                  <button name="subtype" value="addassi" value="Submit" class="btn btn-info" id="submityes">Submit</buton>
                 </form>
               </div>
             </div>
@@ -346,19 +346,18 @@
   <script src="/static/JS/vendor.bundle.base.js"></script>
   <!-- endinject -->
 
-<script>
+<!-- <script>
 
   const ass = document.getElementById("add_ass");
-  const pop = document.querySelector(".cont1");
+  const pop = document.querySelector(".popup");
   ass.onclick = () => {
-    alert("Clicked")
-      // pop.style.display = "flex";*
+      pop.style.display = "flex";
       if(pop.style.display == "none")
         pop.style.display = "flex";
       else
         pop.style.display = "none";
     };
-</script>
+</script> -->
 
 
   <!-- inject:js -->
@@ -366,6 +365,7 @@
   <script src="/static/JS/template.js"></script>
   <script src="/static/JS/settings.js"></script>
   <script src="/static/JS/todolist.js"></script>
+  <script src="/static/JS/sheet.js"></script>
   <!-- endinject -->
 </body>
 

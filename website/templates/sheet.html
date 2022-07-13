@@ -1,433 +1,372 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <title>IIITL Admin</title>
+<head>
+  <!-- Required meta tags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/static/sheet.css" />
-    <link rel="stylesheet" href="/static/style.css" />
-    <!-- endinject -->
+  <title>IIITL Admin</title>
 
-    <!-- Font style link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
-    <script src="/static/JS/sheet.js"></script>
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/static/sheet.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <!-- endinject -->
 
-  </head>
+  <!-- Font style link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+</head>
 
-  <body class="">
-    <div class="container-scroller" style="margin-top: -6.5vh">
-      <!-- partial:partials/_navbar.html -->
+<body class="">
+  <div class="container-scroller" style="margin-top: -6.5vh">
+    <!-- partial:partials/_navbar.html -->
 
-      <nav class="navbar col-lg-12 col-12 p-0 d-flex flex-row pt-5 mt-3">
-        <div
-          class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start"
-        >
-          <a class="navbar-brand brand-logo me-5" href="">
-            <span
-              style="
+    <nav class="navbar col-lg-12 col-12 p-0 d-flex flex-row pt-5 mt-3">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <a class="navbar-brand brand-logo me-5" href="">
+          <span style="
                 font-size: 30px;
                 font-family: 'Pacifico', cursive;
                 color: #504b8e;
                 position: relative;
                 left: 1.5vh;
                 top: 1vh;
-              "
-              >IIITL</span
-            ></a
-          >
-          <img
-            src="/static/images/logo1.png"
-            class="me-2"
-            alt="logo"
-            style="
+              ">IIITL</span></a>
+        <img src="/static/images/logo1.png" class="me-2" alt="logo" style="
               width: 6vh;
               height: 6vh;
               margin-top: 2vh;
               margin-left: -1vh;
               cursor: pointer;
-            "
-          />
-        </div>
+            " />
+      </div>
 
-        <div
-          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
-        >
-          <button
-            class="navbar-toggler navbar-toggler align-self-center"
-            type="button"
-            data-toggle="minimize"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-list"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-              />
-            </svg>
-          </button>
-          <ul class="navbar-nav mr-lg-2">
-            <li class="nav-item nav-search d-none d-lg-block">
-              <div class="input-group">
-                <div
-                  class="input-group-prepend hover-cursor"
-                  id="navbar-search-icon"
-                >
-                  <span class="input-group-text" id="search">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-search"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                      />
-                    </svg>
-                  </span>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+          </svg>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-search" viewBox="0 0 16 16">
+                    <path
+                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                  </svg>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now"
+                aria-label="search" aria-describedby="search" />
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+              data-bs-toggle="dropdown">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+              </svg>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+              aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">
+                Notifications
+              </p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="ti-user mx-0"></i>
+                  </div>
                 </div>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="navbar-search-input"
-                  placeholder="Search now"
-                  aria-label="search"
-                  aria-describedby="search"
-                />
-              </div>
-            </li>
-          </ul>
-          <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link count-indicator dropdown-toggle"
-                id="notificationDropdown"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-bell"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"
-                  />
-                </svg>
-                <span class="count"></span>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">
+                    New student registration
+                  </h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
               </a>
-              <div
-                class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                aria-labelledby="notificationDropdown"
-              >
-                <p class="mb-0 font-weight-normal float-left dropdown-header">
-                  Notifications
-                </p>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="ti-user mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">
-                      New student registration
-                    </h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      2 days ago
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item nav-profile dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                data-bs-toggle="dropdown"
-                id="profileDropdown"
-                aria-expanded="false"
-              >
-                <img src="/static/images/admin1.jpg" alt="profile" />
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown"
+              aria-expanded="false">
+              <img src="/static/images/admin1.jpg" alt="profile" />
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Settings
               </a>
-              <div
-                class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                aria-labelledby="profileDropdown"
-              >
-                <a class="dropdown-item">
-                  <i class="ti-settings text-primary"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="/logout">
-                  <i class="ti-power-off text-primary"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-          </ul>
-          <button
-            class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-            type="button"
-            data-toggle="offcanvas"
-          >
-            <span class="icon-menu"></span>
-          </button>
-        </div>
+              <a class="dropdown-item" href="/logout">
+                <i class="ti-power-off text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper pt-0">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas active" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-images"
+                viewBox="0 0 16 16" style="margin-left: 1 vh; margin-right: 1vh">
+                <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                <path
+                  d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+              </svg>
+              <span class="menu-title">Assignments</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-images"
+                viewBox="0 0 16 16" style="margin-left: 1 vh; margin-right: 1vh">
+                <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                <path
+                  d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+              </svg>
+              <span class="menu-title">Mid Semester</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar"
+                viewBox="0 0 16 16" style="margin-left: 1 vh; margin-right: 1vh">
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+              <span class="menu-title">End Semester</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./range">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope"
+                viewBox="0 0 16 16" style="margin-left: 1 vh; margin-right: 1vh">
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+              </svg>
+              <span class="menu-title">Grade Marks Range</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar"
+                viewBox="0 0 16 16" style="margin-left: 1 vh; margin-right: 1vh">
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+              <span class="menu-title">Calendar</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <svg xmlns="http://www.w3.org/2000/svg" style="margin-left: 1 vh; margin-right: 1vh" width="16"
+                height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+              </svg>
+              <span class="menu-title">Student Profiles</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-images"
+                viewBox="0 0 16 16" style="margin-left: 1 vh; margin-right: 1vh">
+                <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                <path
+                  d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+              </svg>
+              <span class="menu-title">Gallery</span>
+            </a>
+          </li>
+        </ul>
       </nav>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper pt-0">
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas active" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="">
-                <svg xmlns="http://www.w3.org/2000/svg" style="margin-left: 1 vh; margin-right: 1vh" width="16" height="16" fill="currentColor" class="bi bi-journal" viewBox="0 0 16 16">
-                  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-                  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-                </svg>
-                <span class="menu-title">Assignments</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./2">
-                <svg xmlns="http://www.w3.org/2000/svg" style="margin-left: 1 vh; margin-right: 1vh" width="16" height="16" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
-                  <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-                  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-                </svg>
-                <span class="menu-title">Mid Semester</span>
-              </a>
-            </li>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./2">
-                <svg xmlns="http://www.w3.org/2000/svg" style="margin-left: 1 vh; margin-right: 1vh" width="16" height="16" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
-                  <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-                  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-                </svg>
-                <span class="menu-title">End Semester</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./range">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-envelope"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path
-                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
-                  />
-                </svg>
-                <span class="menu-title">Grade Marks Range</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-calendar"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path
-                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
-                  />
-                </svg>
-                <span class="menu-title">Calendar</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <svg xmlns="http://www.w3.org/2000/svg" style="margin-left: 1 vh; margin-right: 1vh" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                </svg>
-                <span class="menu-title">Student Profiles</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-images"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                  <path
-                    d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"
-                  />
-                </svg>
-                <span class="menu-title">Gallery</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
 
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              <form action="" method="post">
-                <div class="popup cont1">
-                  <!-- <form class="cont1" method="post" name="addassi"> -->
-                    <div class="cros"><img src="../static/images/cross.png" alt=""></div>
-                    <!-- <label for="assignment">Assignment name</label> -->
-                    <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" />
-                    <!-- <label for="assignment">Maximum Number</label> -->
-                    <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1"/>
-                    <button name="subtype" value="addassi" value="Submit" class="btn btn-info">Submit</buton>
-                  <!-- </form> -->
-                </div>
-                <div class="mainbody2">
-                  <div class="div1">
-                    <div class="rows">
-                      <div class="cells">
-                        <h3>Roll No.</h3>
-                      </div>
-                      <div class="cellsn">
-                        <h3>Names</h3>
-                      </div>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+
+
+            <div class="aux">
+              <div style="margin: 15px;">
+                <img id="add_ass" class="add" src="/static/images/istockphoto-1365197728-170667a-removebg-preview.png"
+                  width="169px" alt="" />
+              </div>
+              <div class="popup">
+                <form class="cont1" method="post" name="addassi">
+                  <div class="cros"><img src="../static/images/cross.png" alt=""></div>
+                  <!-- <label for="assignment">Assignment name</label> -->
+                  <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" />
+                  <!-- <label for="assignment">Maximum Number</label> -->
+                  <!-- <input type="number" name="maxnum" id="" class="drop" placeholder="Maximum Number" /> -->
+                  <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1" required/>
+                  <button name="subtype" value="addassi" value="Submit" class="btn btn-info" id="submityes">Submit</buton>
+                </form>
+              </div>
+            </div>
+
+
+            <form action="" method="post">
+
+
+              
+              <div class="mainbody2">
+                <div class="div1">
+                  <div class="rows">
+                    <div class="cells">
+                      <h3>Roll No.</h3>
                     </div>
-          
-                    {% for student in students %}
-                    <div class="rows">
-                      <div class="cells">
-                        {{student.sroll}}
-                      </div>
-                      <div class="cellsn">
-                        {{student.sfname}} {{student.slname}}
-                      </div>
+                    <div class="cellsn">
+                      <h3>Names</h3>
                     </div>
-                    {% endfor %}
                   </div>
-          
-                  <div class="div2">
-                    <div class="div2i">
-                      <div class="rows">
-                        {% for ass in asss %} 
-                        <div class="cells" id="cell1" style="flex-direction: column;">
-                          <div class="top">
-                            <button type="button" style="border: none; background-color: white; margin-top: 3px;">
-                              <img class="close1" id="edit_ass" src="/static/images/edit.png" alt=""
-                              style="border: none" width="20px" onclick="validateMyForm(event);"/>
-                            </button>
-                            <span style="color: white;">max</span>
-                            <!-- <span style="color: rgb(0, 185, 46); font-weight: bolder;">{{ass.maxnum}}</span> -->
-                            <div class="btndiv" style="border: none; z-index: 100;">
-                              <button style="border: none; background-color: white; height: 21px;" type="submit" name="subtype" value="removeassi/{{ass.id}}" onclick="validateMyForm(event);">
-                                <img class="close2"
-                                  src="/static/images/cross.png" alt="" style="background-color: white;"
-          
-                                  width="20px" />
-                              </button>
-                            </div>
-                          </div>
-                          <div class="btm"><h4>{{ass.assi}} <span style="color: rgb(0, 185, 46); font-weight: bolder; font-size: small;">[{{ass.maxnum}}]</span></h4></div>
+
+                  {% for student in students %}
+                  <div class="rows">
+                    <div class="cells">
+                      {{student.sroll}}
+                    </div>
+                    <div class="cellsn">
+                      {{student.sfname}} {{student.slname}}
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+
+                <div class="div2">
+                  <div class="div2i">
+                    <div class="rows">
+                      {% for ass in asss %}
+                      <div class="cells" id="cell1" style="flex-direction: column;">
+                        <div class="top">
+                          <button type="button"
+                            style="border: none; background-color: white;">
+                            <img class="close1" id="edit_ass" src="/static/images/edit.png" alt="" style="border: none"
+                              width="20px" onclick="validateMyForm(event);" />
+                          </button>
+                          <!-- <span style="color: white;">max</span> -->
+                          <!-- <span style="color: rgb(0, 185, 46); font-weight: bolder;">{{ass.maxnum}}</span> -->
+                          <button style="border: none; background-color: white;"
+                            type="submit" name="subtype" value="removeassi/{{ass.id}}" onclick="validateMyForm(event);">
+                            <img class="close2" src="/static/images/cross.png" alt="" style="background-color: white;"
+                              width="20px" />
+                          </button>
                         </div>
-                        {% endfor %}
-                      </div>
-                      {% for student in students %}
-                      <div class="rows" name="{{ass}}">
-                        {% for ass in asss %}
-                        {% set mid = ass.assi+'-'+student.sroll|string %}
-                        <input class="cells" type="text" name="{{mid}}" value="{{marksdict[mid]}}" max="{{ass.maxnum}}" min="-1" oninput="checkValue(this)" />
-                        {% endfor %}
+                        <div class="btm">
+                          <h4>{{ass.assi}} <span
+                              style="color: rgb(0, 185, 46); font-weight: bolder; font-size: small;">[{{ass.maxnum}}]</span>
+                          </h4>
+                        </div>
                       </div>
                       {% endfor %}
                     </div>
-                  </div>
-          
-                  <div class="div3">
-                    <div class="rows">
-          
-                      <div class="cells" style="margin-left: auto">
-                        <h4>TOTAL</h4>
-                      </div>
-                      <div class="cells" style="margin-left: auto">
-                        <h4>CGPA</h4>
-                      </div>
-                    </div>
-                      {% for student in students %}
-                    
-                    <div class="rows">
-                      <div class="cells">
-                        <h5>{{total[student.sroll]}}</h5>
-                      </div>
-                      <div class="cells">
-                        <h5>{{cgpa[student.sroll]}}</h5>
-                      </div>
+                    {% for student in students %}
+                    <div class="rows" name="{{ass}}">
+                      {% for ass in asss %}
+                      {% set mid = ass.assi+'-'+student.sroll|string %}
+                      <input class="cells" type="text" name="{{mid}}" value="{{marksdict[mid]}}" max="{{ass.maxnum}}"
+                        min="-1" oninput="checkValue(this)" />
+                      {% endfor %}
                     </div>
                     {% endfor %}
                   </div>
                 </div>
-                <button id="err" type="submit" name="subtype" value="submit" style="border: 0px;" class="btn btn-success" onclick="validateMyForm(event);">Submit</button>
-                <button type="button" id="gradepopupbtn"><p style="font-size: 15px;color: aquamarine;">Grading Range</p></button>
-                <div id="gradediv">
-                  
+
+                <div class="div3">
+                  <div class="rows">
+
+                    <div class="cells" style="margin-left: auto">
+                      <h4>TOTAL</h4>
+                    </div>
+                    <div class="cells" style="margin-left: auto">
+                      <h4>CGPA</h4>
+                    </div>
+                  </div>
+                  {% for student in students %}
+
+                  <div class="rows">
+                    <div class="cells">
+                      <h5>{{total[student.sroll]}}</h5>
+                    </div>
+                    <div class="cells">
+                      <h5>{{cgpa[student.sroll]}}</h5>
+                    </div>
+                  </div>
+                  {% endfor %}
                 </div>
-              </form>
-            </div>
+              </div>
+              <button id="err" type="submit" name="subtype" value="submit" style="border: 0px; margin-left: 296px;" class="btn btn-success"
+                onclick="validateMyForm(event);">Submit</button>
+              <!-- <button type="button" id="gradepopupbtn">
+                <p style="font-size: 15px;color: aquamarine;">Grading Range</p>
+              </button> -->
+              <div id="gradediv">
+
+              </div>
+            </form>
           </div>
-          <footer class="footer">
-          <div
-            class="d-sm-flex justify-content-center justify-content-sm-between"
-          >
-            <span
-              class="text-muted text-center text-sm-left d-block d-sm-inline-block"
-              >© 2022 IIIT Lucknow</span
-            >
+        </div>
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">© 2022 IIIT Lucknow</span>
           </div>
         </footer>
-        
-        </div>
+
       </div>
-      <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
 
-    <!-- plugins:js -->
-    <script src="/static/JS/vendor.bundle.base.js"></script>
-    <!-- endinject -->
+  <!-- plugins:js -->
+  <script src="/static/JS/vendor.bundle.base.js"></script>
+  <!-- endinject -->
 
-    <!-- inject:js -->
-    <script src="/static/JS/hoverable-collapse.js"></script>
-    <script src="/static/JS/template.js"></script>
-    <script src="/static/JS/settings.js"></script>
-    <script src="/static/JS/todolist.js"></script>
-    <!-- endinject -->
-  </body>
+<!-- <script>
+
+  const ass = document.getElementById("add_ass");
+  const pop = document.querySelector(".popup");
+  ass.onclick = () => {
+      pop.style.display = "flex";
+      if(pop.style.display == "none")
+        pop.style.display = "flex";
+      else
+        pop.style.display = "none";
+    };
+</script> -->
+
+
+  <!-- inject:js -->
+  <script src="/static/JS/hoverable-collapse.js"></script>
+  <script src="/static/JS/template.js"></script>
+  <script src="/static/JS/settings.js"></script>
+  <script src="/static/JS/todolist.js"></script>
+  <script src="/static/JS/sheet.js"></script>
+  <!-- endinject -->
+</body>
+
 </html>

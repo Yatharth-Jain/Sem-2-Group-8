@@ -23,8 +23,6 @@
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
       rel="stylesheet"
     />
-    <script src="/static/JS/sheet.js"></script>
-
   </head>
 
   <body class="">
@@ -377,24 +375,17 @@
                       <div class="cells" style="margin-left: auto">
                         <h4>TOTAL</h4>
                       </div>
-                      <div class="cells" style="margin-left: auto">
-                        <h4>CGPA</h4>
-                      </div>
                     </div>
                       {% for student in students %}
                     
                     <div class="rows">
                       <div class="cells">
-                        <h5>{{total[student.sroll]}}</h5>
-                      </div>
-                      <div class="cells">
-                        <h5>{{cgpa[student.sroll]}}</h5>
                       </div>
                     </div>
                     {% endfor %}
                   </div>
                 </div>
-                <button id="err" type="submit" name="subtype" value="submit" style="border: 0px;" class="btn btn-success" onclick="validateMyForm(event);">Submit</button>
+                <button id="err" type="submit" name="subtype" value="submit" style="border: 0px;" class="btn btn-success" onclick="validateMyForm(event);">Confirm</button>
                 <button type="button" id="gradepopupbtn"><p style="font-size: 15px;color: aquamarine;">Grading Range</p></button>
                 <div id="gradediv">
                   
@@ -424,6 +415,7 @@
     <!-- endinject -->
 
     <!-- inject:js -->
+    <script src="/static/JS/confirm-sheet.js"></script>
     <script src="/static/JS/hoverable-collapse.js"></script>
     <script src="/static/JS/template.js"></script>
     <script src="/static/JS/settings.js"></script>

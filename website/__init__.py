@@ -12,8 +12,6 @@ def create_app():
     app.config['SECRET_KEY'] = 'My Secret'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_Name}'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    # app.config["SESSION_PERMANENT"] = False
-    # app.config["SESSION_TYPE"] = "sqlalchemy"
     db.init_app(app)
 
     from .view import view
@@ -25,14 +23,6 @@ def create_app():
     login_manager = LoginManager()
     login_manager.login_view = 'auth.homepage'
     login_manager.init_app(app)
-
-    # @login_manager.user_loader
-    # def load_user(id):
-    #     return Student.query.get(int(id))
-
-    # @login_manager.user_loader
-    # def load_user(id):
-    #     return Teacher.query.get(int(id))
 
     @login_manager.user_loader
     def load_user(id):

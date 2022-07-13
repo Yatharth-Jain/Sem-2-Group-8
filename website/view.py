@@ -3,6 +3,7 @@ from flask_login import current_user
 from .models import Assignments, ClassForm, Courses, Student, Subjects, Teacher, Admin, Marks, Years, Sems, ClassForm, db
 from werkzeug.security import generate_password_hash, check_password_hash
 from .loginfunction import loginchecker
+import os
 import json
 import pandas as pd
 
@@ -199,10 +200,54 @@ def downloadsheet(year,crs,sub,sem):
     details.set_index('Sl.No.',inplace=True)
     total=[sum(int(i) if i!='A' else 0 for i in (details.loc[s.sroll,[a.assi for a in assign]])) for s in students]
     details.loc[:,'Total']=total
-    writer = pd.ExcelWriter(r'website/static/Number-Sheets/output.xlsx')
+    name=f'{crs}-{sub}-{sem}.xlsx'
+    writer = pd.ExcelWriter(f'website/static/Number-Sheets/{name}')
     # final=details.merge(assignments,how='right')
     details.to_excel(writer)
     writer.save()
-    print("\n\n\n\nDone\n\n\n\n")
-    return send_file(r'static\Number-Sheets\output.xlsx',as_attachment=True)
+    return send_file(f'static/Number-Sheets/{name}',as_attachment=True)
 
+
+@view.route('/sheet/<year>/<crs>/<sub>/<sem>/upload',methods=['POST'])
+def uploadsheet(year,crs,sub,sem):
+    if request.method=='POST':
+        f=request.files['marksheet']
+        name=f.filename
+        ext=name.split('.')[1]
+        name=f'{crs}-{sub}-{sem}.{ext}'
+        f.save(f'website/static/Number-Sheets/{name}')
+    return redirect(url_for('view.confirmsheet',year=year,crs=crs,sub=sub,sem=sem))
+
+@view.route('/sheet/<year>/<crs>/<sub>/<sem>/confirm',methods=['POST','GET'])
+def confirmsheet(year,crs,sub,sem):
+    students = [std for std in Student.query.filter_by(sbranch=crs).all()]
+    total={}
+    sheet=pd.read_excel(f'website/static/Number-Sheets/{crs}-{sub}-{sem}.xlsx')
+    sheet=sheet.drop(['Enroll. No.','Total'],axis=1)
+    sheet.set_index('Sl.No.',inplace=True)
+    ass=list(sheet.columns)
+    ass.remove('Student Name')
+    asss=[i for i in Sems.query.filter_by(id=sem).first().assis if i.assi in ass]
+    marksdict = {}
+    for s in students:
+        for a in asss:
+            marksdict[f'{a.assi}-{s.sroll}']=sheet.loc[s.sroll][a.assi]
+
+    if request.method=='POST':
+        os.remove(f'website/static/Number-Sheets/{crs}-{sub}-{sem}.xlsx')
+
+        for student in students:
+            for ass in asss:
+                mark = Marks.query.filter_by(
+                    student=student.sid, subject=sub, sem=sem, assi=ass.id).first()
+                m = request.form[f'{ass.assi}-{student.sroll}']
+                if m != "A":
+                    if m == '':
+                        m = 0
+                    mark.mark = m
+                else:
+                    mark.mark = -1
+                db.session.commit()
+        return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=1))
+
+    return render_template('Confirm-Sheet.html',students=students,asss=asss,marksdict=marksdict)

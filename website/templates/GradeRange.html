@@ -24,6 +24,12 @@
           <li><a href="./1">Mid Semester</a></li>
           <li><a href="./2">End Semester</a></li>
           <li><a href="./range">Grade Marks Range</a></li>
+          <li>
+            <form action="./upload" class="upload" method="post" enctype="multipart/form-data">
+              <input type="file" name="marksheet" id="">
+              <button type="submit" class="btn">upload</button>
+            </form>
+          </li>
         </ul>
       </div>
       <div class="bottom top">
@@ -40,7 +46,7 @@
         <h3>ASSIGN GRADES ON MARKS RANGE</h3>
       </div>
 
-      <form method="post">
+      <form method="post" class="main">
         <div class="input-group">
           <label class="input-group-btn" style="width: 30px">A+</label>
           <input

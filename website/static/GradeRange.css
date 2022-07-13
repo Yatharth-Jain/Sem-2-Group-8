@@ -120,7 +120,7 @@ input {
     text-align: right; 
 }
 
-form {
+form.main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -168,4 +168,12 @@ input[type="number"]::placeholder
   background: #02ad2d;
   background-image: linear-gradient(to bottom, #00ca33, #12b300);
   text-decoration: none;
+}
+
+form.upload{    
+  display: flex;
+  /* background-color: bisque; */
+  width: 30vh;
+  margin-left: 2vh;
+  justify-content: right;
 }

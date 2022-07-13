@@ -209,17 +209,31 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            <form action="" method="post">
-              <div class="popup cont1">
-                <!-- <form class="cont1" method="post" name="addassi"> -->
-                <div class="cros"><img src="../static/images/cross.png" alt=""></div>
-                <!-- <label for="assignment">Assignment name</label> -->
-                <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" />
-                <!-- <label for="assignment">Maximum Number</label> -->
-                <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1" />
-                <button name="subtype" value="addassi" value="Submit" class="btn btn-info">Submit</buton>
-                  <!-- </form> -->
+
+
+            <div class="aux">
+              <div style="margin: 15px;">
+                <img id="add_ass" class="add" src="https://images.unsplash.com/photo-1524741978410-350ba91a70d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80"
+                  width="69px" alt="" />
               </div>
+              <div class="popup">
+                <form class="cont1" method="post" name="addassi">
+                  <div class="cros"><img src="../static/images/cross.png" alt=""></div>
+                  <!-- <label for="assignment">Assignment name</label> -->
+                  <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" />
+                  <!-- <label for="assignment">Maximum Number</label> -->
+                  <input type="number" name="maxnum" id="" class="drop" placeholder="Maximum Number" />
+                  <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1" required/>
+                  <button name="subtype" value="addassi" value="Submit" class="btn btn-info">Submit</buton>
+                </form>
+              </div>
+            </div>
+
+
+            <form action="" method="post">
+
+
+              
               <div class="mainbody2">
                 <div class="div1">
                   <div class="rows">
@@ -305,7 +319,7 @@
                   {% endfor %}
                 </div>
               </div>
-              <button id="err" type="submit" name="subtype" value="submit" style="border: 0px;" class="btn btn-success"
+              <button id="err" type="submit" name="subtype" value="submit" style="border: 0px; margin-left: 296px;" class="btn btn-success"
                 onclick="validateMyForm(event);">Submit</button>
               <!-- <button type="button" id="gradepopupbtn">
                 <p style="font-size: 15px;color: aquamarine;">Grading Range</p>
@@ -331,6 +345,21 @@
   <!-- plugins:js -->
   <script src="/static/JS/vendor.bundle.base.js"></script>
   <!-- endinject -->
+
+<script>
+
+  const ass = document.getElementById("add_ass");
+  const pop = document.querySelector(".cont1");
+  ass.onclick = () => {
+    alert("Clicked")
+      // pop.style.display = "flex";*
+      if(pop.style.display == "none")
+        pop.style.display = "flex";
+      else
+        pop.style.display = "none";
+    };
+</script>
+
 
   <!-- inject:js -->
   <script src="/static/JS/hoverable-collapse.js"></script>

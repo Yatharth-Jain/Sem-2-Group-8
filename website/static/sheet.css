@@ -37,7 +37,7 @@
   /* overflow-x: scroll;
   overflow-y: scroll; */
   /* margin-left: 12vh; */
-  margin-left: 196px;
+  margin-left: 296px;
 }
 
 .rows {
@@ -443,4 +443,85 @@ a:visited {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.aux
+{
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cont1 {
+  position: fixed;
+  top: 0;
+  /* left: 0; */
+  display: none;
+  height: 53vh;
+  /* border: 2px solid red; */
+  background-image: linear-gradient(to top, white 20%, #4b49ac 80%);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  margin-left: -33vh;
+  width: 50vh;
+  margin-top: 11vh;
+  border-radius: 10px;
+}
+.cont1 input {
+  width: 40vh;
+  /* height: 4vh; */
+  border-radius: 10px;
+  margin: 2vh 0vh;
+  /* margin-top: 5vh;
+  margin-bottom: 2vh; */
+  padding: 2vh;
+ 
+}
+#cont1input1 {
+  width: 40vh;
+  /* height: 4vh; */
+  border-radius: 10px;
+  /* margin: 5vh 0vh; */
+  /* margin-top: 5vh; */
+  margin-bottom: 2vh;
+  padding: 2vh;
+  margin-left: 38px;
+  margin-right: 38px;
+}
+.cont1 button {
+  margin-top: 39px;
+  margin-bottom: 30px;
+  border-color: #22001d;
+  background-color: rgb(252, 252, 252);
+  margin-left: 38px;
+  margin-right: 38px;
+}
+.cont1 button:hover {
+  color: #023086;
+  background-color: rgb(13, 103, 126);
+  color: #5c3786;
+  background-color: rgb(108, 177, 218);
+}
+
+.close {
+  cursor: pointer;
+}
+.close1 {
+  margin-right: 38px;
+  /* margin-bottom: 4px; */
+}
+.close2 {
+  margin-left: 20px;
+  /* margin-bottom: 4px; */
+  margin-top: 2px;
+}
+
+#dropval:invalid {
+    border: 1px solid red;
 }

@@ -127,35 +127,7 @@ def sheet(year, crs, sub, sem,part):
 
     if request.method == 'POST':
         subtype = request.form['subtype']
-        
-        for student in students:
-            for ass in asss:
-                mark = Marks.query.filter_by(
-                    student=student.sid, subject=sub, sem=sem, assi=ass.id).first()
-                if mark.mark != -1:
-                    total[student.sroll] = total[student.sroll]-mark.mark
-                m = request.form[f'{ass.assi}-{student.sroll}']
-                if m != "A":
-                    if m == '':
-                        m = 0
-                    total[student.sroll] += int(m)
-                    marksdict[f'{ass.assi}-{student.sroll}'] = int(m)
-                    mark.mark = m
-                else:
-                    marksdict[f'{ass.assi}-{student.sroll}'] = 'A'
-                    mark.mark = -1
-                db.session.commit()
-
-        if 'removeassi' in subtype:
-            subtype=subtype.replace("removeassi/","")
-            marks = Marks.query.filter_by(assi=int(subtype)).all()
-            for mark in marks:
-                db.session.delete(mark)
-                db.session.commit()
-            assi = Assignments.query.filter_by(id=int(subtype)).first()
-            db.session.delete(assi)
-            db.session.commit()
-        elif subtype == 'addassi':
+        if subtype == 'addassi':
             new_ass = request.form['newassi']
             maxnum = request.form['maxnum']
             o_ass = Assignments.query.filter_by(
@@ -167,6 +139,35 @@ def sheet(year, crs, sub, sem,part):
                     assi=new_ass.capitalize(), maxnum=maxnum, sem=sem,part=part)
                 db.session.add(n_ass)
                 db.session.commit()
+        else:
+            for student in students:
+                for ass in asss:
+                    mark = Marks.query.filter_by(
+                        student=student.sid, subject=sub, sem=sem, assi=ass.id).first()
+                    if mark.mark != -1:
+                        total[student.sroll] = total[student.sroll]-mark.mark
+                    m = request.form[f'{ass.assi}-{student.sroll}']
+                    if m != "A":
+                        if m == '':
+                            m = 0
+                        total[student.sroll] += int(m)
+                        marksdict[f'{ass.assi}-{student.sroll}'] = int(m)
+                        mark.mark = m
+                    else:
+                        marksdict[f'{ass.assi}-{student.sroll}'] = 'A'
+                        mark.mark = -1
+                    db.session.commit()
+
+            if 'removeassi' in subtype:
+                subtype=subtype.replace("removeassi/","")
+                marks = Marks.query.filter_by(assi=int(subtype)).all()
+                for mark in marks:
+                    db.session.delete(mark)
+                    db.session.commit()
+                assi = Assignments.query.filter_by(id=int(subtype)).first()
+                db.session.delete(assi)
+                db.session.commit()
+        
                 
         return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=part))
     return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict, curl=curl,cgpa=cgpa)

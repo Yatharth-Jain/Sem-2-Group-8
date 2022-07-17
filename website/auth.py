@@ -58,7 +58,7 @@ def login(user):
                     flash('Wrong Password!!!', 'error')
             else:
                 flash("The User Doesn't Exist!!!", "error")
-    return render_template('admin_login.html', user=user)
+    return render_template('login_page.html', user=user)
 
 
 # @auth.route('/student-register', methods=['GET', 'POST'])

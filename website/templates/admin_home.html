@@ -2,373 +2,32 @@
 
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
     <title>IIITL Admin</title>
-
-    <!-- inject:css -->
     <link rel="stylesheet" href="../static/style.css" />
-    <!-- endinject -->
-
-    <!-- Font style link -->
+    <link rel="stylesheet" href="../static/admin_home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="shortcut icon"
+      href="../static/images/logo1.png"
+      type="image/x-icon"
+    />
   </head>
 
   <body class="">
     <div class="container-scroller" style="margin-top: -6.5vh">
-      <!-- partial:partials/_navbar.html -->
-
-      <nav class="navbar col-lg-12 col-12 p-0 d-flex flex-row pt-5 mt-3">
-        <div
-          class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start"
-        >
-          <a class="navbar-brand brand-logo me-5" href="">
-            <span
-              style="
-                font-size: 30px;
-                font-family: 'Pacifico', cursive;
-                color: #504b8e;
-                position: relative;
-                left: 1.5vh;
-                top: 1vh;
-              "
-              >IIITL</span
-            ></a
-          >
-          <img
-            src="../static/images/logo1.png"
-            class="me-2"
-            alt="logo"
-            style="
-              width: 6vh;
-              height: 6vh;
-              margin-top: 2vh;
-              margin-left: -1vh;
-              cursor: pointer;
-            "
-          />
-        </div>
-
-        <div
-          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
-        >
-          <button
-            class="navbar-toggler navbar-toggler align-self-center"
-            type="button"
-            data-toggle="minimize"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-list"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-              />
-            </svg>
-          </button>
-          <ul class="navbar-nav mr-lg-2">
-            <li class="nav-item nav-search d-none d-lg-block">
-              <div class="input-group">
-                <div
-                  class="input-group-prepend hover-cursor"
-                  id="navbar-search-icon"
-                >
-                  <span class="input-group-text" id="search">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-search"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="navbar-search-input"
-                  placeholder="Search now"
-                  aria-label="search"
-                  aria-describedby="search"
-                />
-              </div>
-            </li>
-          </ul>
-          <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link count-indicator dropdown-toggle"
-                id="notificationDropdown"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-bell"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"
-                  />
-                </svg>
-                <span class="count"></span>
-              </a>
-              <div
-                class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                aria-labelledby="notificationDropdown"
-              >
-                <p class="mb-0 font-weight-normal float-left dropdown-header">
-                  Notifications
-                </p>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="ti-user mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">
-                      New student registration
-                    </h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      2 days ago
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item nav-profile dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                data-bs-toggle="dropdown"
-                id="profileDropdown"
-                aria-expanded="false"
-              >
-                <img src="../static/images/admin1.jpg" alt="profile" />
-              </a>
-              <div
-                class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                aria-labelledby="profileDropdown"
-              >
-                <a class="dropdown-item">
-                  <i class="ti-settings text-primary"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="logout">
-                  <i class="ti-power-off text-primary"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-          </ul>
-          <button
-            class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-            type="button"
-            data-toggle="offcanvas"
-          >
-            <span class="icon-menu"></span>
-          </button>
-        </div>
-      </nav>
-      <!-- partial -->
+      {% include 'navBars/adminNav.html' %}
       <div class="container-fluid page-body-wrapper pt-0">
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas active" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-grid"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path
-                    d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"
-                  />
-                </svg>
-                <span class="menu-title">Home</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                data-bs-toggle="collapse"
-                href="#ui-basic"
-                aria-expanded="false"
-                aria-controls="ui-basic"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-people"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path
-                    d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
-                  />
-                </svg>
-                <span class="menu-title">Register</span>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="admin_registration">Admin</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="teacher_registration">Faculty</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="student_registration">Students</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-person"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path
-                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
-                  />
-                </svg>
-                <span class="menu-title">Faculty profiles</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-person"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path
-                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
-                  />
-                </svg>
-                <span class="menu-title">Student profiles</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-envelope"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path
-                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
-                  />
-                </svg>
-                <span class="menu-title">E-mail</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-calendar"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path
-                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
-                  />
-                </svg>
-                <span class="menu-title">Calendar</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-card-list"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path
-                    d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"
-                  />
-                  <path
-                    d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"
-                  />
-                </svg>
-                <span class="menu-title">Todo List</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-images"
-                  viewBox="0 0 16 16"
-                  style="margin-left: 1 vh; margin-right: 1vh"
-                >
-                  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                  <path
-                    d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"
-                  />
-                </svg>
-                <span class="menu-title">Gallery</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <!-- partial -->
+        {% include 'sideBars/adminSide.html' %}
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
@@ -447,7 +106,10 @@
                               <i class="input-helper"></i
                             ></label>
                           </div>
-                          <i class="remove ti-close"></i>
+                          <svg class="remove ti-close" class="remove ti-close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                          </svg>
                         </li>
                         <li>
                           <div class="form-check form-check-flat">
@@ -457,7 +119,10 @@
                               <i class="input-helper"></i
                             ></label>
                           </div>
-                          <i class="remove ti-close"></i>
+                            <svg class="remove ti-close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                              <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                            </svg>
                         </li>
                       </ul>
                     </div>
@@ -492,8 +157,6 @@
               </div>
             </div>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
           <footer class="footer">
             <div
               class="d-sm-flex justify-content-center justify-content-sm-between"
@@ -504,23 +167,12 @@
               >
             </div>
           </footer>
-          <!-- partial -->
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-
-    <!-- plugins:js -->
     <script src="../static/JS/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-
-    <!-- inject:js -->
     <script src="../static/JS/hoverable-collapse.js"></script>
     <script src="../static/JS/template.js"></script>
     <script src="../static/JS/settings.js"></script>
     <script src="../static/JS/todolist.js"></script>
-    <!-- endinject -->
   </body>
 </html>

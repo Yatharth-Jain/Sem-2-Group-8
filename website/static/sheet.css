@@ -530,3 +530,9 @@ a:visited {
   border-radius: 20px;
   cursor: pointer;
 }
+
+form.upload{
+  position: absolute;
+  bottom: 40px;
+  width: 235px;
+}

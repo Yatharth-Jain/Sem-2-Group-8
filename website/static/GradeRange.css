@@ -86,3 +86,19 @@ form.upload {
   margin-left: 2vh;
   justify-content: right;
 }
+
+.upperlimit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 15%;
+  background-color: #ced4da;
+  border: 1px solid #ced4da;
+  margin: 0 20px 0 20px;
+}
+
+.rangeerror{
+  color: rgb(245, 6, 6);
+
+}

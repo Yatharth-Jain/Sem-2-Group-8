@@ -65,8 +65,8 @@
                   </svg>
                 </span>
               </div>
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now"
-                aria-label="search" aria-describedby="search" />
+              <!-- <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now"
+                aria-label="search" aria-describedby="search" /> -->
             </div>
           </li>
         </ul>
@@ -216,12 +216,14 @@
 
     <main style="background-color: rgb(236, 236, 236)">
       <div class="title">
-        <h3>ASSIGN GRADES ON MARKS RANGEs</h3>
+        <!-- <h3>ASSIGN GRADES ON MARKS RANGEs</h3> -->
       </div>
 
       <form method="post" class="main">
         <div class="input-group">
           <label class="input-group-btn" style="width: 30px">A+</label>
+          <p class="upperlimit">{{total}}</p>
+
           <input
             type="number"
             class="form-control input-sm"
@@ -238,6 +240,7 @@
         </div>
         <div class="input-group">
           <label class="input-group-btn" style="width: 30px">A</label>
+          <p class="upperlimit">0</p>
           <input
             type="number"
             class="form-control input-sm"
@@ -254,6 +257,7 @@
         </div>
         <div class="input-group">
           <label class="input-group-btn" style="width: 30px">B+</label>
+          <p class="upperlimit">0</p>
           <input
             type="number"
             class="form-control input-sm"
@@ -270,6 +274,7 @@
         </div>
         <div class="input-group">
           <label class="input-group-btn" style="width: 30px">B</label>
+          <p class="upperlimit">0</p>
           <input
             type="number"
             class="form-control input-sm"
@@ -286,6 +291,7 @@
         </div>
         <div class="input-group">
           <label class="input-group-btn" style="width: 30px">C</label>
+          <p class="upperlimit">0</p>
           <input
             type="number"
             class="form-control input-sm"
@@ -302,6 +308,7 @@
         </div>
         <div class="input-group">
           <label class="input-group-btn" style="width: 30px">D</label>
+          <p class="upperlimit">0</p>
           <input
             type="number"
             class="form-control input-sm"
@@ -318,6 +325,7 @@
         </div>
         <div class="input-group">
           <label class="input-group-btn" style="width: 30px">E</label>
+          <p class="upperlimit">0</p>
           <input
             type="number"
             class="form-control input-sm"
@@ -334,11 +342,14 @@
         </div>
         <div class="input-group">
           <label class="input-group-btn" style="width: 30px">F</label>
+          <p class="upperlimit">0</p>
           <input
             type="number"
             class="form-control input-sm"
             name="Fu"
+            value="0"
             placeholder="Upper Limit"
+            readonly
           />
           <!-- <span class="input-group-btn" style="width: 10px"></span>
           <input
@@ -348,7 +359,7 @@
             placeholder="Lower Range"
           /> -->
         </div>
-        <button type="submit" class="btn">confirm</button>
+        <button type="submit" class="btn" onclick="checkform(event)">confirm</button>
       </form>
     </main>
     <script
@@ -366,5 +377,6 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <script src="/static/JS/GradeRanage.js"></script>
   </body>
 </html>

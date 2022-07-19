@@ -92,12 +92,19 @@ def year(method, val):
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>/<int:part>', methods=['GET', 'POST'])
 def sheet(year, crs, sub, sem,part):
     curl = f'{year}/{crs}/{sub}/{sem}'
-    asss = [ass for ass in Assignments.query.filter_by(sem=sem,part=part).all()]
-    # print(asss)
+    if part ==1 or part==2:
+        print("\n\n\n\n\n")
+        asss = [ass for ass in Assignments.query.filter_by(sem=sem,part=part).all()]
+    else:
+        asss = [ass for ass in Assignments.query.filter_by(sem=sem).all()]
+    print(asss)
     students = [std for std in Student.query.filter_by(sbranch=crs).all()]
     total = {}
     marksdict = {}
     cgpa={}
+
+    s=Subjects.query.filter_by(id=sub).first()
+    graderange=json.loads(s.graderange)
     maxm=0
     for student in students:
         t = 0
@@ -120,10 +127,10 @@ def sheet(year, crs, sub, sem,part):
         if maxm<t:
             maxm=t
     for student in students:
-        if maxm!=0:
-            cgpa[student.sroll]=f"{(total[student.sroll]/maxm)*10:.2f}"
-        else:
-            cgpa[student.sroll]=0.00
+        for grade,range in graderange.items():
+            if(total[student.sroll]>=int(range)):
+                cgpa[student.sroll]=grade.replace('u','')
+                break
 
     if request.method == 'POST':
         subtype = request.form['subtype']
@@ -174,9 +181,21 @@ def sheet(year, crs, sub, sem,part):
 
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>/range', methods=['GET', 'POST'])
 def graderange(year,crs,sub,sem):
-    # if(session.method=='POST'):
-    #     pass
-    return render_template('GradeRange.html')
+    total=0
+    for ass in Assignments.query.filter_by(sem=sem):
+        total+=ass.maxnum
+    names=['A+u','Au','B+u','Bu','Cu','Du','Eu','Fu']
+    s=Subjects.query.filter_by(id=sub).first()
+    if(request.method=='POST'):
+        ranges={}
+        ranges['total']=total
+        for name in names:
+            ranges[name]=request.form[name]
+            if not ranges[name]:
+                ranges[name]=0
+        s.graderange=json.dumps(ranges)
+        db.session.commit()
+    return render_template('GradeRange.html',total=total)
 
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>/download',methods=['GET'])
 def downloadsheet(year,crs,sub,sem):

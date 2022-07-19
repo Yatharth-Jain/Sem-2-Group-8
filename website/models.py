@@ -107,6 +107,7 @@ class Subjects(db.Model):
     crs = db.Column(db.Integer, db.ForeignKey('courses.id'))
     subject = db.Column(db.String[100], nullable=False)
     teacher=db.Column(db.Integer,db.ForeignKey('teacher.tid'))
+    graderange=db.Column(db.String[200],nullable=True)
     sems = db.relationship("Sems")
     # students=db.relationship("Student")
 

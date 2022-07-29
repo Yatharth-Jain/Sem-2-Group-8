@@ -29,125 +29,90 @@
     </style>
   </head>
 
-  <body class="">
-    <div class="container-scroller" style="margin-top: -6.5vh">
-      {% include 'navBars/teacherNav.html' %}
-      <div class="container-fluid page-body-wrapper pt-0">
-        {% include 'sideBars/sheetSide.html' %}
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              <div class="aux">
-                <div class="box" id="add_ass">
-                  <a class="button" href="#popup1">Add Assignment</a>
-                </div>
-                <div id="popup1" class="overlay">
-                  <div class="popup">
-                    <h2>Add Assignment</h2>
-                    <a class="close" href="#">×</a>
-                    <div class="content">
-                      <form class="cont1" method="post" name="addassi">
-                        <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" style="border: 1px solid #4245a8;" />
-                        <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1" required style="border: 1px solid #4245a8;"/>
-                        <button name="subtype" value="addassi" value="Submit" class="btn btn-info subBtn" id="submityes" style="background-color: #6064e7;
-                        color: white; margin-left: 22vh">Submit</buton>
-                      </form>
-                    </div>
+<body class="">
+  <div class="container-scroller" style="margin-top: -6.5vh">
+    {% include 'navBars/teacherNav.html' %}
+    <div class="container-fluid page-body-wrapper pt-0">
+      {% include 'sideBars/sheetSide.html'  %}
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="aux">
+              <div class="box" id="add_ass">
+                <a class="button" href="#popup1">Add Assignment</a>
+              </div>
+              <div id="popup1" class="overlay">
+                <div class="popup">
+                  <h2>Add Assignment</h2>
+                  <a class="close" href="#">×</a>
+                  <div class="content">
+                    <form class="cont1" method="post" name="addassi" style="display: flex !important">
+                      <input type="text" name="newassi" id="cont1input1" class="drop" placeholder="Assignment name" style="border: 1px solid #4245a8;" />
+                      <input type="number" name="maxnum" id="dropval" class="drop" placeholder="Maximum Number" min="1" required style="border: 1px solid #4245a8;"/>
+                      <button name="subtype" value="addassi" value="Submit" class="btn btn-info subBtn" id="submityes" style="background-color: #6064e7;
+                      color: white; margin-left: 22vh">Submit</buton>
+                    </form>
                   </div>
                 </div>
-              </div>
-              <form action="" method="post" style="margin-left: -16vh; margin-top: 2vh;">
-                <div class="mainbody2">
-                  <div class="div1">
+              </div>  
+            </div>
+            <form action="" method="post" style="margin-left: -16vh; margin-top: 2vh;">
+              <div class="mainbody2">
+                <div class="div1">
+                  <div class="rows">
+                    <div class="cells">
+                      <h3>Roll No.</h3>
+                    </div>
+                    <div class="cellsn">
+                      <h3>Names</h3>
+                    </div>
+                  </div>
+                  {% for student in students %}
+                  <div class="rows">
+                    <div class="cells">
+                      {{student.sroll}}
+                    </div>
+                    <div class="cellsn">
+                      {{student.sfname}} {{student.slname}}
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                <div class="div2">
+                  <div class="div2i">
                     <div class="rows">
-                      <div class="cells">
-                        <h3>Roll No.</h3>
+                      {% for ass in asss %}
+                      <div class="cells" id="cell1" style="flex-direction: column;">
+                        <div class="top">
+                          <button type="button"
+                            style="border: none; background-color: white;">
+                            <img class="close1" id="edit_ass" src="/static/images/edit.png" alt="" style="border: none"
+                              width="20px" onclick="validateMyForm(event);" />
+                          </button>
+                          <button style="border: none; background-color: white;"
+                            type="submit" name="subtype" value="removeassi/{{ass.id}}" onclick="validateMyForm(event);">
+                            <img class="close2" src="/static/images/cross.png" alt="" style="background-color: white;"
+                              width="20px" />
+                          </button>
+                        </div>
+                        <div class="btm">
+                          <h4>{{ass.assi}} <span
+                              style="color: rgb(0, 185, 46); font-weight: bolder; font-size: small;">[{{ass.maxnum}}]</span>
+                          </h4>
+                        </div>
                       </div>
-                      <div class="cellsn">
-                        <h3>Names</h3>
-                      </div>
+                      {% endfor %}
                     </div>
                     {% for student in students %}
-                    <div class="rows">
-                      <div class="cells">{{student.sroll}}</div>
-                      <div class="cellsn">
-                        {{student.sfname}} {{student.slname}}
-                      </div>
+                    <div class="rows" name="{{ass}}">
+                      {% for ass in asss %}
+                      {% set mid = ass.assi+'-'+student.sroll|string %}
+                      <input class="cells" type="text" name="{{mid}}" value="{{marksdict[mid]}}" max="{{ass.maxnum}}"
+                        min="-1" oninput="checkValue(this)" />
+                      {% endfor %}
                     </div>
                     {% endfor %}
                   </div>
-                  <div class="div2">
-                    <div class="div2i">
-                      <div class="rows">
-                        {% for ass in asss %}
-                        <div
-                          class="cells"
-                          id="cell1"
-                          style="flex-direction: column"
-                        >
-                          <div class="top">
-                            <button
-                              type="button"
-                              style="border: none; background-color: white"
-                            >
-                              <img
-                                class="close1"
-                                id="edit_ass"
-                                src="/static/images/edit.png"
-                                alt=""
-                                style="border: none"
-                                width="20px"
-                                onclick="validateMyForm(event);"
-                              />
-                            </button>
-                            <button
-                              style="border: none; background-color: white"
-                              type="submit"
-                              name="subtype"
-                              value="removeassi/{{ass.id}}"
-                              onclick="validateMyForm(event);"
-                            >
-                              <img
-                                class="close2"
-                                src="/static/images/cross.png"
-                                alt=""
-                                style="background-color: white"
-                                width="20px"
-                              />
-                            </button>
-                          </div>
-                          <div class="btm">
-                            <h4>
-                              {{ass.assi}}
-                              <span
-                                style="
-                                  color: rgb(0, 185, 46);
-                                  font-weight: bolder;
-                                  font-size: small;
-                                "
-                                >[{{ass.maxnum}}]</span
-                              >
-                            </h4>
-                          </div>
-                        </div>
-                        {% endfor %}
-                      </div>
-                      {% for student in students %}
-                      <div class="rows" name="{{ass}}">
-                        {% for ass in asss %} {% set mid =
-                        ass.assi+'-'+student.sroll|string %}
-                        <input
-                          class="cells"
-                          type="text"
-                          name="{{mid}}"
-                          value="{{marksdict[mid]}}"
-                          max="{{ass.maxnum}}"
-                          min="-1"
-                          oninput="checkValue(this)"
-                        />
-                        {% endfor %}
-                      </div>
-                      {% endfor %}
                 </div>
                 <div class="div3">
                   <div class="rows">
@@ -158,61 +123,40 @@
                       <h4>GRADES</h4>
                     </div>
                   </div>
-                  <div class="div3">
-                    <div class="rows">
-                      <div class="cells" style="margin-left: auto">
-                        <h4>TOTAL</h4>
-                      </div>
-                      <div class="cells" style="margin-left: auto">
-                        <h4>CGPA</h4>
-                      </div>
+                  {% for student in students %}
+                  <div class="rows">
+                    <div class="cells">
+                      <h5>{{total[student.sroll]}}</h5>
                     </div>
-                    {% for student in students %}
-                    <div class="rows">
-                      <div class="cells">
-                        <h5>{{total[student.sroll]}}</h5>
-                      </div>
-                      <div class="cells">
-                        <h5>{{cgpa[student.sroll]}}</h5>
-                      </div>
+                    <div class="cells">
+                      <h5>{{cgpa[student.sroll]}}</h5>
                     </div>
-                    {% endfor %}
                   </div>
+                  {% endfor %}
                 </div>
-                <button
-                  id="err"
-                  type="submit"
-                  name="subtype"
-                  value="submit"
-                  style="border: 0px; margin-left: 95.5vh; color: rgb(94, 89, 89); margin-top: 6vh;"
-                  class="btn btn-success"
-                  onclick="validateMyForm(event);"
-                >
-                  Submit
-                </button>
-                <div id="gradediv"></div>
-              </form>
-            </div>
+              </div>
+              <button id="err" type="submit" name="subtype" value="submit" style="border: 0px; margin-left: 95.5vh; color: rgb(94, 89, 89); margin-top: 6vh;" class="btn btn-success"
+                onclick="validateMyForm(event);">Submit</button>
+              <div id="gradediv">
+              </div>
+            </form>
           </div>
-          <footer class="footer">
-            <div
-              class="d-sm-flex justify-content-center justify-content-sm-between"
-            >
-              <span
-                class="text-muted text-center text-sm-left d-block d-sm-inline-block"
-                >© 2022 IIIT Lucknow</span
-              >
-            </div>
-          </footer>
         </div>
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">© 2022 IIIT Lucknow</span>
+          </div>
+        </footer>
       </div>
     </div>
+  </div>
 
-    <script src="/static/JS/vendor.bundle.base.js"></script>
-    <script src="/static/JS/hoverable-collapse.js"></script>
-    <script src="/static/JS/template.js"></script>
-    <script src="/static/JS/settings.js"></script>
-    <script src="/static/JS/todolist.js"></script>
-    <script src="/static/JS/sheet.js"></script>
-  </body>
+  <script src="/static/JS/vendor.bundle.base.js"></script>
+  <script src="/static/JS/hoverable-collapse.js"></script>
+  <script src="/static/JS/template.js"></script>
+  <script src="/static/JS/settings.js"></script>
+  <script src="/static/JS/todolist.js"></script>
+  <script src="/static/JS/sheet.js"></script>
+
+</body>
 </html>

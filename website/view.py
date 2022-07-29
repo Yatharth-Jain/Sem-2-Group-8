@@ -104,7 +104,11 @@ def sheet(year, crs, sub, sem,part):
     cgpa={}
 
     s=Subjects.query.filter_by(id=sub).first()
-    graderange=json.loads(s.graderange)
+    graderange=s.graderange
+    print(graderange)
+    if graderange==None:
+        return redirect(url_for(f'view.graderange', year=year, crs=crs, sub=sub, sem=sem))
+    graderange=json.loads(graderange)
     maxm=0
     for student in students:
         t = 0
@@ -268,6 +272,6 @@ def confirmsheet(year,crs,sub,sem):
                 else:
                     mark.mark = -1
                 db.session.commit()
-        return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=1))
+        return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=0))
 
     return render_template('Confirm-Sheet.html',students=students,asss=asss,marksdict=marksdict)

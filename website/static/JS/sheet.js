@@ -8,37 +8,37 @@ const cells = document.querySelector("#cell1");
 //   cells.style.display = "none";
 //   cell_block.style.display = "flex";
 // });
-// const ass = document.getElementById("add_ass");
-// const pop = document.querySelector(".cont1");
-// const input1 = document.getElementById("dropval");
-// ass.onclick = () => {
-//   if (pop.style.display == "none") {
-//     pop.style.display = "flex";
-//     input1.required = true;
-//   } else {
-//     pop.style.display = "none";
-//     input1.required = false;
-//   }
-// };
-// const place1 = document.getElementById("cont1input1");
-// const place2 = document.getElementById("dropval");
-// const editass = document.getElementById("edit_ass");
-// const epopup = document.querySelector(".cont1");
-// editass.onclick = () => {
-//   if (epopup.style.display == "none") {
-//     epopup.style.display = "flex";
-//     epopup.display.backgrounImage =
-//       "linear-gradient(to top, #d6f18c 20%, #9f6202 80%)";
-//     place1.placeholder = "Edit assignment name";
-//     place2.placeholder = "Edit maximum marks";
-//   } else {
-//     epopup.style.display = "none";
-//     epopup.display.backgrounImage =
-//       "linear-gradient(to top, #86377b 20%, #27273c 80%)";
-//     place1.placeholder = "Assignment name";
-//     place2.placeholder = "Maximum marks";
-//   }
-// };
+const ass = document.getElementById("add_ass");
+const pop = document.querySelector(".cont1");
+const input1 = document.getElementById("dropval");
+ass.onclick = () => {
+  if (pop.style.display == "none") {
+    pop.style.display = "flex";
+    input1.required = true;
+  } else {
+    pop.style.display = "none";
+    input1.required = false;
+  }
+};
+const place1 = document.getElementById("cont1input1");
+const place2 = document.getElementById("dropval");
+const editass = document.getElementById("edit_ass");
+const epopup = document.querySelector(".cont1");
+editass.onclick = () => {
+  if (epopup.style.display == "none") {
+    epopup.style.display = "flex";
+    epopup.display.backgrounImage =
+      "linear-gradient(to top, #d6f18c 20%, #9f6202 80%)";
+    place1.placeholder = "Edit assignment name";
+    place2.placeholder = "Edit maximum marks";
+  } else {
+    epopup.style.display = "none";
+    epopup.display.backgrounImage =
+      "linear-gradient(to top, #86377b 20%, #27273c 80%)";
+    place1.placeholder = "Assignment name";
+    place2.placeholder = "Maximum marks";
+  }
+};
 
 function int(value) {
   return parseInt(value);

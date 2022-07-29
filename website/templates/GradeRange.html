@@ -17,6 +17,15 @@
       href="/static/images/logo1.png"
       type="image/x-icon"
     />
+    <style>
+      .container-scroller {
+        width: 100%;
+      }
+      .disFun {
+        pointer-events: none;
+        opacity: 0.8;
+      }
+    </style>
 </head>
 
 <body class="">
@@ -24,10 +33,12 @@
     {% include 'navBars/teacherNav.html'   %}
     <div class="container-fluid page-body-wrapper pt-0">
       {% include 'sideBars/sheetSide.html'   %}
+
     <main style="background-color: rgb(236, 236, 236)">
       <div class="title">
         <!-- <h3>ASSIGN GRADES ON MARKS RANGEs</h3> -->
       </div>
+
       <form method="post" class="main">
         <div class="input-group">
           <label class="input-group-btn" style="width: 30px">A+</label>
@@ -171,7 +182,7 @@
         <button type="submit" class="btn" onclick="checkform(event)">confirm</button>
       </form>
     </main>
-
+    
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

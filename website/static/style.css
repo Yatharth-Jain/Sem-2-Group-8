@@ -35695,7 +35695,6 @@ div.tagsinput span.tag a {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 60px);
-  background: #fff;
   font-family: "Nunito", sans-serif;
   font-weight: 500;
   padding: 0;

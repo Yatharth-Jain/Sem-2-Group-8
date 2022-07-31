@@ -21,7 +21,7 @@ def stdhome():
 @view.route('/std-marks')
 @loginchecker(role='student')
 def stdresult():
-    return render_template('Student-result.html',cu=current_user)
+    return render_template('studentMarks.html',cu=current_user)
 
 @view.route('/admin-home')
 @loginchecker(role='admin')

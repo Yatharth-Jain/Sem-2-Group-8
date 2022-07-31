@@ -1,108 +1,142 @@
-<!-- {% extends 'std-nav.html' %}
-{% block style %}
-<link
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-rel="stylesheet"
-/>
-Google Fonts
-<link
-href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-rel="stylesheet"
-/>
-MDB
-<link
-href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
-rel="stylesheet"
-/>
-<link
-href="../static/Student_Home.css"
-rel="stylesheet"
-/>
-<style>
-@import "~mdb-ui-kit/css/mdb.min.css";
+<!DOCTYPE html>
 
-.gradient-custom {
-  /* fallback for old browsers */
-  background: #f6d365;
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Student home</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="stylesheet" href="../static/Student_Home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="shortcut icon"
+      href="../static/images/logo1.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .disFun {
+        pointer-events: none;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
 
-  /* Chrome 10-25, Safari 5.1-6 */
-  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
-}
-</style>
-{% endblock %}
-
-{% block body %}
-<section class="vh-100" style="background-color: #f4f5f7">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-lg-6 mb-4 mb-lg-0">
-          <div class="card mb-3" style="border-radius: 0.5rem">
-            <div class="row g-0">
-              <div
-                class="col-md-4 gradient-custom text-center text-white"
-                style="
-                  border-top-left-radius: 0.5rem;
-                  border-bottom-left-radius: 0.5rem;
-                "
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                  alt="Avatar"
-                  class="img-fluid my-5"
-                  style="width: 80px"
-                />
-                <h5>{{cu.sfname}} {{cu.slname}}</h5>
-                <p>{{cu.role.upper()}}</p>
-                <i class="far fa-edit mb-5"></i>
+  <body class="">
+    <div class="container-scroller" style="margin-top: -6.5vh">
+      {% include 'navBars/studentNav.html' %}
+      <div class="container-fluid page-body-wrapper pt-0">
+        {% include 'sideBars/studentSide.html' %}
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-md-12 grid-margin">
+                <div class="row">
+                  <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                    <h3 class="font-weight-bold">
+                      Welcome {{ cu.sfname }} {{ cu.slname }}
+                    </h3>
+                  </div>
+                  <div class="col-12 col-xl-4">
+                    <div class="justify-content-end d-flex">
+                      <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                        <button
+                          class="btn btn-sm btn-light bg-white dropdown-toggle"
+                          type="button"
+                          id="dropdownMenuDate2"
+                          data-bs-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="true"
+                        >
+                          <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
+                        </button>
+                        <div
+                          class="dropdown-menu dropdown-menu-right"
+                          aria-labelledby="dropdownMenuDate2"
+                        >
+                          <a class="dropdown-item" href="#">January - March</a>
+                          <a class="dropdown-item" href="#">March - June</a>
+                          <a class="dropdown-item" href="#">June - August</a>
+                          <a class="dropdown-item" href="#"
+                            >August - November</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-8">
-                <div class="card-body p-4">
-                  <h6>Information</h6>
-                  <hr class="mt-0 mb-4" />
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>Email</h6>
-                      <p class="text-muted small">{{ cu.semail }}</p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Roll No.</h6>
-                      <p class="text-muted">{{ cu.sroll }}</p>
-                    </div>
-                  </div>
-                  <h6>Other</h6>
-                  <hr class="mt-0 mb-4" />
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>Branch</h6>
-                      <p class="text-muted">{{ br }}</p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Year</h6>
-                      <p class="text-muted">{{ cu.syear }}-{{cu.syear+4}}</p>
+            </div>
+            <div class="row">
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card tale-bg">
+                  <div class="card-people mt-auto">
+                    <img src="../static/images/people.svg" alt="people" />
+                    <div class="weather-info">
+                      <div class="d-flex">
+                        <div>
+                          <h2 class="mb-0 font-weight-normal temperature"></h2>
+                        </div>
+                        <div class="ms-2">
+                          <h4 class="location font-weight-normal cityName"></h4>
+                          <h6 class="font-weight-normal desc"></h6>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="d-flex justify-content-start">
-                    <a href="#!"
-                      ><i class="fab fa-facebook-f fa-lg me-3"></i
-                    ></a>
-                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+                <div
+                  class="col-md-5 grid-margin stretch-card"
+                  style="margin-left: 7vh; width: 80vh"
+                >
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card100">
+                        <div class="img">
+                          <img src="../static/images/user.png" />
+                        </div>
+                        <div class="infos">
+                          <div class="name">
+                            <h2>{{ cu.sfname }} {{ cu.slname }}</h2>
+                            <h4>{{ cu.role[0]|upper }}{{ cu.role[1:] }}</h4>
+                          </div>
+                          <p class="text">Email: {{ cu.semail }}</p>
+                          <p class="text">Roll No: {{ cu.sroll }}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <footer class="footer">
+            <div
+              class="d-sm-flex justify-content-center justify-content-sm-between"
+            >
+              <span
+                class="text-muted text-center text-sm-left d-block d-sm-inline-block"
+                >© 2022 IIIT Lucknow</span
+              >
+            </div>
+          </footer>
         </div>
       </div>
     </div>
-  </section>
-{% endblock %}
-{% block script %}
-<script
-type="text/javascript"
-src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
-></script>
-{% endblock %} -->
+
+    <script src="../static/JS/vendor.bundle.base.js"></script>
+    <script src="../static/JS/hoverable-collapse.js"></script>
+    <script src="../static/JS/template.js"></script>
+    <script src="../static/JS/settings.js"></script>
+    <script src="../static/JS/todolist.js"></script>
+    <script src="../static/JS/weatherApi.js"></script>
+  </body>
+</html>

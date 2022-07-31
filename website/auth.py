@@ -165,3 +165,7 @@ def addsems(year,course,subject,sems):
             db.session.commit()
     return redirect(url_for('auth.homepage'))
 
+
+@auth.route("/std-marks")
+def stdMarks():
+    return render_template('studentMarks.html')

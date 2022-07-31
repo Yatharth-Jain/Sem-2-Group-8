@@ -279,14 +279,6 @@ h1 {
   overflow: auto;
 }
 
-body {
-  font-family: sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
 .file-input__input {
   width: 0.1px;
   height: 0.1px;
@@ -330,4 +322,21 @@ body {
 ::placeholder {
   color: #4245a8;
   padding-left: 1vh;
+}
+
+.uploadbtn {
+  border-radius: 7px;
+  border: none;
+  border: 1px solid #4245a8;
+  height: 30px;
+  margin-left: 15px;
+  display: none;
+}
+
+.ovrflo {
+  display: inline-block;
+  width: 70px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }

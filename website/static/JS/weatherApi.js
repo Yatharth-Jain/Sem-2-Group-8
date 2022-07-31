@@ -16,7 +16,8 @@ let weather = {
     const { temp } = data.main;
     const { description } = data.weather[0];
     document.querySelector(".cityName").innerText = name;
-    document.querySelector(".temperature").innerText = Math.round(temp);
+    document.querySelector(".temperature").innerHTML =
+      Math.round(temp) + `<sup>C</sup>`;
     document.querySelector(".desc").innerText = description;
   },
 };

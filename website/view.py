@@ -18,6 +18,10 @@ def stdhome():
     br = br.course
     return render_template('Student_Home.html', cu=current_user, br=br)
 
+@view.route('/std-marks')
+@loginchecker(role='student')
+def stdresult():
+    return render_template('Student-result.html',cu=current_user)
 
 @view.route('/admin-home')
 @loginchecker(role='admin')
@@ -59,7 +63,7 @@ def classselect():
         sub = Subjects.query.filter_by(id=form1.subject.data).first()
         sem = Sems.query.filter_by(id=form1.sem.data).first()
         # return f"<h1>Year:{form1.year.data} Course:{crs.course} Subject:{sub.subject} Sem:{sem.sem}<h1>"
-        return redirect(f'/sheet/{form1.year.data}/{crs.id}/{sub.id}/{sem.id}/1')
+        return redirect(f'/sheet/{form1.year.data}/{crs.id}/{sub.id}/{sem.id}/0')
     return render_template("teacher_input.html", form1=form1)
 
 

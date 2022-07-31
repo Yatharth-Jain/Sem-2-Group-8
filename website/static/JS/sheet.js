@@ -11,15 +11,15 @@ const cells = document.querySelector("#cell1");
 const ass = document.getElementById("add_ass");
 const pop = document.querySelector(".cont1");
 const input1 = document.getElementById("dropval");
-ass.onclick = () => {
-  if (pop.style.display == "none") {
-    pop.style.display = "flex";
-    input1.required = true;
-  } else {
-    pop.style.display = "none";
-    input1.required = false;
-  }
-};
+// ass.onclick = () => {
+//   if (pop.style.display == "none") {
+//     pop.style.display = "flex";
+//     input1.required = true;
+//   } else {
+//     pop.style.display = "none";
+//     input1.required = false;
+//   }
+// };
 const place1 = document.getElementById("cont1input1");
 const place2 = document.getElementById("dropval");
 const editass = document.getElementById("edit_ass");
@@ -98,3 +98,23 @@ gradebtn.onclick = () => {
     gradediv.style.display = "none";
   }
 };
+
+function updateList() {
+  const fileName = document.getElementById("fileName");
+  console.log(fileName);
+  const input = document.getElementById("files");
+  fileName.innerHTML = input.files.item(0).name;
+  const upl2 = document.querySelector(".uploadbtn");
+  const rem = document.querySelector(".remLine");
+  if (fileName.innerHTML == undefined) {
+    upl2.style.display = "none";
+  } else {
+    upl2.style.display = "block";
+    upl2.innerHTML = "Upload";
+    upl2.style.marginLeft = "70px";
+    upl2.style.marginTop = "-3px";
+    fileName.style.position = "absolute";
+    fileName.style.top = "45vh";
+    rem.innerHTML = "";
+  }
+}

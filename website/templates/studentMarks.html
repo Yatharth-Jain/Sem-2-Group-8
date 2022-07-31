@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Marks</title>
+    <link rel="stylesheet" href="/static/sheet.css" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo1.png"
+      type="image/x-icon"
+    />
+    <style>
+      .disFun {
+        pointer-events: none;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+
+  <body class="">
+    <div class="container-scroller" style="margin-top: -6.5vh">
+      {% include 'navBars/studentNav.html' %}
+      <div class="container-fluid page-body-wrapper pt-0">
+        {% include 'sideBars/studentSide.html' %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <footer class="footer">
+              <div
+                class="d-sm-flex justify-content-center justify-content-sm-between"
+              >
+                <span
+                  class="text-muted text-center text-sm-left d-block d-sm-inline-block"
+                  >© 2022 IIIT Lucknow</span
+                >
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/JS/vendor.bundle.base.js"></script>
+    <script src="/static/JS/hoverable-collapse.js"></script>
+    <script src="/static/JS/template.js"></script>
+    <script src="/static/JS/settings.js"></script>
+    <script src="/static/JS/todolist.js"></script>
+    <script src="/static/JS/sheet.js"></script>
+    <script src="/static/JS/confirm-sheet.js"></script>
+  </body>
+</html>

@@ -25,7 +25,7 @@
         <span class="menu-title">Assignments</span>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item disFun">
       <a class="nav-link" href="./1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@
         <span class="menu-title">Mid Semester</span>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item disFun">
       <a class="nav-link" href="./2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -150,22 +150,46 @@
         <span class="menu-title">Download Sheet</span>
       </a>
     </li>
-    <li class="nav-item" style="margin-top: 2vh; margin-left: 5px">
-      <form
-        action="./upload"
-        class="upload"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        <input type="file" class="upload2" name="marksheet" id="" />
-        <button
-          type="submit"
-          class="uploadbtn"
-          style="margin-top: 2vh; margin-left: 6vh"
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <form
+          action="./upload"
+          class="upload"
+          method="post"
+          enctype="multipart/form-data"
         >
-          upload
-        </button>
-      </form>
+          <input
+            type="file"
+            class="upload2"
+            name="marksheet"
+            id="files"
+            style="display: none"
+            onchange="updateList()"
+          />
+          <label title="Choose a file" for="files">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              style="margin-left: 1 vh; margin-right: 1vh"
+              fill="currentColor"
+              class="bi bi-upload"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
+              />
+              <path
+                d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"
+              />
+            </svg>
+            <span class="remLine">Choose File</span>
+          </label>
+          <span class="menu-title">
+            <span id="fileName" style="margin-left: -4px" class="ovrflo"></span>
+            <button type="submit" class="uploadbtn"></button
+          ></span></form
+      ></a>
     </li>
   </ul>
 </nav>

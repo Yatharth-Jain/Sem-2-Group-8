@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, redirect, render_template, request, flash, send_file, url_for
+from flask import Blueprint, jsonify, redirect, render_template, request, flash, send_file, url_for,session
 from flask_login import current_user
 from .models import Assignments, ClassForm, Courses, Student, Subjects, Teacher, Admin, Marks, Years, Sems, ClassForm, db
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -6,6 +6,7 @@ from .loginfunction import loginchecker
 import os
 import json
 import pandas as pd
+from collections import OrderedDict
 
 view = Blueprint('view', __name__)
 
@@ -18,10 +19,54 @@ def stdhome():
     br = br.course
     return render_template('Student_Home.html', cu=current_user, br=br)
 
-@view.route('/std-marks')
+@view.route('/std-marks',methods=['POST','GET'])
 @loginchecker(role='student')
 def stdresult():
-    return render_template('studentMarks.html',cu=current_user)
+    std=current_user
+    crs=Courses.query.filter_by(id=std.sbranch).first()
+    sem=Sems.query.order_by(Sems.sem.desc()).all()
+    for ss in sem:
+        s=Subjects.query.filter_by(id=ss.subject,crs=crs.id).first()
+        if s:
+            se=ss
+            break
+    sub=Subjects.query.filter_by(crs=crs.id).all()
+    sems=[]
+    for s in sub:
+        ss=Sems.query.filter_by(subject=s.id,sem=se.sem)
+        if ss:
+            sems.append(ss)
+        else:
+            sub.remove(s)
+    sublist=dict([(s.id,s.subject) for s in sub])
+    if 'marksub' not in session:
+        session['marksub']=sub[0].id
+    
+    print(se)
+    sem=Sems.query.filter_by(subject=session['marksub'],sem=se.sem).first()
+    ass=Assignments.query.filter_by(sem=sem.id).all()
+    sub=Subjects.query.filter_by(id=int(session['marksub'])).first()
+    
+    marks=[]
+    assiwise={}
+    maxmark=0
+    for a in ass:
+        maxmark+=a.maxnum
+        m=Marks.query.filter_by(student=std.sid,assi=a.id).first()
+        marks.append(m.mark)
+        assiwise[a.assi]=[m.mark,a.maxnum]
+    markgot=sum(marks)
+    assiwise = OrderedDict(sorted(assiwise.items()))
+    graderange=json.loads(sub.graderange)
+    for grade,range in graderange.items():
+        if markgot>=int(range):
+            gradegot=grade.replace('u','')
+            break
+    
+    if request.method=='POST':
+        session['marksub']=request.form['subselect']
+
+    return render_template('studentMarks.html',  cu=current_user,sublist=sublist,maxmark=maxmark,markgot=markgot,assiwise=assiwise,gradegot=gradegot)
 
 @view.route('/admin-home')
 @loginchecker(role='admin')

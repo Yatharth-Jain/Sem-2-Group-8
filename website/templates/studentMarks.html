@@ -10,6 +10,7 @@
     <title>Marks</title>
     <link rel="stylesheet" href="/static/stdMarks.css" />
     <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/sheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,11 +30,12 @@
 
       .container {
         width: 720px;
-        height: 440px;
+        height: fit-content;
         margin: 0 auto;
         padding-left: 32px;
         padding-right: 32px;
         padding-top: 40px;
+        padding-bottom: 40px;
         border-radius: 12px;
         background-color: #90a4ae;
         font-family: Lato;
@@ -63,92 +65,68 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
-              <div class="col-md-6 grid-margin stretch-card">
-                <div class="wrapper">
-                  <div class="cols">
-                    <div
-                      class="col"
-                      ontouchstart="this.classList.toggle('hover');"
-                    >
-                      <div class="container">
-                        <div
-                          class="front"
-                          style="
-                            background-image: url(https://unsplash.it/505/505/);
-                          "
-                        >
-                          <div class="inner">
-                            <p>Reflupper</p>
-                            <span>Lorem ipsum</span>
-                          </div>
-                        </div>
-                        <div class="back">
-                          <div class="inner">
-                            <p>
-                              Lorem ipsum, dolor sit amet consectetur
-                              adipisicing elit. Alias cum repellat velit quae
-                              suscipit c.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="col"
-                      ontouchstart="this.classList.toggle('hover');"
-                    >
-                      <div class="container">
-                        <div
-                          class="front"
-                          style="
-                            background-image: url(https://unsplash.it/506/506/);
-                          "
-                        >
-                          <div class="inner">
-                            <p>Acirassi</p>
-                            <span>Lorem ipsum</span>
-                          </div>
-                        </div>
-                        <div class="back">
-                          <div class="inner">
-                            <p>
-                              Lorem ipsum, dolor sit amet consectetur
-                              adipisicing elit. Alias cum repellat velit quae
-                              suscipit c.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="col"
-                      ontouchstart="this.classList.toggle('hover');"
-                    >
-                      <div class="container">
-                        <div
-                          class="front"
-                          style="
-                            background-image: url(https://unsplash.it/508/508/);
-                          "
-                        >
-                          <div class="inner">
-                            <p>Sohanidd</p>
-                            <span>Lorem ipsum</span>
-                          </div>
-                        </div>
-                        <div class="back">
-                          <div class="inner">
-                            <p>
-                              Lorem ipsum, dolor sit amet consectetur
-                              adipisicing elit. Alias cum repellat velit quae
-                              suscipit c.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              <div class="row">
+                <div class="col-md-12 grid-margin">
+                  <div class="row">
+                    <form action="" method="post">
+                      <select name="subselect" id="">
+                        {% for subid,sub in sublist.items() %}
+                          <option value="{{subid}}">{{sub}}</option>
+                        {% endfor %}
+                      </select>
+                      <button type="submit">Get Marks</button>
+                    </form>
                   </div>
-                </div>
+              <div class="container">
+
+                <h2>Marks Table</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Roll No.</th>
+                      <th>Name</th>
+                      <th>Maximum Marks</th>
+                      <th>Marks Obtained</th> 
+                      <th>Grade</th>
+                    </tr>
+
+
+                    <tr></tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>{{cu.semail.split("@")[0]}}</td>
+                      <td>{{cu.sfname}} {{cu.slname}}</td>
+                      <td>{{maxmark}}</td>
+                      <td>{{markgot}}</td>
+                      <td>{{gradegot}}</td>
+                    </tr> 
+                  </tbody>
+                </table>
+                
+                <h2 style="padding-top:30px ;">Assignment Wise</h2>
+                <table >
+                  <thead>
+                    <tr>
+                      <th>Assignment</th>
+                      <th>Marks</th>
+                    </tr>
+
+
+                    <tr></tr>
+                  </thead>
+
+                  <tbody>
+                    {% for assi,mark in assiwise.items() %}
+                    <tr>
+                      <td>{{assi}}</td>
+                      <td>{{mark[0]}} / {{mark[1]}}</td>
+                    </tr> 
+                    {% endfor %}
+                    
+                  </tbody>
+                </table>
               </div>
             </div>
             <footer class="footer">

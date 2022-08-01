@@ -31,6 +31,7 @@ def stdresult():
             se=ss
             break
     sub=Subjects.query.filter_by(crs=crs.id).all()
+    print(sub)
     sems=[]
     for s in sub:
         ss=Sems.query.filter_by(subject=s.id,sem=se.sem)
@@ -39,11 +40,17 @@ def stdresult():
         else:
             sub.remove(s)
     sublist=dict([(s.id,s.subject) for s in sub])
+    if request.method=='POST':
+        session['marksub']=request.form['subselect']
+        
     if 'marksub' not in session:
         session['marksub']=sub[0].id
+    if session['marksub'] not in [s.id for s in sub]:
+        session['marksub']=sub[0].id
     
-    print(se)
+    print(sub[0].id,se.sem)
     sem=Sems.query.filter_by(subject=session['marksub'],sem=se.sem).first()
+    print(sem)
     ass=Assignments.query.filter_by(sem=sem.id).all()
     sub=Subjects.query.filter_by(id=int(session['marksub'])).first()
     
@@ -57,16 +64,19 @@ def stdresult():
         assiwise[a.assi]=[m.mark,a.maxnum]
     markgot=sum(marks)
     assiwise = OrderedDict(sorted(assiwise.items()))
-    graderange=json.loads(sub.graderange)
-    for grade,range in graderange.items():
-        if markgot>=int(range):
-            gradegot=grade.replace('u','')
-            break
+    gradegot='N/A'
+    if sub.graderange:
+        graderange=json.loads(sub.graderange)
+        for grade,range in graderange.items():
+            if(grade=='total'):
+                continue
+            elif markgot>=int(range):
+                gradegot=grade.replace('u','')
+                break
     
-    if request.method=='POST':
-        session['marksub']=request.form['subselect']
+    
 
-    return render_template('studentMarks.html',  cu=current_user,sublist=sublist,maxmark=maxmark,markgot=markgot,assiwise=assiwise,gradegot=gradegot)
+    return render_template('studentMarks.html',  cu=current_user,sublist=sublist,maxmark=maxmark,markgot=markgot,assiwise=assiwise,gradegot=gradegot,sub=sub.subject)
 
 @view.route('/admin-home')
 @loginchecker(role='admin')
@@ -190,6 +200,8 @@ def sheet(year, crs, sub, sem,part):
         if subtype == 'addassi':
             new_ass = request.form['newassi']
             maxnum = request.form['maxnum']
+            if part==0:
+                part=1
             o_ass = Assignments.query.filter_by(
                 sem=sem,part=part, assi=new_ass.capitalize()).first()
             if o_ass or new_ass == '':
@@ -240,7 +252,7 @@ def sheet(year, crs, sub, sem,part):
 
         
                 
-        return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=part))
+        return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=0))
     return render_template('sheet.html', asss=asss, students=students, total=total, marksdict=marksdict, curl=curl,cgpa=cgpa)
 
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>/range', methods=['GET', 'POST'])

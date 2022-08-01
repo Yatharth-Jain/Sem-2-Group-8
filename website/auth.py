@@ -144,23 +144,29 @@ def addsems(year,course,subject,sems):
         y=Years(year=year)
         db.session.add(y)
         db.session.commit()
+        print("Hello")
     
     c=Courses.query.filter_by(yer=year,course=course).first()
     if not c:
         c=Courses(yer=year,course=course)
+
         db.session.add(c)
         db.session.commit()
 
-    s=Subjects.query.filter_by(crs=c.id,subject=subject).first()
-    if not s:
-        s=Subjects(crs=c.id,subject=subject)
-        db.session.add(s)
-        db.session.commit()
+    for sub in subject.split(','):
+        s=Subjects.query.filter_by(crs=c.id,subject=sub).first()
+        if not s:
+            s=Subjects(crs=c.id,subject=sub)
+            db.session.add(s)
+            db.session.commit()
+
 
     for sem in sems.split(','):
-        se=Sems.query.filter_by(subject=s.id,sem=int(sem)).first()
-        if not se:
-            se=Sems(subject=s.id,sem=int(sem))
-            db.session.add(se)
-            db.session.commit()
+        for s in Subjects.query.filter_by(crs=c.id).all():
+            se=Sems.query.filter_by(subject=s.id,sem=int(sem)).first()
+            if not se:
+                se=Sems(subject=s.id,sem=int(sem))
+                db.session.add(se)
+                db.session.commit()
+    
     return redirect(url_for('auth.homepage'))

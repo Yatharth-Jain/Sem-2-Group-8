@@ -165,6 +165,8 @@ def sheet(year, crs, sub, sem,part):
                     if m != "A":
                         if m == '':
                             m = 0
+                        if not m.isnumeric():
+                            m=0
                         total[student.sroll] += int(m)
                         marksdict[f'{ass.assi}-{student.sroll}'] = int(m)
                         mark.mark = m
@@ -182,6 +184,15 @@ def sheet(year, crs, sub, sem,part):
                 assi = Assignments.query.filter_by(id=int(subtype)).first()
                 db.session.delete(assi)
                 db.session.commit()
+
+            if 'editassi' in subtype:
+                subtype=subtype.replace("editassi/","")
+                assi = Assignments.query.filter_by(id=int(subtype)).first()
+                assi.name=request.form['assiname']
+                assi.maxnum=request.form['maxnum']
+                db.session.commit()
+
+
         
                 
         return redirect(url_for(f'view.sheet', year=year, crs=crs, sub=sub, sem=sem,part=part))
@@ -242,9 +253,10 @@ def uploadsheet(year,crs,sub,sem):
         f=request.files['marksheet']
         name=f.filename
         ext=name.split('.')[1]
-        name=f'{crs}-{sub}-{sem}.{ext}'
-        f.save(f'website/static/Number-Sheets/{name}')
-    return redirect(url_for('view.confirmsheet',year=year,crs=crs,sub=sub,sem=sem))
+        if ext=='xlsx':
+            name=f'{crs}-{sub}-{sem}.{ext}'
+            f.save(f'website/static/Number-Sheets/{name}')
+        return redirect(url_for('view.confirmsheet',year=year,crs=crs,sub=sub,sem=sem))
 
 @view.route('/sheet/<year>/<crs>/<sub>/<sem>/confirm',methods=['POST','GET'])
 def confirmsheet(year,crs,sub,sem):

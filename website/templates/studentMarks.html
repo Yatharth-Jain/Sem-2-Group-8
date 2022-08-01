@@ -37,7 +37,7 @@
         padding-top: 40px;
         padding-bottom: 40px;
         border-radius: 12px;
-        background-color: #90a4ae;
+        background-color: #c6dfeb;
         font-family: Lato;
       }
 
@@ -61,7 +61,7 @@
     <div class="container-scroller" style="margin-top: -6.5vh">
       {% include 'navBars/studentNav.html' %}
       <div class="container-fluid page-body-wrapper pt-0">
-        {% include 'sideBars/studentSide.html' %}
+        {% include 'sideBars/marksSide.html' %}
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
@@ -69,17 +69,16 @@
                 <div class="col-md-12 grid-margin">
                   <div class="row">
                     <form action="" method="post">
-                      <select name="subselect" id="">
+                      <select name="subselect" class="selOp" style="background-color: #F5F7FF; color: #4B49AC">
                         {% for subid,sub in sublist.items() %}
                           <option value="{{subid}}">{{sub}}</option>
                         {% endfor %}
                       </select>
-                      <button type="submit">Get Marks</button>
+                      <button type="submit" class="selOp" style="margin-left: 1vh; background-color: #4B49AC; color: white;">Get Marks</button>
                     </form>
                   </div>
               <div class="container">
-
-                <h2>{{sub}} Marks</h2>
+                <h2 style="margin-bottom: 30px;">{{sub}} Marks</h2>
                 <table>
                   <thead>
                     <tr>
@@ -89,11 +88,7 @@
                       <th>Marks Obtained</th> 
                       <th>Grade</th>
                     </tr>
-
-
-                    <tr></tr>
                   </thead>
-
                   <tbody>
                     <tr>
                       <td>{{cu.semail.split("@")[0]}}</td>
@@ -104,13 +99,12 @@
                     </tr> 
                   </tbody>
                 </table>
-                
-                <h2 style="padding-top:30px ;">Assignment Wise</h2>
+                <h2 style="padding-top: 40px ; margin-bottom: 30px;">Assignment Wise</h2>
                 <table >
                   <thead>
                     <tr>
-                      <th>Assignment</th>
-                      <th>Marks</th>
+                      <th style="column-width: 265px;">Assignment</th>
+                      <th style="column-width: 265px;">Marks</th>
                     </tr>
 
 
@@ -120,8 +114,8 @@
                   <tbody>
                     {% for assi,mark in assiwise.items() %}
                     <tr>
-                      <td>{{assi}}</td>
-                      <td>{{mark[0]}} / {{mark[1]}}</td>
+                      <td style="column-width: 100px;">{{assi}}</td>
+                      <td style="column-width: 100px;">{{mark[0]}} / {{mark[1]}}</td>
                     </tr> 
                     {% endfor %}
                     

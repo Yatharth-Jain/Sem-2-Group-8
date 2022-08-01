@@ -45,10 +45,17 @@ def stdresult():
         
     if 'marksub' not in session:
         session['marksub']=sub[0].id
-    if session['marksub'] not in [s.id for s in sub]:
+    f=0
+    print([s.id for s in sub])
+    for s in sub:
+        if int(session['marksub'])==s.id:
+            print("Found")
+            f=1
+            break
+    if f==0:
         session['marksub']=sub[0].id
     
-    print(sub[0].id,se.sem)
+    print(session['marksub'],se.sem)
     sem=Sems.query.filter_by(subject=session['marksub'],sem=se.sem).first()
     print(sem)
     ass=Assignments.query.filter_by(sem=sem.id).all()
@@ -60,8 +67,12 @@ def stdresult():
     for a in ass:
         maxmark+=a.maxnum
         m=Marks.query.filter_by(student=std.sid,assi=a.id).first()
-        marks.append(m.mark)
-        assiwise[a.assi]=[m.mark,a.maxnum]
+        if m.mark==-1:
+            marks.append(0)
+            assiwise[a.assi]=['A',a.maxnum]
+        else:
+            marks.append(m.mark)
+            assiwise[a.assi]=[m.mark,a.maxnum]
     markgot=sum(marks)
     assiwise = OrderedDict(sorted(assiwise.items()))
     gradegot='N/A'

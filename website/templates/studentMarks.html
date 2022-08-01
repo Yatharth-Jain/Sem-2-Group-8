@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>Marks</title>
-    <link rel="stylesheet" href="/static/sheet.css" />
+    <link rel="stylesheet" href="/static/stdMarks.css" />
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +26,32 @@
         pointer-events: none;
         opacity: 0.8;
       }
+
+      .container {
+        width: 720px;
+        height: 440px;
+        margin: 0 auto;
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-top: 40px;
+        border-radius: 12px;
+        background-color: #90a4ae;
+        font-family: Lato;
+      }
+
+      .container h2 {
+        text-align: center;
+      }
+
+      table {
+        margin: 0 auto;
+      }
+
+      td,
+      th {
+        padding: 12px;
+        border: 2px dotted;
+      }
     </style>
   </head>
 
@@ -36,6 +62,95 @@
         {% include 'sideBars/studentSide.html' %}
         <div class="main-panel">
           <div class="content-wrapper">
+            <div class="row">
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="wrapper">
+                  <div class="cols">
+                    <div
+                      class="col"
+                      ontouchstart="this.classList.toggle('hover');"
+                    >
+                      <div class="container">
+                        <div
+                          class="front"
+                          style="
+                            background-image: url(https://unsplash.it/505/505/);
+                          "
+                        >
+                          <div class="inner">
+                            <p>Reflupper</p>
+                            <span>Lorem ipsum</span>
+                          </div>
+                        </div>
+                        <div class="back">
+                          <div class="inner">
+                            <p>
+                              Lorem ipsum, dolor sit amet consectetur
+                              adipisicing elit. Alias cum repellat velit quae
+                              suscipit c.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="col"
+                      ontouchstart="this.classList.toggle('hover');"
+                    >
+                      <div class="container">
+                        <div
+                          class="front"
+                          style="
+                            background-image: url(https://unsplash.it/506/506/);
+                          "
+                        >
+                          <div class="inner">
+                            <p>Acirassi</p>
+                            <span>Lorem ipsum</span>
+                          </div>
+                        </div>
+                        <div class="back">
+                          <div class="inner">
+                            <p>
+                              Lorem ipsum, dolor sit amet consectetur
+                              adipisicing elit. Alias cum repellat velit quae
+                              suscipit c.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="col"
+                      ontouchstart="this.classList.toggle('hover');"
+                    >
+                      <div class="container">
+                        <div
+                          class="front"
+                          style="
+                            background-image: url(https://unsplash.it/508/508/);
+                          "
+                        >
+                          <div class="inner">
+                            <p>Sohanidd</p>
+                            <span>Lorem ipsum</span>
+                          </div>
+                        </div>
+                        <div class="back">
+                          <div class="inner">
+                            <p>
+                              Lorem ipsum, dolor sit amet consectetur
+                              adipisicing elit. Alias cum repellat velit quae
+                              suscipit c.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <footer class="footer">
               <div
                 class="d-sm-flex justify-content-center justify-content-sm-between"
